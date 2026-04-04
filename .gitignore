@@ -1,0 +1,25 @@
+# 환경 변수
+.env
+.env.*
+!.env.example
+
+# 로그
+*.log
+monitoring/logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 편집기
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 민감 정보
+security/secrets/
+config/*/secrets.*
