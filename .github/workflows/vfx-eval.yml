@@ -23,7 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install google-generativeai Pillow requests
+        run: pip install google-genai Pillow requests
 
       - name: Run VFX evaluation agent
         env:

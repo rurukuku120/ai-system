@@ -12,7 +12,8 @@ import json
 from datetime import date
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 import PIL.Image
 import requests
 
@@ -69,7 +70,7 @@ def load_metadata(image_path: Path) -> dict:
 
 def evaluate_image(image_path: Path, meta: dict) -> dict:
     """Gemini API를 통해 VFX 이미지 평가"""
-    genai.configure(api_key=GEMINI_API_KEY)
+    client = genai.Client(api_key=GEMINI_API_KEY)
 
     system_prompt = "\n\n".join([
         PROMPT_FILE.read_text(encoding="utf-8"),
@@ -77,11 +78,6 @@ def evaluate_image(image_path: Path, meta: dict) -> dict:
         "## 출력 형식\n반드시 JSON만 출력. 마크다운 코드블록 없이.\n"
         + SCHEMA_FILE.read_text(encoding="utf-8"),
     ])
-
-    model = genai.GenerativeModel(
-        model_name="gemini-2.0-flash",
-        system_instruction=system_prompt,
-    )
 
     image = PIL.Image.open(image_path)
     user_text = (
@@ -91,7 +87,14 @@ def evaluate_image(image_path: Path, meta: dict) -> dict:
         f"스킬유형: {meta.get('스킬유형', '미확인')}"
     )
 
-    response = model.generate_content([image, user_text])
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=[image, user_text],
+        config=types.GenerateContentConfig(
+            system_instruction=system_prompt,
+            max_output_tokens=2000,
+        ),
+    )
 
     text = response.text.strip()
     text = re.sub(r"^```json\s*", "", text)
