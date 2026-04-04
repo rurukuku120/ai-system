@@ -22,10 +22,23 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Check for newly added images
+        id: check
+        run: |
+          ADDED=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'inbox/' | grep -iE '\.(png|jpg|jpeg|gif|webp)$' | grep -v 'processed/' || true)
+          if [ -z "$ADDED" ]; then
+            echo "has_images=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_images=true" >> $GITHUB_OUTPUT
+            echo "추가된 이미지: $ADDED"
+          fi
+
       - name: Install dependencies
+        if: steps.check.outputs.has_images == 'true'
         run: pip install google-genai Pillow requests
 
       - name: Run VFX evaluation agent
+        if: steps.check.outputs.has_images == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
@@ -33,6 +46,7 @@ jobs:
         run: python scripts/vfx_eval_agent.py
 
       - name: Commit results
+        if: steps.check.outputs.has_images == 'true'
         run: |
           git config user.name "VFX Eval Bot"
           git config user.email "vfx-bot@nexon.com"
