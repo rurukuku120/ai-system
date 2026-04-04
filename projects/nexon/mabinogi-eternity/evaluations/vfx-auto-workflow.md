@@ -15,7 +15,7 @@
 평가 완료 후 자동으로:
 1. results/ 폴더에 JSON 저장
 2. Git main 브랜치에 커밋 & 푸시
-3. Notion VFX 평가 결과 DB에 등록
+3. Notion VFX 피드백 DB에 등록
 ```
 
 ---

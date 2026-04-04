@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-VFX 평가 결과 대시보드 생성기
+VFX 피드백 대시보드 생성기
 results/ 폴더의 JSON 파일을 읽어 docs/index.html 생성
 """
 
@@ -86,7 +86,7 @@ def generate_html(results):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VFX 평가 결과 대시보드</title>
+  <title>VFX 피드백 대시보드</title>
   <style>
     body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #1a1a2e; color: #eee; margin: 0; padding: 24px; }}
     h1 {{ color: #fff; margin-bottom: 4px; }}
@@ -120,7 +120,7 @@ def generate_html(results):
   </style>
 </head>
 <body>
-  <h1>VFX 평가 결과 대시보드</h1>
+  <h1>VFX 피드백 대시보드</h1>
   <p class="meta">Mabinogi Eternity — 행을 클릭하면 상세 내용을 볼 수 있어요</p>
 
   <div class="stats">

@@ -28,9 +28,9 @@
 파일 업로드 후 약 1~2분 내 자동으로:
 1. Claude AI가 6개 항목 평가 (1~5점)
 2. `results/` 폴더에 JSON 저장
-3. Notion VFX 평가 결과 DB에 등록
+3. Notion VFX 피드백 DB에 등록
 
 ## 결과 확인
 
 - **Git**: `projects/nexon/mabinogi-eternity/evaluations/results/`
-- **Notion**: VFX 평가 결과 데이터베이스
+- **Notion**: VFX 피드백 데이터베이스
