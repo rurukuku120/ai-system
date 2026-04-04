@@ -147,11 +147,11 @@ def register_to_notion(result: dict, meta: dict) -> None:
     }
 
     resp = requests.post(
-        "https://api.notion.com/v1/pages",
+        "https://notion-pat-proxy.nexon.co.kr/v1/pages",
         headers={
             "Authorization": f"Bearer {NOTION_TOKEN}",
             "Content-Type": "application/json",
-            "Notion-Version": "2022-06-28",
+            "Notion-Version": "2025-09-03",
         },
         json={"parent": {"database_id": NOTION_DB_ID}, "properties": properties},
     )
