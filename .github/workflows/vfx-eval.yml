@@ -38,12 +38,12 @@ jobs:
 
       - name: Install dependencies
         if: steps.check.outputs.has_images == 'true'
-        run: pip install google-genai Pillow requests
+        run: pip install anthropic requests
 
       - name: Run VFX evaluation agent
         if: steps.check.outputs.has_images == 'true'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
         run: python scripts/vfx_eval_agent.py

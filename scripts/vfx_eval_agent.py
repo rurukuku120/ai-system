@@ -12,9 +12,8 @@ import json
 from datetime import date
 from pathlib import Path
 
-from google import genai
-from google.genai import types
-import PIL.Image
+import anthropic
+import base64
 import requests
 
 # ── 경로 설정 ──────────────────────────────────────────────
@@ -26,8 +25,8 @@ RULES_FILE  = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-read
 SCHEMA_FILE = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-eval-schema.json"
 
 # ── 환경 변수 ──────────────────────────────────────────────
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
-NOTION_TOKEN   = os.environ["NOTION_TOKEN"]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+NOTION_TOKEN      = os.environ["NOTION_TOKEN"]
 NOTION_DB_ID   = os.environ.get("NOTION_DB_ID", "5a0a9702-8478-433b-a9ce-7dd3273ed9db")
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
@@ -69,8 +68,8 @@ def load_metadata(image_path: Path) -> dict:
 
 
 def evaluate_image(image_path: Path, meta: dict) -> dict:
-    """Gemini API를 통해 VFX 이미지 평가"""
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    """Anthropic API를 통해 VFX 이미지 평가"""
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
     system_prompt = "\n\n".join([
         PROMPT_FILE.read_text(encoding="utf-8"),
@@ -79,7 +78,10 @@ def evaluate_image(image_path: Path, meta: dict) -> dict:
         + SCHEMA_FILE.read_text(encoding="utf-8"),
     ])
 
-    image = PIL.Image.open(image_path)
+    media_type_map = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif", ".webp": "image/webp"}
+    media_type = media_type_map.get(image_path.suffix.lower(), "image/png")
+    image_b64 = base64.standard_b64encode(image_path.read_bytes()).decode()
+
     user_text = (
         f"이 VFX 스크린샷을 평가하라.\n"
         f"작업명: {meta.get('작업명', '미확인')}\n"
@@ -87,16 +89,20 @@ def evaluate_image(image_path: Path, meta: dict) -> dict:
         f"스킬유형: {meta.get('스킬유형', '미확인')}"
     )
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=[image, user_text],
-        config=types.GenerateContentConfig(
-            system_instruction=system_prompt,
-            max_output_tokens=2000,
-        ),
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=2000,
+        system=system_prompt,
+        messages=[{
+            "role": "user",
+            "content": [
+                {"type": "image", "source": {"type": "base64", "media_type": media_type, "data": image_b64}},
+                {"type": "text", "text": user_text},
+            ],
+        }],
     )
 
-    text = response.text.strip()
+    text = response.content[0].text.strip()
     text = re.sub(r"^```json\s*", "", text)
     text = re.sub(r"\s*```$", "", text)
     return json.loads(text)
