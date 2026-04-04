@@ -27,12 +27,13 @@ jobs:
       - name: Check for newly added images
         id: check
         run: |
-          ADDED=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'inbox/' | grep -iE '\.(png|jpg|jpeg|gif|webp)$' | grep -v 'processed/' || true)
-          if [ -z "$ADDED" ]; then
+          IMAGES=$(find inbox/ -maxdepth 1 -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.webp" \) | head -1)
+          if [ -z "$IMAGES" ]; then
             echo "has_images=false" >> $GITHUB_OUTPUT
+            echo "inbox에 이미지 없음. 스킵."
           else
             echo "has_images=true" >> $GITHUB_OUTPUT
-            echo "추가된 이미지: $ADDED"
+            echo "처리할 이미지 발견: $IMAGES"
           fi
 
       - name: Install dependencies
