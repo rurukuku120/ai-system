@@ -1,0 +1,17 @@
+{
+  "task_name": "string",
+  "summary": "string",
+  "scores": {
+    "hit_timing": "number (1~5)",
+    "readability": "number (1~5)",
+    "silhouette": "number (1~5)",
+    "visual_hierarchy": "number (1~5)",
+    "impact": "number (1~5)",
+    "combat_readability": "number (1~5)"
+  },
+  "strengths": ["string"],
+  "issues": ["string"],
+  "recommended_actions": ["string"],
+  "overall_score": "number",
+  "approval_status": "draft | approved"
+}
