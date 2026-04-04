@@ -36,6 +36,16 @@ jobs:
             echo "처리할 이미지 발견: $IMAGES"
           fi
 
+      - name: Test Notion proxy connection
+        run: |
+          echo "Notion 프록시 연결 테스트..."
+          curl -s -o /tmp/notion_test.json -w "%{http_code}" \
+            -H "Notion-Version: 2025-09-03" \
+            -H "Authorization: Bearer ${{ secrets.NOTION_TOKEN }}" \
+            https://notion-pat-proxy.nexon.co.kr/v1/users/me
+          echo ""
+          cat /tmp/notion_test.json
+
       - name: Install dependencies
         if: steps.check.outputs.has_images == 'true'
         run: pip install anthropic requests
