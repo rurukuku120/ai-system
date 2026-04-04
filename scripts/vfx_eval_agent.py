@@ -155,6 +155,8 @@ def register_to_notion(result: dict, meta: dict) -> None:
         },
         json={"parent": {"database_id": NOTION_DB_ID}, "properties": properties},
     )
+    print(f"  Notion 응답 코드: {resp.status_code}")
+    print(f"  Notion 응답: {resp.text[:300]}")
     resp.raise_for_status()
 
 
