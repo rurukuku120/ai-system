@@ -58,6 +58,10 @@ jobs:
           NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
         run: python scripts/vfx_eval_agent.py
 
+      - name: Generate dashboard
+        if: steps.check.outputs.has_images == 'true'
+        run: python scripts/generate_dashboard.py
+
       - name: Commit results
         if: steps.check.outputs.has_images == 'true'
         run: |
@@ -65,5 +69,6 @@ jobs:
           git config user.email "vfx-bot@nexon.com"
           git add projects/nexon/mabinogi-eternity/evaluations/results/
           git add inbox/
+          git add docs/
           git diff --staged --quiet || git commit -m "chore: auto VFX evaluation result [skip ci]"
           git push
