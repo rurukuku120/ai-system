@@ -3,17 +3,17 @@
 VFX Evaluation Agent
 GitHub Actions에서 자동 실행되는 VFX 가독성 평가 에이전트.
 
-inbox/ 폴더의 이미지를 감지 → Claude API 평가 → JSON 저장 → Notion 등록
+inbox/ 폴더의 이미지를 감지 → Gemini API 평가 → JSON 저장 → Notion 등록
 """
 
 import os
 import re
 import json
-import base64
 from datetime import date
 from pathlib import Path
 
-import anthropic
+import google.generativeai as genai
+import PIL.Image
 import requests
 
 # ── 경로 설정 ──────────────────────────────────────────────
@@ -25,18 +25,11 @@ RULES_FILE  = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-read
 SCHEMA_FILE = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-eval-schema.json"
 
 # ── 환경 변수 ──────────────────────────────────────────────
-ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
-NOTION_TOKEN      = os.environ["NOTION_TOKEN"]
-NOTION_DB_ID      = os.environ.get("NOTION_DB_ID", "5a0a9702-8478-433b-a9ce-7dd3273ed9db")
+GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
+NOTION_TOKEN   = os.environ["NOTION_TOKEN"]
+NOTION_DB_ID   = os.environ.get("NOTION_DB_ID", "5a0a9702-8478-433b-a9ce-7dd3273ed9db")
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
-MEDIA_TYPES = {
-    ".png": "image/png",
-    ".jpg": "image/jpeg",
-    ".jpeg": "image/jpeg",
-    ".gif": "image/gif",
-    ".webp": "image/webp",
-}
 
 
 def find_new_images() -> list[Path]:
@@ -75,8 +68,8 @@ def load_metadata(image_path: Path) -> dict:
 
 
 def evaluate_image(image_path: Path, meta: dict) -> dict:
-    """Claude API를 통해 VFX 이미지 평가"""
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    """Gemini API를 통해 VFX 이미지 평가"""
+    genai.configure(api_key=GEMINI_API_KEY)
 
     system_prompt = "\n\n".join([
         PROMPT_FILE.read_text(encoding="utf-8"),
@@ -85,34 +78,22 @@ def evaluate_image(image_path: Path, meta: dict) -> dict:
         + SCHEMA_FILE.read_text(encoding="utf-8"),
     ])
 
-    image_b64 = base64.standard_b64encode(image_path.read_bytes()).decode()
-    media_type = MEDIA_TYPES.get(image_path.suffix.lower(), "image/png")
-
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=2000,
-        system=system_prompt,
-        messages=[{
-            "role": "user",
-            "content": [
-                {
-                    "type": "image",
-                    "source": {"type": "base64", "media_type": media_type, "data": image_b64},
-                },
-                {
-                    "type": "text",
-                    "text": (
-                        f"이 VFX 스크린샷을 평가하라.\n"
-                        f"작업명: {meta.get('작업명', '미확인')}\n"
-                        f"작업자: {meta.get('작업자', '미확인')}\n"
-                        f"스킬유형: {meta.get('스킬유형', '미확인')}"
-                    ),
-                },
-            ],
-        }],
+    model = genai.GenerativeModel(
+        model_name="gemini-2.0-flash",
+        system_instruction=system_prompt,
     )
 
-    text = response.content[0].text.strip()
+    image = PIL.Image.open(image_path)
+    user_text = (
+        f"이 VFX 스크린샷을 평가하라.\n"
+        f"작업명: {meta.get('작업명', '미확인')}\n"
+        f"작업자: {meta.get('작업자', '미확인')}\n"
+        f"스킬유형: {meta.get('스킬유형', '미확인')}"
+    )
+
+    response = model.generate_content([image, user_text])
+
+    text = response.text.strip()
     text = re.sub(r"^```json\s*", "", text)
     text = re.sub(r"\s*```$", "", text)
     return json.loads(text)
@@ -138,22 +119,22 @@ def register_to_notion(result: dict, meta: dict) -> None:
     scores = result.get("scores", {})
 
     properties = {
-        "작업명":           {"title": rich(result.get("task_name", "미확인"))},
-        "평가일":           {"date": {"start": date.today().strftime("%Y-%m-%d")}},
-        "작업자":           {"rich_text": rich(meta.get("작업자", "미확인"))},
-        "스킬유형":         {"select": {"name": meta.get("스킬유형", "기타")}},
-        "hit_timing":       {"number": scores.get("hit_timing")},
-        "readability":      {"number": scores.get("readability")},
-        "silhouette":       {"number": scores.get("silhouette")},
-        "visual_hierarchy": {"number": scores.get("visual_hierarchy")},
-        "impact":           {"number": scores.get("impact")},
+        "작업명":             {"title": rich(result.get("task_name", "미확인"))},
+        "평가일":             {"date": {"start": date.today().strftime("%Y-%m-%d")}},
+        "작업자":             {"rich_text": rich(meta.get("작업자", "미확인"))},
+        "스킬유형":           {"select": {"name": meta.get("스킬유형", "기타")}},
+        "hit_timing":         {"number": scores.get("hit_timing")},
+        "readability":        {"number": scores.get("readability")},
+        "silhouette":         {"number": scores.get("silhouette")},
+        "visual_hierarchy":   {"number": scores.get("visual_hierarchy")},
+        "impact":             {"number": scores.get("impact")},
         "combat_readability": {"number": scores.get("combat_readability")},
-        "overall_score":    {"number": result.get("overall_score")},
-        "강점":             {"rich_text": rich("\n".join(result.get("strengths", [])))},
-        "문제점":           {"rich_text": rich("\n".join(result.get("issues", [])))},
-        "개선액션":         {"rich_text": rich("\n".join(result.get("recommended_actions", [])))},
-        "요약":             {"rich_text": rich(result.get("summary", ""))},
-        "승인상태":         {"select": {"name": result.get("approval_status", "draft")}},
+        "overall_score":      {"number": result.get("overall_score")},
+        "강점":               {"rich_text": rich("\n".join(result.get("strengths", [])))},
+        "문제점":             {"rich_text": rich("\n".join(result.get("issues", [])))},
+        "개선액션":           {"rich_text": rich("\n".join(result.get("recommended_actions", [])))},
+        "요약":               {"rich_text": rich(result.get("summary", ""))},
+        "승인상태":           {"select": {"name": result.get("approval_status", "draft")}},
     }
 
     resp = requests.post(
@@ -203,7 +184,7 @@ def main():
             print("  Notion 등록 완료")
 
             archive_image(image_path)
-            print(f"  아카이브 이동 완료")
+            print("  아카이브 이동 완료")
 
         except Exception as e:
             print(f"  [오류] {image_path.name}: {e}")
