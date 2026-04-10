@@ -6,6 +6,7 @@
 # 로그
 *.log
 monitoring/logs/
+logs/sessions/
 
 # OS
 .DS_Store
