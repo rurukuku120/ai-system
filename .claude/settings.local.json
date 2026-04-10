@@ -11,7 +11,17 @@
       "Bash(git push:*)",
       "Bash(git stash:*)",
       "mcp__claude_ai_Notion__notion-fetch",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Skill(update-config)",
+      "Bash(ls ~/.claude/*.json)",
+      "Bash(gh api:*)",
+      "Bash(git config:*)",
+      "Bash(claude config:*)",
+      "Bash(python scripts/update_registry.py)",
+      "Bash(python scripts/health_check.py)",
+      "Bash(python3 scripts/health_check.py)",
+      "Bash(py scripts/health_check.py)",
+      "Bash(chmod +x:*)"
     ]
   }
 }

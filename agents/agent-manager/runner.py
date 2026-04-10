@@ -115,9 +115,9 @@ def main():
     agents = collect_agents()
     content = render_readme(agents)
     README_PATH.write_text(content, encoding="utf-8")
-    print(f"[agent-manager] README.md 갱신 완료 — 에이전트 {len(agents)}개")
+    print(f"[agent-manager] README.md 갱신 완료 - 에이전트 {len(agents)}개")
     for a in agents:
-        print(f"  • {a['name']} ({a['folder']})")
+        print(f"  - {a['name']} ({a['folder']})")
 
 
 if __name__ == "__main__":

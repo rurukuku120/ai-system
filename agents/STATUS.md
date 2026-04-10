@@ -1,6 +1,6 @@
 # Agent Status
 
-> 마지막 점검: 2026-04-10 23:48  
+> 마지막 점검: 2026-04-11 00:22  
 > `scripts/health_check.py` 로 자동 생성됨.
 
 ---
@@ -18,11 +18,11 @@
 
 | 에이전트 | 상태 | CLAUDE.md | runner.py | 문법 | 마지막 커밋 |
 |---|---|---|---|---|---|
-| agent-manager | ✅ healthy | ✅ | ✅ | ✅ | - |
+| agent-manager | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
 | asset-parser | ❌ error | ✅ | ❌ | - | 2026-04-10 23:06 |
-| notion-writer | ✅ healthy | ✅ | ✅ | ✅ | - |
-| session-logger | ✅ healthy | ✅ | ✅ | ✅ | - |
-| vfx-evaluator | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:06 |
+| notion-writer | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
+| session-logger | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
+| vfx-evaluator | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
 
 ---
 

@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VFX 피드백 대시보드</title>
+  <title>AI System Dashboard</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #1a1a2e; color: #eee; margin: 0; padding: 24px; }
-    h1 { color: #fff; margin-bottom: 4px; }
+    h1, h2 { color: #fff; margin-bottom: 4px; }
+    h2 { margin-top: 48px; }
     .meta { color: #aaa; font-size: 14px; margin-bottom: 24px; }
     .stats { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
     .stat { background: #16213e; border-radius: 8px; padding: 16px 24px; }
@@ -18,8 +19,7 @@
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: #1a4a7a; }
     td:first-child { text-align: left; font-weight: bold; }
-
-    /* 모달 */
+    .agent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 8px; }
     .modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:100; align-items:center; justify-content:center; }
     .modal-overlay.active { display:flex; }
     .modal { background:#16213e; border-radius:12px; padding:28px; max-width:600px; width:90%; max-height:85vh; overflow-y:auto; position:relative; }
@@ -37,18 +37,13 @@
   </style>
 </head>
 <body>
+
   <h1>VFX 피드백 대시보드</h1>
   <p class="meta">Mabinogi Eternity — 행을 클릭하면 상세 내용을 볼 수 있어요</p>
 
   <div class="stats">
-    <div class="stat">
-      <div class="stat-value">3</div>
-      <div class="stat-label">총 평가 수</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">2.43</div>
-      <div class="stat-label">평균 점수</div>
-    </div>
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">총 평가 수</div></div>
+    <div class="stat"><div class="stat-value">2.43</div><div class="stat-label">평균 점수</div></div>
   </div>
 
   <table>
@@ -73,7 +68,6 @@
             <td style="font-size:16px;font-weight:bold;color:#f44336">2.5</td>
             <td><span style="background:#888;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px">검토중</span></td>
         </tr>
-        
         <tr onclick="showDetail(1)" style="cursor:pointer">
             <td>블링크 - 유피테르썬더</td>
             <td>2026-04-04</td>
@@ -86,7 +80,6 @@
             <td style="font-size:16px;font-weight:bold;color:#f44336">2.5</td>
             <td><span style="background:#888;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px">검토중</span></td>
         </tr>
-        
         <tr onclick="showDetail(2)" style="cursor:pointer">
             <td>문나이트스킬작업</td>
             <td>2026-04-04</td>
@@ -98,9 +91,83 @@
             <td><span style="color:#f44336;font-weight:bold">2</span></td>
             <td style="font-size:16px;font-weight:bold;color:#f44336">2.3</td>
             <td><span style="background:#888;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px">검토중</span></td>
-        </tr>
-        </tbody>
+        </tr></tbody>
   </table>
+
+  <h2>Agent 현황</h2>
+  <p class="meta">마지막 점검: 2026-04-11 00:22</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-value">5</div><div class="stat-label">전체 에이전트</div></div>
+    <div class="stat"><div class="stat-value" style="color:#4caf50">4</div><div class="stat-label">정상</div></div>
+    <div class="stat"><div class="stat-value" style="color:#ff9800">0</div><div class="stat-label">경고</div></div>
+    <div class="stat"><div class="stat-value" style="color:#f44336">1</div><div class="stat-label">오류</div></div>
+  </div>
+  <div class="agent-grid">
+        <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid #4caf50">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-weight:bold;font-size:15px;">agent-manager</span>
+            <span style="color:#4caf50;font-size:13px;font-weight:bold;">● 정상</span>
+          </div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:8px;">마지막 커밋: 2026-04-10 23:49</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">CLAUDE.md</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">runner.py</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">문법</span>
+          </div>
+          
+        </div>
+        <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid #f44336">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-weight:bold;font-size:15px;">asset-parser</span>
+            <span style="color:#f44336;font-size:13px;font-weight:bold;">● 오류</span>
+          </div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:8px;">마지막 커밋: 2026-04-10 23:06</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">CLAUDE.md</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#3a0000;color:#f44336">runner.py</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#222;color:#666">문법</span>
+          </div>
+          <div style="font-size:12px;color:#f44336;margin-top:6px">! runner.py 없음</div>
+        </div>
+        <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid #4caf50">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-weight:bold;font-size:15px;">notion-writer</span>
+            <span style="color:#4caf50;font-size:13px;font-weight:bold;">● 정상</span>
+          </div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:8px;">마지막 커밋: 2026-04-10 23:49</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">CLAUDE.md</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">runner.py</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">문법</span>
+          </div>
+          
+        </div>
+        <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid #4caf50">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-weight:bold;font-size:15px;">session-logger</span>
+            <span style="color:#4caf50;font-size:13px;font-weight:bold;">● 정상</span>
+          </div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:8px;">마지막 커밋: 2026-04-10 23:49</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">CLAUDE.md</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">runner.py</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">문법</span>
+          </div>
+          
+        </div>
+        <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid #4caf50">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-weight:bold;font-size:15px;">vfx-evaluator</span>
+            <span style="color:#4caf50;font-size:13px;font-weight:bold;">● 정상</span>
+          </div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:8px;">마지막 커밋: 2026-04-10 23:49</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">CLAUDE.md</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">runner.py</span>
+            <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:#0f3460;color:#4fc3f7">문법</span>
+          </div>
+          
+        </div></div>
 
   <!-- 상세 모달 -->
   <div class="modal-overlay" id="modal" onclick="closeModal(event)">
@@ -108,22 +175,10 @@
       <button class="modal-close" onclick="document.getElementById('modal').classList.remove('active')">✕</button>
       <h2 id="modal-title"></h2>
       <div class="score-grid" id="modal-scores"></div>
-      <div class="modal-section">
-        <h3>요약</h3>
-        <p id="modal-summary"></p>
-      </div>
-      <div class="modal-section">
-        <h3>강점</h3>
-        <div id="modal-strengths"></div>
-      </div>
-      <div class="modal-section">
-        <h3>문제점</h3>
-        <div id="modal-issues"></div>
-      </div>
-      <div class="modal-section">
-        <h3>개선 액션</h3>
-        <div id="modal-actions"></div>
-      </div>
+      <div class="modal-section"><h3>요약</h3><p id="modal-summary"></p></div>
+      <div class="modal-section"><h3>강점</h3><div id="modal-strengths"></div></div>
+      <div class="modal-section"><h3>문제점</h3><div id="modal-issues"></div></div>
+      <div class="modal-section"><h3>개선 액션</h3><div id="modal-actions"></div></div>
     </div>
   </div>
 
@@ -140,88 +195,21 @@
       const scores = r.scores || {};
       document.getElementById('modal-title').textContent = r.task_name || '-';
       document.getElementById('modal-summary').textContent = r.summary || '-';
-
       document.getElementById('modal-scores').innerHTML =
         Object.entries(scoreLabels).map(([k, label]) => {
           const v = scores[k];
-          return `<div class="score-item">
-            <div class="label">${label}</div>
-            <div class="value" style="color:${scoreColors(v)}">${v || '-'}</div>
-          </div>`;
+          return `<div class="score-item"><div class="label">${label}</div><div class="value" style="color:${scoreColors(v)}">${v || '-'}</div></div>`;
         }).join('') +
-        `<div class="score-item">
-          <div class="label">종합점수</div>
-          <div class="value" style="color:${scoreColors(r.overall_score)};font-size:24px">${r.overall_score || '-'}</div>
-        </div>`;
-
-      document.getElementById('modal-strengths').innerHTML =
-        (r.strengths || []).map(s => `<span class="tag">✓ ${s}</span>`).join('');
-      document.getElementById('modal-issues').innerHTML =
-        (r.issues || []).map(s => `<span class="tag">⚠ ${s}</span>`).join('');
-      document.getElementById('modal-actions').innerHTML =
-        (r.recommended_actions || []).map(s => `<span class="tag">→ ${s}</span>`).join('');
-
+        `<div class="score-item"><div class="label">종합점수</div><div class="value" style="color:${scoreColors(r.overall_score)};font-size:24px">${r.overall_score || '-'}</div></div>`;
+      document.getElementById('modal-strengths').innerHTML = (r.strengths || []).map(s => `<span class="tag">✓ ${s}</span>`).join('');
+      document.getElementById('modal-issues').innerHTML = (r.issues || []).map(s => `<span class="tag">⚠ ${s}</span>`).join('');
+      document.getElementById('modal-actions').innerHTML = (r.recommended_actions || []).map(s => `<span class="tag">→ ${s}</span>`).join('');
       document.getElementById('modal').classList.add('active');
     }
 
     function closeModal(e) {
       if (e.target.id === 'modal') document.getElementById('modal').classList.remove('active');
     }
-  </script>
-
-  <!-- 에이전트 현황 -->
-  <h2 style="color:#fff;margin-top:48px;margin-bottom:4px;">Agent 현황</h2>
-  <p class="meta" id="agent-updated">로딩 중...</p>
-  <div id="agent-summary" class="stats"></div>
-  <div id="agent-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:8px;"></div>
-
-  <script>
-    fetch('../agents/status.json')
-      .then(r => r.json())
-      .then(data => {
-        const agents = data.agents || [];
-        const updated = (data.updated_at || '').slice(0, 16).replace('T', ' ');
-        document.getElementById('agent-updated').textContent = `마지막 점검: ${updated}`;
-
-        const total = agents.length;
-        const healthy = agents.filter(a => a.status === 'healthy').length;
-        const warning = agents.filter(a => a.status === 'warning').length;
-        const error = agents.filter(a => a.status === 'error').length;
-
-        document.getElementById('agent-summary').innerHTML = `
-          <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">전체 에이전트</div></div>
-          <div class="stat"><div class="stat-value" style="color:#4caf50">${healthy}</div><div class="stat-label">정상</div></div>
-          <div class="stat"><div class="stat-value" style="color:#ff9800">${warning}</div><div class="stat-label">경고</div></div>
-          <div class="stat"><div class="stat-value" style="color:#f44336">${error}</div><div class="stat-label">오류</div></div>
-        `;
-
-        const statusColor = { healthy: '#4caf50', warning: '#ff9800', error: '#f44336' };
-        const statusLabel = { healthy: '정상', warning: '경고', error: '오류' };
-        const statusIcon  = { healthy: '●', warning: '●', error: '●' };
-
-        document.getElementById('agent-cards').innerHTML = agents.map(a => `
-          <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid ${statusColor[a.status] || '#555'}">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-              <span style="font-weight:bold;font-size:15px;">${a.name}</span>
-              <span style="color:${statusColor[a.status]};font-size:13px;font-weight:bold;">
-                ${statusIcon[a.status]} ${statusLabel[a.status] || a.status}
-              </span>
-            </div>
-            <div style="font-size:12px;color:#aaa;margin-bottom:8px;">
-              마지막 커밋: ${a.last_commit || '-'}
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:${a.has_claude_md ? '#0f3460' : '#3a0000'};color:${a.has_claude_md ? '#4fc3f7' : '#f44336'}">CLAUDE.md</span>
-              <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:${a.has_runner ? '#0f3460' : '#3a0000'};color:${a.has_runner ? '#4fc3f7' : '#f44336'}">runner.py</span>
-              <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:${a.syntax_ok ? '#0f3460' : a.syntax_ok === false ? '#3a0000' : '#222'};color:${a.syntax_ok ? '#4fc3f7' : a.syntax_ok === false ? '#f44336' : '#666'}">문법</span>
-            </div>
-            ${a.issues && a.issues.length ? `<div style="margin-top:10px;font-size:12px;color:#f44336;">${a.issues.map(i => '⚠ ' + i).join('<br>')}</div>` : ''}
-          </div>
-        `).join('');
-      })
-      .catch(() => {
-        document.getElementById('agent-updated').textContent = 'status.json 로드 실패';
-      });
   </script>
 </body>
 </html>
