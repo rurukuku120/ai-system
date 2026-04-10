@@ -1,0 +1,91 @@
+[
+  {
+    "name": "parse_asset_summary",
+    "description": "UE5 .uasset 파일의 헤더를 파싱하여 파일 버전, 이름/임포트/익스포트 카운트, 루트 에셋 클래스를 반환합니다.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "파싱할 .uasset 파일의 절대 경로 또는 상대 경로"
+        }
+      },
+      "required": ["file_path"]
+    }
+  },
+  {
+    "name": "parse_dependencies",
+    "description": "UE5 .uasset 파일의 import 테이블을 파싱하여 참조하는 에셋(텍스처, 메시, 머티리얼, 블루프린트, 사운드, 애니메이션, 파티클)을 카테고리별로 분류하여 반환합니다.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "파싱할 .uasset 파일의 경로"
+        }
+      },
+      "required": ["file_path"]
+    }
+  },
+  {
+    "name": "parse_datatable",
+    "description": "DataTable .uasset 파일에서 행 데이터를 추출합니다. 완전한 행 파싱은 RowStruct 스키마가 필요하므로, 현재는 export 메타데이터와 이름 테이블 기반 row name 힌트를 반환합니다.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "파싱할 DataTable .uasset 파일의 경로"
+        }
+      },
+      "required": ["file_path"]
+    }
+  },
+  {
+    "name": "parse_mesh_metadata",
+    "description": "StaticMesh 또는 SkeletalMesh .uasset 파일에서 참조 텍스처, 참조 머티리얼, 익스포트 크기 등 메타데이터를 추출합니다.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "파싱할 메시 .uasset 파일의 경로"
+        }
+      },
+      "required": ["file_path"]
+    }
+  },
+  {
+    "name": "parse_blueprint",
+    "description": "Blueprint .uasset 파일에서 관련 임포트, 익스포트 목록, 함수/변수 이름 힌트를 추출합니다. 노드 그래프 완전 파싱은 UE5 직렬화 구현이 별도로 필요합니다.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "파싱할 Blueprint .uasset 파일의 경로"
+        }
+      },
+      "required": ["file_path"]
+    }
+  },
+  {
+    "name": "batch_parse",
+    "description": "디렉토리 내 모든 .uasset 파일을 일괄 파싱하여 에셋 목록, 클래스 분포, 에러 목록을 반환합니다.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "dir_path": {
+          "type": "string",
+          "description": "스캔할 디렉토리 경로 (하위 디렉토리 포함 재귀 탐색)"
+        },
+        "asset_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "필터링할 에셋 클래스 목록. 예: [\"DataTable\", \"StaticMesh\", \"Texture2D\"]. 생략 시 전체 반환."
+        }
+      },
+      "required": ["dir_path"]
+    }
+  }
+]
