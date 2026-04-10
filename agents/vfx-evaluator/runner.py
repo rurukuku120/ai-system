@@ -8,21 +8,25 @@ inbox/ 폴더의 이미지를 감지 → Gemini API 평가 → JSON 저장 → N
 
 import os
 import re
+import sys
 import json
 from datetime import date
 from pathlib import Path
 
 import anthropic
 import base64
-import requests
 
 # ── 경로 설정 ──────────────────────────────────────────────
-REPO_ROOT   = Path(__file__).parent.parent
+AGENT_DIR   = Path(__file__).parent
+REPO_ROOT   = AGENT_DIR.parent.parent
 INBOX_DIR   = REPO_ROOT / "inbox"
 RESULTS_DIR = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/results"
-PROMPT_FILE = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-eval-prompt.md"
-RULES_FILE  = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-readability-rules.md"
-SCHEMA_FILE = REPO_ROOT / "projects/nexon/mabinogi-eternity/evaluations/vfx-eval-schema.json"
+PROMPT_FILE = AGENT_DIR / "prompt.md"
+RULES_FILE  = AGENT_DIR / "rules.md"
+SCHEMA_FILE = AGENT_DIR / "schema.json"
+
+sys.path.insert(0, str(REPO_ROOT))
+from agents.notion_writer.runner import build_properties, write_page  # noqa: E402
 
 # ── 환경 변수 ──────────────────────────────────────────────
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -121,43 +125,34 @@ def save_result(result: dict, meta: dict) -> Path:
 
 
 def register_to_notion(result: dict, meta: dict) -> None:
-    """Notion 데이터베이스에 평가 결과 등록"""
-    def rich(text: str):
-        return [{"type": "text", "text": {"content": str(text)[:2000]}}]
-
+    """Notion 데이터베이스에 평가 결과 등록 (notion-writer 에이전트 사용)"""
     scores = result.get("scores", {})
 
-    properties = {
-        "작업명":             {"title": rich(result.get("task_name", "미확인"))},
-        "평가일":             {"date": {"start": date.today().strftime("%Y-%m-%d")}},
-        "작업자":             {"rich_text": rich(meta.get("작업자", "미확인"))},
-        "스킬유형":           {"select": {"name": meta.get("스킬유형", "기타")}},
-        "hit_timing":         {"number": scores.get("hit_timing")},
-        "readability":        {"number": scores.get("readability")},
-        "silhouette":         {"number": scores.get("silhouette")},
-        "visual_hierarchy":   {"number": scores.get("visual_hierarchy")},
-        "impact":             {"number": scores.get("impact")},
-        "combat_readability": {"number": scores.get("combat_readability")},
-        "overall_score":      {"number": result.get("overall_score")},
-        "강점":               {"rich_text": rich("\n".join(result.get("strengths", [])))},
-        "문제점":             {"rich_text": rich("\n".join(result.get("issues", [])))},
-        "개선액션":           {"rich_text": rich("\n".join(result.get("recommended_actions", [])))},
-        "요약":               {"rich_text": rich(result.get("summary", ""))},
-        "승인상태":           {"select": {"name": result.get("approval_status", "draft")}},
+    props_input = {
+        "작업명":             {"type": "title",     "value": result.get("task_name", "미확인")},
+        "평가일":             {"type": "date",       "value": date.today().strftime("%Y-%m-%d")},
+        "작업자":             {"type": "rich_text",  "value": meta.get("작업자", "미확인")},
+        "스킬유형":           {"type": "select",     "value": meta.get("스킬유형", "기타")},
+        "hit_timing":         {"type": "number",     "value": scores.get("hit_timing")},
+        "readability":        {"type": "number",     "value": scores.get("readability")},
+        "silhouette":         {"type": "number",     "value": scores.get("silhouette")},
+        "visual_hierarchy":   {"type": "number",     "value": scores.get("visual_hierarchy")},
+        "impact":             {"type": "number",     "value": scores.get("impact")},
+        "combat_readability": {"type": "number",     "value": scores.get("combat_readability")},
+        "overall_score":      {"type": "number",     "value": result.get("overall_score")},
+        "강점":               {"type": "rich_text",  "value": "\n".join(result.get("strengths", []))},
+        "문제점":             {"type": "rich_text",  "value": "\n".join(result.get("issues", []))},
+        "개선액션":           {"type": "rich_text",  "value": "\n".join(result.get("recommended_actions", []))},
+        "요약":               {"type": "rich_text",  "value": result.get("summary", "")},
+        "승인상태":           {"type": "select",     "value": result.get("approval_status", "draft")},
     }
 
-    resp = requests.post(
-        "https://notion-pat-proxy.nexon.co.kr/v1/pages",
-        headers={
-            "Authorization": f"Bearer {NOTION_TOKEN}",
-            "Content-Type": "application/json",
-            "Notion-Version": "2025-09-03",
-        },
-        json={"parent": {"database_id": NOTION_DB_ID}, "properties": properties},
+    page = write_page(
+        database_id=NOTION_DB_ID,
+        properties=build_properties(props_input),
+        token=NOTION_TOKEN,
     )
-    print(f"  Notion 응답 코드: {resp.status_code}")
-    print(f"  Notion 응답: {resp.text[:300]}")
-    resp.raise_for_status()
+    print(f"  Notion 페이지 생성: {page['url']}")
 
 
 def archive_image(image_path: Path) -> None:

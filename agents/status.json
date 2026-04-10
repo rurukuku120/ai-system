@@ -1,0 +1,57 @@
+{
+  "updated_at": "2026-04-10T23:48:24.799800",
+  "agents": [
+    {
+      "name": "agent-manager",
+      "status": "healthy",
+      "icon": "✅",
+      "has_claude_md": true,
+      "has_runner": true,
+      "syntax_ok": true,
+      "last_commit": "-",
+      "issues": []
+    },
+    {
+      "name": "asset-parser",
+      "status": "error",
+      "icon": "❌",
+      "has_claude_md": true,
+      "has_runner": false,
+      "syntax_ok": null,
+      "last_commit": "2026-04-10 23:06",
+      "issues": [
+        "runner.py 없음"
+      ]
+    },
+    {
+      "name": "notion-writer",
+      "status": "healthy",
+      "icon": "✅",
+      "has_claude_md": true,
+      "has_runner": true,
+      "syntax_ok": true,
+      "last_commit": "-",
+      "issues": []
+    },
+    {
+      "name": "session-logger",
+      "status": "healthy",
+      "icon": "✅",
+      "has_claude_md": true,
+      "has_runner": true,
+      "syntax_ok": true,
+      "last_commit": "-",
+      "issues": []
+    },
+    {
+      "name": "vfx-evaluator",
+      "status": "healthy",
+      "icon": "✅",
+      "has_claude_md": true,
+      "has_runner": true,
+      "syntax_ok": true,
+      "last_commit": "2026-04-10 23:06",
+      "issues": []
+    }
+  ]
+}

@@ -168,5 +168,60 @@
       if (e.target.id === 'modal') document.getElementById('modal').classList.remove('active');
     }
   </script>
+
+  <!-- 에이전트 현황 -->
+  <h2 style="color:#fff;margin-top:48px;margin-bottom:4px;">Agent 현황</h2>
+  <p class="meta" id="agent-updated">로딩 중...</p>
+  <div id="agent-summary" class="stats"></div>
+  <div id="agent-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:8px;"></div>
+
+  <script>
+    fetch('../agents/status.json')
+      .then(r => r.json())
+      .then(data => {
+        const agents = data.agents || [];
+        const updated = (data.updated_at || '').slice(0, 16).replace('T', ' ');
+        document.getElementById('agent-updated').textContent = `마지막 점검: ${updated}`;
+
+        const total = agents.length;
+        const healthy = agents.filter(a => a.status === 'healthy').length;
+        const warning = agents.filter(a => a.status === 'warning').length;
+        const error = agents.filter(a => a.status === 'error').length;
+
+        document.getElementById('agent-summary').innerHTML = `
+          <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">전체 에이전트</div></div>
+          <div class="stat"><div class="stat-value" style="color:#4caf50">${healthy}</div><div class="stat-label">정상</div></div>
+          <div class="stat"><div class="stat-value" style="color:#ff9800">${warning}</div><div class="stat-label">경고</div></div>
+          <div class="stat"><div class="stat-value" style="color:#f44336">${error}</div><div class="stat-label">오류</div></div>
+        `;
+
+        const statusColor = { healthy: '#4caf50', warning: '#ff9800', error: '#f44336' };
+        const statusLabel = { healthy: '정상', warning: '경고', error: '오류' };
+        const statusIcon  = { healthy: '●', warning: '●', error: '●' };
+
+        document.getElementById('agent-cards').innerHTML = agents.map(a => `
+          <div style="background:#16213e;border-radius:10px;padding:20px;border-left:4px solid ${statusColor[a.status] || '#555'}">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span style="font-weight:bold;font-size:15px;">${a.name}</span>
+              <span style="color:${statusColor[a.status]};font-size:13px;font-weight:bold;">
+                ${statusIcon[a.status]} ${statusLabel[a.status] || a.status}
+              </span>
+            </div>
+            <div style="font-size:12px;color:#aaa;margin-bottom:8px;">
+              마지막 커밋: ${a.last_commit || '-'}
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:${a.has_claude_md ? '#0f3460' : '#3a0000'};color:${a.has_claude_md ? '#4fc3f7' : '#f44336'}">CLAUDE.md</span>
+              <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:${a.has_runner ? '#0f3460' : '#3a0000'};color:${a.has_runner ? '#4fc3f7' : '#f44336'}">runner.py</span>
+              <span style="font-size:11px;padding:3px 8px;border-radius:4px;background:${a.syntax_ok ? '#0f3460' : a.syntax_ok === false ? '#3a0000' : '#222'};color:${a.syntax_ok ? '#4fc3f7' : a.syntax_ok === false ? '#f44336' : '#666'}">문법</span>
+            </div>
+            ${a.issues && a.issues.length ? `<div style="margin-top:10px;font-size:12px;color:#f44336;">${a.issues.map(i => '⚠ ' + i).join('<br>')}</div>` : ''}
+          </div>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('agent-updated').textContent = 'status.json 로드 실패';
+      });
+  </script>
 </body>
 </html>
