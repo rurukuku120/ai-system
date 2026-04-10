@@ -1,6 +1,6 @@
 # Agents 인덱스
 
-> 자동 생성됨 — 2026-04-11 00:27
+> 자동 생성됨 — 2026-04-11 00:43
 > `agents/agent-manager/runner.py`가 각 에이전트의 `CLAUDE.md`를 읽어 갱신합니다.
 > 직접 편집하지 마세요. `/update-agents`로 갱신하세요.
 
