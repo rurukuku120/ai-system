@@ -50,6 +50,10 @@ ai-system/
 ```
 
 ## 관련 파일
-- `runner.py` — 실행 스크립트
+- `hooks/stop/session-logger.py` — 실제 구현 (dispatcher 경유)
+- `hooks/dispatcher.py` — 이벤트 라우터
+- `hooks/registry.json` — 훅 활성화/순서 관리
+- `scripts/setup.py` — 새 컴퓨터 초기 설정
 - `.claude/commands/session-logger.md` — 슬래시 커맨드 (수동 실행)
-- `~/.claude/settings.json` — Stop 훅 등록
+
+> runner.py는 레거시. 실제 로직은 hooks/stop/session-logger.py에 있음.

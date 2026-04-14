@@ -1,0 +1,13 @@
+{
+  "stop": [
+    {
+      "id": "session-logger",
+      "enabled": true,
+      "script": "stop/session-logger.py",
+      "description": "세션 로그를 마크다운으로 변환하여 GitHub에 저장"
+    }
+  ],
+  "pre_tool_use": [],
+  "post_tool_use": [],
+  "notification": []
+}
