@@ -1,6 +1,6 @@
 # Agents 인덱스
 
-> 자동 생성됨 — 2026-04-11 00:43
+> 자동 생성됨 — 2026-04-14 22:58
 > `agents/agent-manager/runner.py`가 각 에이전트의 `CLAUDE.md`를 읽어 갱신합니다.
 > 직접 편집하지 마세요. `/update-agents`로 갱신하세요.
 
@@ -253,9 +253,13 @@ ai-system/
 ```
 
 ## 관련 파일
-- `runner.py` — 실행 스크립트
+- `hooks/stop/session-logger.py` — 실제 구현 (dispatcher 경유)
+- `hooks/dispatcher.py` — 이벤트 라우터
+- `hooks/registry.json` — 훅 활성화/순서 관리
+- `scripts/setup.py` — 새 컴퓨터 초기 설정
 - `.claude/commands/session-logger.md` — 슬래시 커맨드 (수동 실행)
-- `~/.claude/settings.json` — Stop 훅 등록
+
+> runner.py는 레거시. 실제 로직은 hooks/stop/session-logger.py에 있음.
 
 ---
 

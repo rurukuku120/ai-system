@@ -1,6 +1,6 @@
 # Agent Status
 
-> 마지막 점검: 2026-04-11 00:42  
+> 마지막 점검: 2026-04-14 22:33  
 > `scripts/health_check.py` 로 자동 생성됨.
 
 ---
@@ -22,7 +22,7 @@
 | asset-parser | ❌ error | ✅ | ❌ | - | 2026-04-10 23:06 |
 | dashboard-builder | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-11 00:27 |
 | notion-writer | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
-| session-logger | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
+| session-logger | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-14 15:16 |
 | vfx-evaluator | ✅ healthy | ✅ | ✅ | ✅ | 2026-04-10 23:49 |
 
 ---
