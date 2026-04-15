@@ -1,0 +1,33 @@
+# VFX Sync Agent 테스트 설정
+# 테스트 폴더 기반 — 여기에 파일을 넣으면 처리됨
+
+paths:
+  # 테스트 입력 폴더 (여기에 XML/DDS 파일을 넣으세요)
+  source_xml: "C:/Users/cukirang/Desktop/vfx_sync_test/input/xml"
+  source_texture: "C:/Users/cukirang/Desktop/vfx_sync_test/input/texture"
+
+  # 업스케일 출력
+  upscale_output: "C:/Users/cukirang/Desktop/vfx_sync_test/output/upscaled"
+
+  # 언리얼 임포트는 테스트에서 스킵 (경로 비워둠)
+  unreal_texture_dest: ""
+  unreal_fx_dest: ""
+
+  # 언리얼 엔진
+  unreal_project: "Z:/Eternity/dev/Client/Mabinogi.uproject"
+  unreal_editor_cmd: "Z:/Eternity/dev/UE_5/Engine/Binaries/Win64/UnrealEditor-Cmd.exe"
+
+  # AI 모델
+  model_path: "C:/Users/cukirang/Desktop/upscale_poc/models/RealESRGAN_x4plus.pth"
+
+  # 스냅샷 저장
+  snapshot_dir: "C:/Users/cukirang/Desktop/vfx_sync_test/.snapshots"
+
+upscale:
+  scale: 4
+  tile_size: 512
+  format: "png"
+
+unreal:
+  headless_flags: "-unattended -nosplash -nullrhi"
+  timeout_seconds: 600

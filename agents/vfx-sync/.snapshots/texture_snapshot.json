@@ -1,0 +1,4026 @@
+{
+  "3D_cursor_mesh.dds": {
+    "mtime": 1242180840.0,
+    "size": 640
+  },
+  "c4_Quest02_M.dds": {
+    "mtime": 1278901586.0,
+    "size": 384
+  },
+  "common_effect.dds": {
+    "mtime": 1125471513.0,
+    "size": 524416
+  },
+  "common_effect_add_10.dds": {
+    "mtime": 1467802766.0,
+    "size": 22000
+  },
+  "common_effect_add_100.dds": {
+    "mtime": 1717394115.0,
+    "size": 349680
+  },
+  "common_effect_add_101.dds": {
+    "mtime": 1712562376.0,
+    "size": 349680
+  },
+  "common_effect_add_102.dds": {
+    "mtime": 1725959626.0,
+    "size": 349680
+  },
+  "common_effect_add_104.dds": {
+    "mtime": 1719474663.0,
+    "size": 349680
+  },
+  "common_effect_add_106.dds": {
+    "mtime": 1722218572.0,
+    "size": 349680
+  },
+  "common_effect_add_108.dds": {
+    "mtime": 1725262291.0,
+    "size": 174928
+  },
+  "common_effect_add_11.dds": {
+    "mtime": 1509598146.0,
+    "size": 524416
+  },
+  "common_effect_add_110.dds": {
+    "mtime": 1727163291.0,
+    "size": 87536
+  },
+  "common_effect_add_112.dds": {
+    "mtime": 1727163096.0,
+    "size": 87536
+  },
+  "common_effect_add_114.dds": {
+    "mtime": 1728628240.0,
+    "size": 349680
+  },
+  "common_effect_add_116.dds": {
+    "mtime": 1737683458.0,
+    "size": 349680
+  },
+  "common_effect_add_118.dds": {
+    "mtime": 1736468502.0,
+    "size": 87536
+  },
+  "common_effect_add_12.dds": {
+    "mtime": 1541998519.0,
+    "size": 699178
+  },
+  "common_effect_add_120.dds": {
+    "mtime": 1737598424.0,
+    "size": 349680
+  },
+  "common_effect_add_121.dds": {
+    "mtime": 1739854624.0,
+    "size": 22032
+  },
+  "common_effect_add_13.dds": {
+    "mtime": 1639622828.0,
+    "size": 699178
+  },
+  "common_effect_add_14.dds": {
+    "mtime": 1696983714.0,
+    "size": 349680
+  },
+  "common_effect_add_15.dds": {
+    "mtime": 1560479327.0,
+    "size": 699178
+  },
+  "common_effect_add_16.dds": {
+    "mtime": 1691647610.0,
+    "size": 349680
+  },
+  "common_effect_add_17.dds": {
+    "mtime": 1681714085.0,
+    "size": 349680
+  },
+  "common_effect_add_18.dds": {
+    "mtime": 1573793467.0,
+    "size": 699178
+  },
+  "common_effect_add_19.dds": {
+    "mtime": 1656386674.0,
+    "size": 699178
+  },
+  "common_effect_add_2.dds": {
+    "mtime": 1186449375.0,
+    "size": 524416
+  },
+  "common_effect_add_20.dds": {
+    "mtime": 1629365019.0,
+    "size": 699178
+  },
+  "common_effect_add_21.dds": {
+    "mtime": 1665042467.0,
+    "size": 349680
+  },
+  "common_effect_add_22.dds": {
+    "mtime": 1656556132.0,
+    "size": 349680
+  },
+  "common_effect_add_23.dds": {
+    "mtime": 1626682396.0,
+    "size": 699178
+  },
+  "common_effect_add_24.dds": {
+    "mtime": 1650270075.0,
+    "size": 699178
+  },
+  "common_effect_add_25.dds": {
+    "mtime": 1680491166.0,
+    "size": 699178
+  },
+  "common_effect_add_26.dds": {
+    "mtime": 1651037592.0,
+    "size": 699178
+  },
+  "common_effect_add_27.dds": {
+    "mtime": 1667889310.0,
+    "size": 349680
+  },
+  "common_effect_add_28.dds": {
+    "mtime": 1656904757.0,
+    "size": 699178
+  },
+  "common_effect_add_29.dds": {
+    "mtime": 1668494883.0,
+    "size": 699178
+  },
+  "common_effect_add_3.dds": {
+    "mtime": 1215569308.0,
+    "size": 131200
+  },
+  "common_effect_add_30.dds": {
+    "mtime": 1656484698.0,
+    "size": 699178
+  },
+  "common_effect_add_31.dds": {
+    "mtime": 1678238775.0,
+    "size": 349680
+  },
+  "common_effect_add_32.dds": {
+    "mtime": 1670459808.0,
+    "size": 524416
+  },
+  "common_effect_add_33.dds": {
+    "mtime": 1663892234.0,
+    "size": 349680
+  },
+  "common_effect_add_34.dds": {
+    "mtime": 1695362049.0,
+    "size": 349680
+  },
+  "common_effect_add_35.dds": {
+    "mtime": 1692233320.0,
+    "size": 349680
+  },
+  "common_effect_add_36.dds": {
+    "mtime": 1678758343.0,
+    "size": 349680
+  },
+  "common_effect_add_37.dds": {
+    "mtime": 1676958927.0,
+    "size": 349680
+  },
+  "common_effect_add_38.dds": {
+    "mtime": 1667376388.0,
+    "size": 1398256
+  },
+  "common_effect_add_39.dds": {
+    "mtime": 1671606252.0,
+    "size": 1398256
+  },
+  "common_effect_add_4.dds": {
+    "mtime": 1201480132.0,
+    "size": 131200
+  },
+  "common_effect_add_40.dds": {
+    "mtime": 1683847100.0,
+    "size": 349680
+  },
+  "common_effect_add_41.dds": {
+    "mtime": 1667288069.0,
+    "size": 349680
+  },
+  "common_effect_add_42.dds": {
+    "mtime": 1682307452.0,
+    "size": 349680
+  },
+  "common_effect_add_43.dds": {
+    "mtime": 1671681817.0,
+    "size": 349680
+  },
+  "common_effect_add_44.dds": {
+    "mtime": 1672101710.0,
+    "size": 1398256
+  },
+  "common_effect_add_45.dds": {
+    "mtime": 1672105354.0,
+    "size": 1398256
+  },
+  "common_effect_add_46.dds": {
+    "mtime": 1676528638.0,
+    "size": 349680
+  },
+  "common_effect_add_47.dds": {
+    "mtime": 1672900181.0,
+    "size": 349680
+  },
+  "common_effect_add_48.dds": {
+    "mtime": 1673242071.0,
+    "size": 349680
+  },
+  "common_effect_add_49.dds": {
+    "mtime": 1673495916.0,
+    "size": 1398256
+  },
+  "common_effect_add_5.dds": {
+    "mtime": 1429095899.0,
+    "size": 699178
+  },
+  "common_effect_add_50.dds": {
+    "mtime": 1675039867.0,
+    "size": 1398256
+  },
+  "common_effect_add_51.dds": {
+    "mtime": 1675985485.0,
+    "size": 1398256
+  },
+  "common_effect_add_52.dds": {
+    "mtime": 1684366636.0,
+    "size": 1398256
+  },
+  "common_effect_add_53.dds": {
+    "mtime": 1686297831.0,
+    "size": 1398256
+  },
+  "common_effect_add_54.dds": {
+    "mtime": 1676344297.0,
+    "size": 1398256
+  },
+  "common_effect_add_55.dds": {
+    "mtime": 1738736105.0,
+    "size": 1398256
+  },
+  "common_effect_add_56.dds": {
+    "mtime": 1761643870.0,
+    "size": 1398256
+  },
+  "common_effect_add_57.dds": {
+    "mtime": 1687415776.0,
+    "size": 1398256
+  },
+  "common_effect_add_58.dds": {
+    "mtime": 1761793158.0,
+    "size": 1398256
+  },
+  "common_effect_add_59.dds": {
+    "mtime": 1685066491.0,
+    "size": 1398256
+  },
+  "common_effect_add_6.dds": {
+    "mtime": 1507860066.0,
+    "size": 524416
+  },
+  "common_effect_add_60.dds": {
+    "mtime": 1678865994.0,
+    "size": 87536
+  },
+  "common_effect_add_61.dds": {
+    "mtime": 1681441678.0,
+    "size": 1398256
+  },
+  "common_effect_add_62.dds": {
+    "mtime": 1710321245.0,
+    "size": 349680
+  },
+  "common_effect_add_63.dds": {
+    "mtime": 1698191037.0,
+    "size": 1398256
+  },
+  "common_effect_add_64.dds": {
+    "mtime": 1710891834.0,
+    "size": 349680
+  },
+  "common_effect_add_65.dds": {
+    "mtime": 1684311291.0,
+    "size": 1398256
+  },
+  "common_effect_add_66.dds": {
+    "mtime": 1711327430.0,
+    "size": 349680
+  },
+  "common_effect_add_67.dds": {
+    "mtime": 1684478059.0,
+    "size": 1398256
+  },
+  "common_effect_add_68.dds": {
+    "mtime": 1702968602.0,
+    "size": 349680
+  },
+  "common_effect_add_69.dds": {
+    "mtime": 1684719925.0,
+    "size": 1398256
+  },
+  "common_effect_add_7.dds": {
+    "mtime": 1512542539.0,
+    "size": 699178
+  },
+  "common_effect_add_70.dds": {
+    "mtime": 1702006014.0,
+    "size": 349680
+  },
+  "common_effect_add_71.dds": {
+    "mtime": 1689205080.0,
+    "size": 1398256
+  },
+  "common_effect_add_72.dds": {
+    "mtime": 1704243154.0,
+    "size": 349680
+  },
+  "common_effect_add_73.dds": {
+    "mtime": 1686546833.0,
+    "size": 1398256
+  },
+  "common_effect_add_74.dds": {
+    "mtime": 1704700333.0,
+    "size": 349680
+  },
+  "common_effect_add_75.dds": {
+    "mtime": 1718773714.0,
+    "size": 1398256
+  },
+  "common_effect_add_76.dds": {
+    "mtime": 1711329940.0,
+    "size": 1398256
+  },
+  "common_effect_add_77.dds": {
+    "mtime": 1687843644.0,
+    "size": 1398256
+  },
+  "common_effect_add_78.dds": {
+    "mtime": 1705025956.0,
+    "size": 1398256
+  },
+  "common_effect_add_79.dds": {
+    "mtime": 1697008645.0,
+    "size": 1398256
+  },
+  "common_effect_add_8.dds": {
+    "mtime": 1538706003.0,
+    "size": 349680
+  },
+  "common_effect_add_80.dds": {
+    "mtime": 1705648573.0,
+    "size": 349680
+  },
+  "common_effect_add_81.dds": {
+    "mtime": 1702615026.0,
+    "size": 1398256
+  },
+  "common_effect_add_82.dds": {
+    "mtime": 1714356908.0,
+    "size": 349680
+  },
+  "common_effect_add_83.dds": {
+    "mtime": 1718757105.0,
+    "size": 1398256
+  },
+  "common_effect_add_84.dds": {
+    "mtime": 1712643791.0,
+    "size": 349680
+  },
+  "common_effect_add_85.dds": {
+    "mtime": 1722392877.0,
+    "size": 1398256
+  },
+  "common_effect_add_86.dds": {
+    "mtime": 1706573461.0,
+    "size": 349680
+  },
+  "common_effect_add_87.dds": {
+    "mtime": 1730861085.0,
+    "size": 1398256
+  },
+  "common_effect_add_88.dds": {
+    "mtime": 1709776938.0,
+    "size": 349680
+  },
+  "common_effect_add_89.dds": {
+    "mtime": 1741822094.0,
+    "size": 1398256
+  },
+  "common_effect_add_9.dds": {
+    "mtime": 1624006100.0,
+    "size": 699178
+  },
+  "common_effect_add_90.dds": {
+    "mtime": 1708663480.0,
+    "size": 1398256
+  },
+  "common_effect_add_91.dds": {
+    "mtime": 1746077870.0,
+    "size": 349680
+  },
+  "common_effect_add_92.dds": {
+    "mtime": 1708935294.0,
+    "size": 349680
+  },
+  "common_effect_add_93.dds": {
+    "mtime": 1747270314.0,
+    "size": 1398256
+  },
+  "common_effect_add_94.dds": {
+    "mtime": 1709001174.0,
+    "size": 349680
+  },
+  "common_effect_add_95.dds": {
+    "mtime": 1754439762.0,
+    "size": 1398256
+  },
+  "common_effect_add_96.dds": {
+    "mtime": 1709542626.0,
+    "size": 349680
+  },
+  "common_effect_add_97.dds": {
+    "mtime": 1755583385.0,
+    "size": 1398256
+  },
+  "common_effect_add_98.dds": {
+    "mtime": 1717458700.0,
+    "size": 349680
+  },
+  "common_effect_add_99.dds": {
+    "mtime": 1755583407.0,
+    "size": 1398256
+  },
+  "common_effect_add_BrokenDragon01.dds": {
+    "mtime": 1676610591.0,
+    "size": 174890
+  },
+  "common_effect_add_ghost.dds": {
+    "mtime": 1670231516.0,
+    "size": 524416
+  },
+  "common_effect_add_Magnet.dds": {
+    "mtime": 1575620719.0,
+    "size": 11050
+  },
+  "common_effect_add_nozbuffer.dds": {
+    "mtime": 1719458929.0,
+    "size": 87536
+  },
+  "common_effect_add_nozbuffer02.dds": {
+    "mtime": 1345601636.0,
+    "size": 524416
+  },
+  "common_effect_add_nozbuffer03.dds": {
+    "mtime": 1303216508.0,
+    "size": 22000
+  },
+  "common_effect_add_nozbuffer04.DDS": {
+    "mtime": 1681362947.0,
+    "size": 349680
+  },
+  "common_effect_add_nozbuffer05.dds": {
+    "mtime": 1660876135.0,
+    "size": 131200
+  },
+  "common_effect_add_nozbuffer06.dds": {
+    "mtime": 1713143617.0,
+    "size": 349680
+  },
+  "common_effect_add_nozbuffer07.dds": {
+    "mtime": 1730678863.0,
+    "size": 1398256
+  },
+  "common_effect_add_nozbuffer08.dds": {
+    "mtime": 1745817449.0,
+    "size": 349680
+  },
+  "common_effect_add_ring.dds": {
+    "mtime": 1575609678.0,
+    "size": 11050
+  },
+  "common_effect_add_stem01.dds": {
+    "mtime": 1572848694.0,
+    "size": 174890
+  },
+  "common_effect_alpha.dds": {
+    "mtime": 1259214159.0,
+    "size": 349680
+  },
+  "common_effect_alpha01_nightglow.dds": {
+    "mtime": 1688365732.0,
+    "size": 1398256
+  },
+  "common_effect_alpha01_nightglow_RE.dds": {
+    "mtime": 1756779433.0,
+    "size": 1398256
+  },
+  "common_effect_alpha02.dds": {
+    "mtime": 1437114295.0,
+    "size": 349680
+  },
+  "common_effect_alpha02_nightglow.dds": {
+    "mtime": 1686106054.0,
+    "size": 1398256
+  },
+  "common_effect_alpha02_nightglow_RE.dds": {
+    "mtime": 1761526851.0,
+    "size": 1398256
+  },
+  "common_effect_alpha03.dds": {
+    "mtime": 1378364111.0,
+    "size": 349680
+  },
+  "common_effect_alpha03_nightglow.dds": {
+    "mtime": 1688542257.0,
+    "size": 1398256
+  },
+  "common_effect_alpha04.dds": {
+    "mtime": 1458623128.0,
+    "size": 349680
+  },
+  "common_effect_alpha04_nightglow.dds": {
+    "mtime": 1688364306.0,
+    "size": 1398256
+  },
+  "common_effect_alpha05.dds": {
+    "mtime": 1715583510.0,
+    "size": 349680
+  },
+  "common_effect_alpha05_nightglow.dds": {
+    "mtime": 1688980212.0,
+    "size": 1398256
+  },
+  "common_effect_alpha06.dds": {
+    "mtime": 1671429091.0,
+    "size": 262272
+  },
+  "common_effect_alpha06_nightglow.dds": {
+    "mtime": 1688625507.0,
+    "size": 1398256
+  },
+  "common_effect_alpha07.dds": {
+    "mtime": 1697448195.0,
+    "size": 349680
+  },
+  "common_effect_alpha07_nightglow.dds": {
+    "mtime": 1687504551.0,
+    "size": 349680
+  },
+  "common_effect_alpha08.dds": {
+    "mtime": 1687220925.0,
+    "size": 349680
+  },
+  "common_effect_alpha08_nightglow.dds": {
+    "mtime": 1684468137.0,
+    "size": 349680
+  },
+  "common_effect_alpha09.dds": {
+    "mtime": 1709705448.0,
+    "size": 349680
+  },
+  "common_effect_alpha09_nightglow.dds": {
+    "mtime": 1694403514.0,
+    "size": 349680
+  },
+  "common_effect_alpha10.dds": {
+    "mtime": 1689119263.0,
+    "size": 1398256
+  },
+  "common_effect_alpha101_nightglow.dds": {
+    "mtime": 1727226457.0,
+    "size": 1398256
+  },
+  "common_effect_alpha103_nightglow.dds": {
+    "mtime": 1732583911.0,
+    "size": 1398256
+  },
+  "common_effect_alpha105_nightglow.dds": {
+    "mtime": 1729049047.0,
+    "size": 1398256
+  },
+  "common_effect_alpha107_nightglow.dds": {
+    "mtime": 1728540751.0,
+    "size": 1398256
+  },
+  "common_effect_alpha109_nightglow.dds": {
+    "mtime": 1729048852.0,
+    "size": 1398256
+  },
+  "common_effect_alpha10_nightglow.dds": {
+    "mtime": 1689908124.0,
+    "size": 349680
+  },
+  "common_effect_alpha11.dds": {
+    "mtime": 1690942347.0,
+    "size": 1398256
+  },
+  "common_effect_alpha111_nightglow.dds": {
+    "mtime": 1729577666.0,
+    "size": 1398256
+  },
+  "common_effect_alpha112_nightglow.dds": {
+    "mtime": 1740464008.0,
+    "size": 1398256
+  },
+  "common_effect_alpha113_nightglow.dds": {
+    "mtime": 1729124159.0,
+    "size": 1398256
+  },
+  "common_effect_alpha115_nightglow.dds": {
+    "mtime": 1729124206.0,
+    "size": 1398256
+  },
+  "common_effect_alpha117_nightglow.dds": {
+    "mtime": 1730334205.0,
+    "size": 1398256
+  },
+  "common_effect_alpha119_nightglow.dds": {
+    "mtime": 1732092343.0,
+    "size": 1398256
+  },
+  "common_effect_alpha11_nightglow.dds": {
+    "mtime": 1689812215.0,
+    "size": 349680
+  },
+  "common_effect_alpha12.dds": {
+    "mtime": 1686817756.0,
+    "size": 349680
+  },
+  "common_effect_alpha121_nightglow.dds": {
+    "mtime": 1732527904.0,
+    "size": 1398256
+  },
+  "common_effect_alpha123_nightglow.dds": {
+    "mtime": 1731898253.0,
+    "size": 1398256
+  },
+  "common_effect_alpha125_nightglow.dds": {
+    "mtime": 1732090681.0,
+    "size": 1398256
+  },
+  "common_effect_alpha127_nightglow.dds": {
+    "mtime": 1733383276.0,
+    "size": 1398256
+  },
+  "common_effect_alpha129_nightglow.dds": {
+    "mtime": 1734049771.0,
+    "size": 1398256
+  },
+  "common_effect_alpha12_nightglow.dds": {
+    "mtime": 1718939645.0,
+    "size": 349680
+  },
+  "common_effect_alpha13.dds": {
+    "mtime": 1714004781.0,
+    "size": 1398256
+  },
+  "common_effect_alpha131_nightglow.dds": {
+    "mtime": 1733297765.0,
+    "size": 1398256
+  },
+  "common_effect_alpha133_nightglow.dds": {
+    "mtime": 1733900051.0,
+    "size": 1398256
+  },
+  "common_effect_alpha134_nightglow.dds": {
+    "mtime": 1747033110.0,
+    "size": 1398256
+  },
+  "common_effect_alpha135_nightglow.dds": {
+    "mtime": 1736487843.0,
+    "size": 1398256
+  },
+  "common_effect_alpha137_nightglow.dds": {
+    "mtime": 1736726454.0,
+    "size": 1398256
+  },
+  "common_effect_alpha139_nightglow.dds": {
+    "mtime": 1736476876.0,
+    "size": 1398256
+  },
+  "common_effect_alpha13_nightglow.dds": {
+    "mtime": 1673840751.0,
+    "size": 1398256
+  },
+  "common_effect_alpha14.dds": {
+    "mtime": 1693965197.0,
+    "size": 349680
+  },
+  "common_effect_alpha141_nightglow.dds": {
+    "mtime": 1736748938.0,
+    "size": 1398256
+  },
+  "common_effect_alpha143_nightglow.dds": {
+    "mtime": 1737506579.0,
+    "size": 1398256
+  },
+  "common_effect_alpha145_nightglow.dds": {
+    "mtime": 1738821169.0,
+    "size": 1398256
+  },
+  "common_effect_alpha147_nightglow.dds": {
+    "mtime": 1739768514.0,
+    "size": 1398256
+  },
+  "common_effect_alpha148_nightglow.dds": {
+    "mtime": 1742794927.0,
+    "size": 1398256
+  },
+  "common_effect_alpha149_nightglow.dds": {
+    "mtime": 1738802985.0,
+    "size": 1398256
+  },
+  "common_effect_alpha14_nightglow.dds": {
+    "mtime": 1673573507.0,
+    "size": 1398256
+  },
+  "common_effect_alpha15.dds": {
+    "mtime": 1703127747.0,
+    "size": 1398256
+  },
+  "common_effect_alpha150_nightglow.dds": {
+    "mtime": 1742784442.0,
+    "size": 1398256
+  },
+  "common_effect_alpha151_nightglow.dds": {
+    "mtime": 1739312619.0,
+    "size": 1398256
+  },
+  "common_effect_alpha153_nightglow.dds": {
+    "mtime": 1739312685.0,
+    "size": 1398256
+  },
+  "common_effect_alpha155_nightglow.dds": {
+    "mtime": 1740031545.0,
+    "size": 1398256
+  },
+  "common_effect_alpha156_nightglow.dds": {
+    "mtime": 1755481370.0,
+    "size": 1398256
+  },
+  "common_effect_alpha157_nightglow.dds": {
+    "mtime": 1741219334.0,
+    "size": 1398256
+  },
+  "common_effect_alpha158_nightglow.dds": {
+    "mtime": 1749721050.0,
+    "size": 1398256
+  },
+  "common_effect_alpha159_nightglow.dds": {
+    "mtime": 1741072616.0,
+    "size": 1398256
+  },
+  "common_effect_alpha15_nightglow.dds": {
+    "mtime": 1688626051.0,
+    "size": 1398256
+  },
+  "common_effect_alpha16.dds": {
+    "mtime": 1679893744.0,
+    "size": 1398256
+  },
+  "common_effect_alpha160_nightglow.dds": {
+    "mtime": 1751350406.0,
+    "size": 1398256
+  },
+  "common_effect_alpha161_nightglow.dds": {
+    "mtime": 1741824055.0,
+    "size": 1398256
+  },
+  "common_effect_alpha162_nightglow.dds": {
+    "mtime": 1742264093.0,
+    "size": 1398256
+  },
+  "common_effect_alpha163_nightglow.dds": {
+    "mtime": 1751533855.0,
+    "size": 1398256
+  },
+  "common_effect_alpha164_nightglow.dds": {
+    "mtime": 1741756062.0,
+    "size": 1398256
+  },
+  "common_effect_alpha165_nightglow.dds": {
+    "mtime": 1741757245.0,
+    "size": 1398256
+  },
+  "common_effect_alpha166_nightglow.dds": {
+    "mtime": 1743052134.0,
+    "size": 1398256
+  },
+  "common_effect_alpha167_nightglow.dds": {
+    "mtime": 1754631397.0,
+    "size": 1398256
+  },
+  "common_effect_alpha168_nightglow.dds": {
+    "mtime": 1747111210.0,
+    "size": 1398256
+  },
+  "common_effect_alpha169_nightglow.dds": {
+    "mtime": 1742367499.0,
+    "size": 1398256
+  },
+  "common_effect_alpha16_nightglow.dds": {
+    "mtime": 1694395159.0,
+    "size": 1398256
+  },
+  "common_effect_alpha17.dds": {
+    "mtime": 1712129995.0,
+    "size": 349680
+  },
+  "common_effect_alpha170_nightglow.dds": {
+    "mtime": 1745541792.0,
+    "size": 1398256
+  },
+  "common_effect_alpha171_nightglow.dds": {
+    "mtime": 1742453333.0,
+    "size": 1398256
+  },
+  "common_effect_alpha172_nightglow.dds": {
+    "mtime": 1742453311.0,
+    "size": 1398256
+  },
+  "common_effect_alpha173_nightglow.dds": {
+    "mtime": 1743032512.0,
+    "size": 1398256
+  },
+  "common_effect_alpha174_nightglow.dds": {
+    "mtime": 1744325555.0,
+    "size": 1398256
+  },
+  "common_effect_alpha175_nightglow.dds": {
+    "mtime": 1744698899.0,
+    "size": 1398256
+  },
+  "common_effect_alpha176_nightglow.dds": {
+    "mtime": 1750137902.0,
+    "size": 1398256
+  },
+  "common_effect_alpha177_nightglow.dds": {
+    "mtime": 1745319116.0,
+    "size": 1398256
+  },
+  "common_effect_alpha178_nightglow.dds": {
+    "mtime": 1750313366.0,
+    "size": 1398256
+  },
+  "common_effect_alpha179_nightglow.dds": {
+    "mtime": 1753159887.0,
+    "size": 1398256
+  },
+  "common_effect_alpha17_nightglow.dds": {
+    "mtime": 1688950595.0,
+    "size": 1398256
+  },
+  "common_effect_alpha18.dds": {
+    "mtime": 1697448057.0,
+    "size": 1398256
+  },
+  "common_effect_alpha180_nightglow.dds": {
+    "mtime": 1755749528.0,
+    "size": 1398256
+  },
+  "common_effect_alpha181_nightglow.dds": {
+    "mtime": 1751350500.0,
+    "size": 1398256
+  },
+  "common_effect_alpha182_nightglow.dds": {
+    "mtime": 1754552658.0,
+    "size": 1398256
+  },
+  "common_effect_alpha183_nightglow.dds": {
+    "mtime": 1755494644.0,
+    "size": 1398256
+  },
+  "common_effect_alpha184_nightglow.dds": {
+    "mtime": 1753425103.0,
+    "size": 1398256
+  },
+  "common_effect_alpha185_nightglow.dds": {
+    "mtime": 1754631624.0,
+    "size": 1398256
+  },
+  "common_effect_alpha186_nightglow.dds": {
+    "mtime": 1754531865.0,
+    "size": 1398256
+  },
+  "common_effect_alpha187_nightglow.dds": {
+    "mtime": 1754531826.0,
+    "size": 1398256
+  },
+  "common_effect_alpha189_nightglow.dds": {
+    "mtime": 1755736742.0,
+    "size": 1398256
+  },
+  "common_effect_alpha18_nightglow.dds": {
+    "mtime": 1757316817.0,
+    "size": 1398256
+  },
+  "common_effect_alpha19.dds": {
+    "mtime": 1697614941.0,
+    "size": 1398256
+  },
+  "common_effect_alpha191_nightglow.dds": {
+    "mtime": 1756079412.0,
+    "size": 1398256
+  },
+  "common_effect_alpha193_nightglow.dds": {
+    "mtime": 1756790611.0,
+    "size": 1398256
+  },
+  "common_effect_alpha195_nightglow.dds": {
+    "mtime": 1756944385.0,
+    "size": 1398256
+  },
+  "common_effect_alpha197_nightglow.dds": {
+    "mtime": 1757291999.0,
+    "size": 1398256
+  },
+  "common_effect_alpha199_nightglow.dds": {
+    "mtime": 1770004100.0,
+    "size": 1398256
+  },
+  "common_effect_alpha19_nightglow.dds": {
+    "mtime": 1715310060.0,
+    "size": 1398256
+  },
+  "common_effect_alpha200_nightglow.dds": {
+    "mtime": 1758538708.0,
+    "size": 1398256
+  },
+  "common_effect_alpha201_nightglow.dds": {
+    "mtime": 1757901147.0,
+    "size": 1398256
+  },
+  "common_effect_alpha203_nightglow.dds": {
+    "mtime": 1757582272.0,
+    "size": 1398256
+  },
+  "common_effect_alpha205_nightglow.dds": {
+    "mtime": 1758538022.0,
+    "size": 1398256
+  },
+  "common_effect_alpha207_nightglow.dds": {
+    "mtime": 1758186105.0,
+    "size": 1398256
+  },
+  "common_effect_alpha208_nightglow.dds": {
+    "mtime": 1758182071.0,
+    "size": 1398256
+  },
+  "common_effect_alpha209_nightglow.dds": {
+    "mtime": 1760951332.0,
+    "size": 1398256
+  },
+  "common_effect_alpha20_nightglow.dds": {
+    "mtime": 1678347266.0,
+    "size": 349680
+  },
+  "common_effect_alpha21.dds": {
+    "mtime": 1698820607.0,
+    "size": 1398256
+  },
+  "common_effect_alpha211_nightglow.dds": {
+    "mtime": 1758760024.0,
+    "size": 1398256
+  },
+  "common_effect_alpha212_nightglow.dds": {
+    "mtime": 1761113659.0,
+    "size": 1398256
+  },
+  "common_effect_alpha213_nightglow.dds": {
+    "mtime": 1761791612.0,
+    "size": 1398256
+  },
+  "common_effect_alpha214_nightglow.dds": {
+    "mtime": 1761113689.0,
+    "size": 1398256
+  },
+  "common_effect_alpha215_nightglow.dds": {
+    "mtime": 1761627658.0,
+    "size": 1398256
+  },
+  "common_effect_alpha216_nightglow.dds": {
+    "mtime": 1762815378.0,
+    "size": 1398256
+  },
+  "common_effect_alpha217_nightglow.dds": {
+    "mtime": 1762815417.0,
+    "size": 1398256
+  },
+  "common_effect_alpha218_nightglow.dds": {
+    "mtime": 1762842641.0,
+    "size": 1398256
+  },
+  "common_effect_alpha219_nightglow.dds": {
+    "mtime": 1762842657.0,
+    "size": 1398256
+  },
+  "common_effect_alpha21_nightglow.dds": {
+    "mtime": 1698306562.0,
+    "size": 1398256
+  },
+  "common_effect_alpha22.dds": {
+    "mtime": 1698821648.0,
+    "size": 1398256
+  },
+  "common_effect_alpha222_nightglow.dds": {
+    "mtime": 1767859554.0,
+    "size": 1398256
+  },
+  "common_effect_alpha223_nightglow.dds": {
+    "mtime": 1767859608.0,
+    "size": 1398256
+  },
+  "common_effect_alpha224_nightglow.dds": {
+    "mtime": 1767859651.0,
+    "size": 1398256
+  },
+  "common_effect_alpha225_nightglow.dds": {
+    "mtime": 1768174747.0,
+    "size": 87536
+  },
+  "common_effect_alpha226_nightglow.dds": {
+    "mtime": 1768176991.0,
+    "size": 349680
+  },
+  "common_effect_alpha22_nightglow.dds": {
+    "mtime": 1690958632.0,
+    "size": 349680
+  },
+  "common_effect_alpha23.dds": {
+    "mtime": 1698881875.0,
+    "size": 1398256
+  },
+  "common_effect_alpha23_nightglow.dds": {
+    "mtime": 1688518585.0,
+    "size": 1398256
+  },
+  "common_effect_alpha24.dds": {
+    "mtime": 1705365513.0,
+    "size": 87536
+  },
+  "common_effect_alpha24_nightglow.dds": {
+    "mtime": 1693203148.0,
+    "size": 349680
+  },
+  "common_effect_alpha25_nightglow.dds": {
+    "mtime": 1688710948.0,
+    "size": 1398256
+  },
+  "common_effect_alpha26.dds": {
+    "mtime": 1709862233.0,
+    "size": 349680
+  },
+  "common_effect_alpha26_nightglow.dds": {
+    "mtime": 1693203351.0,
+    "size": 349680
+  },
+  "common_effect_alpha27_nightglow.dds": {
+    "mtime": 1688712345.0,
+    "size": 349680
+  },
+  "common_effect_alpha28_nightglow.dds": {
+    "mtime": 1698306703.0,
+    "size": 1398256
+  },
+  "common_effect_alpha29_nightglow.dds": {
+    "mtime": 1688950228.0,
+    "size": 1398256
+  },
+  "common_effect_alpha30.dds": {
+    "mtime": 1712126260.0,
+    "size": 1398256
+  },
+  "common_effect_alpha30_nightglow.dds": {
+    "mtime": 1757320235.0,
+    "size": 349680
+  },
+  "common_effect_alpha31_nightglow.dds": {
+    "mtime": 1689840205.0,
+    "size": 1398256
+  },
+  "common_effect_alpha32.dds": {
+    "mtime": 1712126602.0,
+    "size": 349680
+  },
+  "common_effect_alpha32_nightglow.dds": {
+    "mtime": 1690506174.0,
+    "size": 1398256
+  },
+  "common_effect_alpha33_nightglow.dds": {
+    "mtime": 1693992220.0,
+    "size": 1398256
+  },
+  "common_effect_alpha34.dds": {
+    "mtime": 1712126818.0,
+    "size": 349680
+  },
+  "common_effect_alpha34_nightglow.dds": {
+    "mtime": 1695021520.0,
+    "size": 349680
+  },
+  "common_effect_alpha35_nightglow.dds": {
+    "mtime": 1694564089.0,
+    "size": 1398256
+  },
+  "common_effect_alpha36.dds": {
+    "mtime": 1715320082.0,
+    "size": 349680
+  },
+  "common_effect_alpha36_nightglow.dds": {
+    "mtime": 1712044389.0,
+    "size": 349680
+  },
+  "common_effect_alpha37.dds": {
+    "mtime": 1718603544.0,
+    "size": 349680
+  },
+  "common_effect_alpha37_nightglow.dds": {
+    "mtime": 1768871419.0,
+    "size": 1398256
+  },
+  "common_effect_alpha38.dds": {
+    "mtime": 1716950971.0,
+    "size": 1398256
+  },
+  "common_effect_alpha38_nightglow.dds": {
+    "mtime": 1706757030.0,
+    "size": 349680
+  },
+  "common_effect_alpha39.dds": {
+    "mtime": 1737071806.0,
+    "size": 349680
+  },
+  "common_effect_alpha39_nightglow.dds": {
+    "mtime": 1697686560.0,
+    "size": 1398256
+  },
+  "common_effect_alpha40.dds": {
+    "mtime": 1717997634.0,
+    "size": 1398256
+  },
+  "common_effect_alpha40_nightglow.dds": {
+    "mtime": 1708567413.0,
+    "size": 349680
+  },
+  "common_effect_alpha41_nightglow.dds": {
+    "mtime": 1705885285.0,
+    "size": 1398256
+  },
+  "common_effect_alpha42.dds": {
+    "mtime": 1718001959.0,
+    "size": 1398256
+  },
+  "common_effect_alpha42_nightglow.dds": {
+    "mtime": 1707879903.0,
+    "size": 349680
+  },
+  "common_effect_alpha43_nightglow.dds": {
+    "mtime": 1706743282.0,
+    "size": 1398256
+  },
+  "common_effect_alpha44.dds": {
+    "mtime": 1722921958.0,
+    "size": 349680
+  },
+  "common_effect_alpha44_nightglow.dds": {
+    "mtime": 1706056634.0,
+    "size": 349680
+  },
+  "common_effect_alpha45_nightglow.dds": {
+    "mtime": 1704155091.0,
+    "size": 1398256
+  },
+  "common_effect_alpha46.dds": {
+    "mtime": 1723181270.0,
+    "size": 349680
+  },
+  "common_effect_alpha46_nightglow.dds": {
+    "mtime": 1757321550.0,
+    "size": 349680
+  },
+  "common_effect_alpha47_nightglow.dds": {
+    "mtime": 1704233476.0,
+    "size": 1398256
+  },
+  "common_effect_alpha48.dds": {
+    "mtime": 1723172043.0,
+    "size": 349680
+  },
+  "common_effect_alpha48_nightglow.dds": {
+    "mtime": 1757399076.0,
+    "size": 349680
+  },
+  "common_effect_alpha49_nightglow.dds": {
+    "mtime": 1707866298.0,
+    "size": 1398256
+  },
+  "common_effect_alpha50.dds": {
+    "mtime": 1723181282.0,
+    "size": 349680
+  },
+  "common_effect_alpha50_nightglow.dds": {
+    "mtime": 1757404862.0,
+    "size": 1398256
+  },
+  "common_effect_alpha51_nightglow.dds": {
+    "mtime": 1711950142.0,
+    "size": 1398256
+  },
+  "common_effect_alpha52.dds": {
+    "mtime": 1726036075.0,
+    "size": 1398256
+  },
+  "common_effect_alpha53_nightglow.dds": {
+    "mtime": 1716339047.0,
+    "size": 1398256
+  },
+  "common_effect_alpha54.dds": {
+    "mtime": 1727077576.0,
+    "size": 349680
+  },
+  "common_effect_alpha55_nightglow.dds": {
+    "mtime": 1707353526.0,
+    "size": 1398256
+  },
+  "common_effect_alpha56.dds": {
+    "mtime": 1727080989.0,
+    "size": 349680
+  },
+  "common_effect_alpha56_nightglow.dds": {
+    "mtime": 1715927666.0,
+    "size": 349680
+  },
+  "common_effect_alpha57_nightglow.dds": {
+    "mtime": 1711060969.0,
+    "size": 1398256
+  },
+  "common_effect_alpha58.dds": {
+    "mtime": 1729748226.0,
+    "size": 349680
+  },
+  "common_effect_alpha58_nightglow.dds": {
+    "mtime": 1716424219.0,
+    "size": 349680
+  },
+  "common_effect_alpha59_nightglow.dds": {
+    "mtime": 1717541306.0,
+    "size": 1398256
+  },
+  "common_effect_alpha60.dds": {
+    "mtime": 1730264079.0,
+    "size": 349680
+  },
+  "common_effect_alpha60_nightglow.dds": {
+    "mtime": 1729665076.0,
+    "size": 349680
+  },
+  "common_effect_alpha61_nightglow.dds": {
+    "mtime": 1762136958.0,
+    "size": 5592532
+  },
+  "common_effect_alpha62.dds": {
+    "mtime": 1729831237.0,
+    "size": 349680
+  },
+  "common_effect_alpha62_nightglow.dds": {
+    "mtime": 1721025563.0,
+    "size": 349680
+  },
+  "common_effect_alpha63_nightglow.dds": {
+    "mtime": 1712215799.0,
+    "size": 1398256
+  },
+  "common_effect_alpha64.dds": {
+    "mtime": 1733901801.0,
+    "size": 349680
+  },
+  "common_effect_alpha64_nightglow.dds": {
+    "mtime": 1721005504.0,
+    "size": 1398256
+  },
+  "common_effect_alpha65_nightglow.dds": {
+    "mtime": 1718952622.0,
+    "size": 1398256
+  },
+  "common_effect_alpha66.dds": {
+    "mtime": 1736217564.0,
+    "size": 349680
+  },
+  "common_effect_alpha66_nightglow.dds": {
+    "mtime": 1721279576.0,
+    "size": 349680
+  },
+  "common_effect_alpha67_nightglow.dds": {
+    "mtime": 1719195664.0,
+    "size": 1398256
+  },
+  "common_effect_alpha68.dds": {
+    "mtime": 1736293641.0,
+    "size": 1398256
+  },
+  "common_effect_alpha68_nightglow.dds": {
+    "mtime": 1723101351.0,
+    "size": 349680
+  },
+  "common_effect_alpha69_nightglow.dds": {
+    "mtime": 1719193583.0,
+    "size": 1398256
+  },
+  "common_effect_alpha70.dds": {
+    "mtime": 1740360365.0,
+    "size": 1398256
+  },
+  "common_effect_alpha70_nightglow.dds": {
+    "mtime": 1725868415.0,
+    "size": 87536
+  },
+  "common_effect_alpha71_nightglow.dds": {
+    "mtime": 1721775038.0,
+    "size": 1398256
+  },
+  "common_effect_alpha72.dds": {
+    "mtime": 1740466160.0,
+    "size": 87536
+  },
+  "common_effect_alpha72_nightglow.dds": {
+    "mtime": 1733471394.0,
+    "size": 349680
+  },
+  "common_effect_alpha73_nightglow.dds": {
+    "mtime": 1722233290.0,
+    "size": 349680
+  },
+  "common_effect_alpha74_nightglow.dds": {
+    "mtime": 1739347009.0,
+    "size": 349680
+  },
+  "common_effect_alpha75_nightglow.dds": {
+    "mtime": 1723182907.0,
+    "size": 349680
+  },
+  "common_effect_alpha76_nightglow.dds": {
+    "mtime": 1762324046.0,
+    "size": 1398256
+  },
+  "common_effect_alpha77_nightglow.dds": {
+    "mtime": 1724906767.0,
+    "size": 1398256
+  },
+  "common_effect_alpha79_nightglow.dds": {
+    "mtime": 1725496036.0,
+    "size": 1398256
+  },
+  "common_effect_alpha81_nightglow.dds": {
+    "mtime": 1725837597.0,
+    "size": 1398256
+  },
+  "common_effect_alpha83_nightglow.dds": {
+    "mtime": 1733725368.0,
+    "size": 1398256
+  },
+  "common_effect_alpha85_nightglow.dds": {
+    "mtime": 1725837883.0,
+    "size": 1398256
+  },
+  "common_effect_alpha87_nightglow.dds": {
+    "mtime": 1725848911.0,
+    "size": 1398256
+  },
+  "common_effect_alpha89_nightglow.dds": {
+    "mtime": 1725849008.0,
+    "size": 1398256
+  },
+  "common_effect_alpha91_nightglow.dds": {
+    "mtime": 1725925941.0,
+    "size": 1398256
+  },
+  "common_effect_alpha93_nightglow.dds": {
+    "mtime": 1725925929.0,
+    "size": 1398256
+  },
+  "common_effect_alpha95_nightglow.dds": {
+    "mtime": 1726035972.0,
+    "size": 1398256
+  },
+  "common_effect_alpha97_nightglow.dds": {
+    "mtime": 1726019981.0,
+    "size": 1398256
+  },
+  "common_effect_alpha99_nightglow.dds": {
+    "mtime": 1727843078.0,
+    "size": 1398256
+  },
+  "common_effect_clock01.dds": {
+    "mtime": 1528700491.0,
+    "size": 65664
+  },
+  "common_effect_clock02.dds": {
+    "mtime": 1528702693.0,
+    "size": 65664
+  },
+  "common_effect_clock03.dds": {
+    "mtime": 1582174258.0,
+    "size": 87536
+  },
+  "common_effect_clock04.dds": {
+    "mtime": 1582165118.0,
+    "size": 87536
+  },
+  "common_effect_crack.dds": {
+    "mtime": 1512448686.0,
+    "size": 131200
+  },
+  "common_effect_crack01.dds": {
+    "mtime": 1670910453.0,
+    "size": 524416
+  },
+  "common_effect_Late_add_01.dds": {
+    "mtime": 1687500720.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_01_RE.dds": {
+    "mtime": 1745479041.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_02.dds": {
+    "mtime": 1675045773.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_02_RE.dds": {
+    "mtime": 1752539369.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_03.dds": {
+    "mtime": 1686206759.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_03_RE.dds": {
+    "mtime": 1767831122.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_04.dds": {
+    "mtime": 1675913454.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_05.dds": {
+    "mtime": 1677833957.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_06.dds": {
+    "mtime": 1706228121.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_07.dds": {
+    "mtime": 1687480698.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_08.dds": {
+    "mtime": 1715305100.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_09.dds": {
+    "mtime": 1686812952.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_100.dds": {
+    "mtime": 1739413896.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_101.dds": {
+    "mtime": 1725925320.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_102.dds": {
+    "mtime": 1737348099.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_103.dds": {
+    "mtime": 1725925183.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_104.dds": {
+    "mtime": 1736469344.0,
+    "size": 87536
+  },
+  "common_effect_Late_add_105.dds": {
+    "mtime": 1753136708.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_106.dds": {
+    "mtime": 1737363039.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_107.dds": {
+    "mtime": 1726035769.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_108.dds": {
+    "mtime": 1740363326.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_109.dds": {
+    "mtime": 1726014931.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_11.dds": {
+    "mtime": 1690942287.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_111.dds": {
+    "mtime": 1727226342.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_113.dds": {
+    "mtime": 1727659167.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_115.dds": {
+    "mtime": 1727842955.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_117.dds": {
+    "mtime": 1727173433.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_118.dds": {
+    "mtime": 1753163315.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_119.dds": {
+    "mtime": 1727219382.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_12.dds": {
+    "mtime": 1702619652.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_120.dds": {
+    "mtime": 1753163330.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_121.dds": {
+    "mtime": 1728351660.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_123.dds": {
+    "mtime": 1729577681.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_125.dds": {
+    "mtime": 1729124018.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_127.dds": {
+    "mtime": 1729123998.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_129.dds": {
+    "mtime": 1729493359.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_13.dds": {
+    "mtime": 1688949549.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_131.dds": {
+    "mtime": 1729495211.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_133.dds": {
+    "mtime": 1730160068.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_134.dds": {
+    "mtime": 1747010430.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_135.dds": {
+    "mtime": 1731548307.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_136.dds": {
+    "mtime": 1747025558.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_137.dds": {
+    "mtime": 1732093850.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_139.dds": {
+    "mtime": 1731898118.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_14.dds": {
+    "mtime": 1706743670.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_141.dds": {
+    "mtime": 1732090705.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_143.dds": {
+    "mtime": 1732760430.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_145.dds": {
+    "mtime": 1732767724.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_147.dds": {
+    "mtime": 1734331230.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_148.dds": {
+    "mtime": 1752539187.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_149.dds": {
+    "mtime": 1733383289.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_15.dds": {
+    "mtime": 1688972144.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_151.dds": {
+    "mtime": 1733894141.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_153.dds": {
+    "mtime": 1733297673.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_155.dds": {
+    "mtime": 1733900134.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_157.dds": {
+    "mtime": 1734661710.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_159.dds": {
+    "mtime": 1736210718.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_16.dds": {
+    "mtime": 1690506244.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_161.dds": {
+    "mtime": 1736932092.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_163.dds": {
+    "mtime": 1737600334.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_165.dds": {
+    "mtime": 1737350230.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_167.dds": {
+    "mtime": 1739492380.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_169.dds": {
+    "mtime": 1737600161.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_17.dds": {
+    "mtime": 1688979740.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_171.dds": {
+    "mtime": 1738801410.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_173.dds": {
+    "mtime": 1738821093.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_175.dds": {
+    "mtime": 1739142693.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_177.dds": {
+    "mtime": 1739237558.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_179.dds": {
+    "mtime": 1739311972.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_18.dds": {
+    "mtime": 1689156886.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_181.dds": {
+    "mtime": 1739311912.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_183.dds": {
+    "mtime": 1739495239.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_184.dds": {
+    "mtime": 1750137827.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_185.dds": {
+    "mtime": 1740031513.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_186.dds": {
+    "mtime": 1759208062.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_187.dds": {
+    "mtime": 1740116487.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_188.dds": {
+    "mtime": 1750721785.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_189.dds": {
+    "mtime": 1740461681.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_19.dds": {
+    "mtime": 1689235698.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_191.dds": {
+    "mtime": 1740378023.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_192.dds": {
+    "mtime": 1750245607.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_193.dds": {
+    "mtime": 1741237480.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_194.dds": {
+    "mtime": 1743664285.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_195.dds": {
+    "mtime": 1741068632.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_197.dds": {
+    "mtime": 1741159496.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_199.dds": {
+    "mtime": 1742367453.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_200.dds": {
+    "mtime": 1752543255.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_201.dds": {
+    "mtime": 1742184623.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_202.dds": {
+    "mtime": 1745206903.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_203.dds": {
+    "mtime": 1751593809.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_205.dds": {
+    "mtime": 1741913274.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_207.dds": {
+    "mtime": 1741913260.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_208.dds": {
+    "mtime": 1749512341.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_209.dds": {
+    "mtime": 1756790823.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_21.dds": {
+    "mtime": 1697686493.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_210.dds": {
+    "mtime": 1742883373.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_211.dds": {
+    "mtime": 1754974356.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_212.dds": {
+    "mtime": 1754545579.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_213.dds": {
+    "mtime": 1753332323.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_215.dds": {
+    "mtime": 1753424085.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_216.dds": {
+    "mtime": 1755744583.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_217.dds": {
+    "mtime": 1755054132.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_219.dds": {
+    "mtime": 1754528816.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_22.dds": {
+    "mtime": 1698818090.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_220.dds": {
+    "mtime": 1754528870.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_221.dds": {
+    "mtime": 1756084353.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_223.dds": {
+    "mtime": 1759125847.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_225.dds": {
+    "mtime": 1758537963.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_226.dds": {
+    "mtime": 1757290680.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_227.dds": {
+    "mtime": 1758069584.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_229.dds": {
+    "mtime": 1757651621.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_23.dds": {
+    "mtime": 1698820161.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_231.dds": {
+    "mtime": 1757901677.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_233.dds": {
+    "mtime": 1759135832.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_234.dds": {
+    "mtime": 1758182156.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_235.dds": {
+    "mtime": 1760947362.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_237.dds": {
+    "mtime": 1758759805.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_238.dds": {
+    "mtime": 1761112929.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_239.dds": {
+    "mtime": 1761113100.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_24.dds": {
+    "mtime": 1700464689.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_240.dds": {
+    "mtime": 1761791563.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_241.dds": {
+    "mtime": 1761615015.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_242.dds": {
+    "mtime": 1762402959.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_243.dds": {
+    "mtime": 1762472875.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_244.dds": {
+    "mtime": 1762472799.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_245.dds": {
+    "mtime": 1762474867.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_246.dds": {
+    "mtime": 1762405749.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_247.dds": {
+    "mtime": 1762815318.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_248.dds": {
+    "mtime": 1762988729.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_249.dds": {
+    "mtime": 1762823940.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_25.dds": {
+    "mtime": 1704172250.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_250.dds": {
+    "mtime": 1762829364.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_251.dds": {
+    "mtime": 1762842106.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_252.dds": {
+    "mtime": 1762842114.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_253.dds": {
+    "mtime": 1762988492.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_254.dds": {
+    "mtime": 1762988135.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_255.dds": {
+    "mtime": 1767857257.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_256.dds": {
+    "mtime": 1767857381.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_257.dds": {
+    "mtime": 1767859488.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_258.dds": {
+    "mtime": 1768200048.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_259.dds": {
+    "mtime": 1768277593.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_260.dds": {
+    "mtime": 1768784994.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_261.dds": {
+    "mtime": 1768876416.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_27.dds": {
+    "mtime": 1704233418.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_28.dds": {
+    "mtime": 1745888363.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_31.dds": {
+    "mtime": 1710986021.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_33.dds": {
+    "mtime": 1712193871.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_34.dds": {
+    "mtime": 1718257435.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_35.dds": {
+    "mtime": 1712812620.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_36.dds": {
+    "mtime": 1716440680.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_37.dds": {
+    "mtime": 1718176640.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_38.dds": {
+    "mtime": 1729558335.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_39.dds": {
+    "mtime": 1712215788.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_40.dds": {
+    "mtime": 1715848476.0,
+    "size": 87536
+  },
+  "common_effect_Late_add_41.dds": {
+    "mtime": 1717028810.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_42.dds": {
+    "mtime": 1723016408.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_43.dds": {
+    "mtime": 1717456371.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_44.dds": {
+    "mtime": 1725349746.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_45.dds": {
+    "mtime": 1716958625.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_46.dds": {
+    "mtime": 1718082881.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_47.dds": {
+    "mtime": 1733725042.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_49.dds": {
+    "mtime": 1719369992.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_51.dds": {
+    "mtime": 1719371008.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_52.dds": {
+    "mtime": 1719902194.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_53.dds": {
+    "mtime": 1720137488.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_55.dds": {
+    "mtime": 1721804353.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_57.dds": {
+    "mtime": 1721886902.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_58.dds": {
+    "mtime": 1732672717.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_59.dds": {
+    "mtime": 1722210724.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_60.dds": {
+    "mtime": 1721279258.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_61.dds": {
+    "mtime": 1722489756.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_62.dds": {
+    "mtime": 1722838615.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_63.dds": {
+    "mtime": 1722489922.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_65.dds": {
+    "mtime": 1722835805.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_66.dds": {
+    "mtime": 1729831516.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_67.dds": {
+    "mtime": 1723073912.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_68.dds": {
+    "mtime": 1733896616.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_69.dds": {
+    "mtime": 1724374979.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_70.dds": {
+    "mtime": 1732153173.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_71.dds": {
+    "mtime": 1724291241.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_73.dds": {
+    "mtime": 1724110682.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_75.dds": {
+    "mtime": 1724282200.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_77.dds": {
+    "mtime": 1724975585.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_79.dds": {
+    "mtime": 1724627138.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_80.dds": {
+    "mtime": 1728887730.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_81.dds": {
+    "mtime": 1724901891.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_82.dds": {
+    "mtime": 1727242707.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_83.dds": {
+    "mtime": 1724824811.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_84.dds": {
+    "mtime": 1729230149.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_85.dds": {
+    "mtime": 1724901352.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_86.dds": {
+    "mtime": 1730709650.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_87.dds": {
+    "mtime": 1725357340.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_88.dds": {
+    "mtime": 1733900772.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_89.dds": {
+    "mtime": 1725357448.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_90.dds": {
+    "mtime": 1732784854.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_91.dds": {
+    "mtime": 1725835375.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_92.dds": {
+    "mtime": 1732782281.0,
+    "size": 87536
+  },
+  "common_effect_Late_add_93.dds": {
+    "mtime": 1725842239.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_94.dds": {
+    "mtime": 1734506678.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_95.dds": {
+    "mtime": 1725835072.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_96.dds": {
+    "mtime": 1735535348.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_97.dds": {
+    "mtime": 1725848436.0,
+    "size": 1398256
+  },
+  "common_effect_Late_add_98.dds": {
+    "mtime": 1735270082.0,
+    "size": 349680
+  },
+  "common_effect_Late_add_99.dds": {
+    "mtime": 1725848846.0,
+    "size": 1398256
+  },
+  "common_effect_Late_alpha_01.dds": {
+    "mtime": 1711342748.0,
+    "size": 1398256
+  },
+  "common_effect_Late_alpha_02.dds": {
+    "mtime": 1697782239.0,
+    "size": 1398256
+  },
+  "common_effect_Late_alpha_03.dds": {
+    "mtime": 1762217511.0,
+    "size": 349680
+  },
+  "common_effect_Late_alpha_04.dds": {
+    "mtime": 1757579369.0,
+    "size": 1398256
+  },
+  "common_effect_Late_alpha_05.dds": {
+    "mtime": 1763017987.0,
+    "size": 1398256
+  },
+  "common_effect_Late_alpha_06.dds": {
+    "mtime": 1763018008.0,
+    "size": 1398256
+  },
+  "common_effect_Late_alpha_08.dds": {
+    "mtime": 1768957761.0,
+    "size": 87536
+  },
+  "common_effect_portal_01.dds": {
+    "mtime": 1260085271.0,
+    "size": 262272
+  },
+  "common_effect_portal_02.dds": {
+    "mtime": 1260019038.0,
+    "size": 65664
+  },
+  "common_effect_subtract.dds": {
+    "mtime": 1395997432.0,
+    "size": 699178
+  },
+  "common_effect_subtract02.dds": {
+    "mtime": 1397546098.0,
+    "size": 32896
+  },
+  "common_effect_subtract_10.dds": {
+    "mtime": 1700037343.0,
+    "size": 349680
+  },
+  "common_effect_subtract_11.dds": {
+    "mtime": 1705287078.0,
+    "size": 1398256
+  },
+  "common_effect_subtract_12.dds": {
+    "mtime": 1709103034.0,
+    "size": 349680
+  },
+  "common_effect_subtract_13.dds": {
+    "mtime": 1705301492.0,
+    "size": 349680
+  },
+  "common_effect_subtract_14.dds": {
+    "mtime": 1705302921.0,
+    "size": 349680
+  },
+  "common_effect_subtract_15.dds": {
+    "mtime": 1709087667.0,
+    "size": 1398256
+  },
+  "common_effect_subtract_16.dds": {
+    "mtime": 1709103245.0,
+    "size": 1398256
+  },
+  "common_effect_subtract_18.dds": {
+    "mtime": 1709100452.0,
+    "size": 1398256
+  },
+  "common_effect_subtract_2.DDS": {
+    "mtime": 1647234969.0,
+    "size": 699178
+  },
+  "common_effect_subtract_20.dds": {
+    "mtime": 1709521918.0,
+    "size": 349680
+  },
+  "common_effect_subtract_21.dds": {
+    "mtime": 1709530293.0,
+    "size": 349680
+  },
+  "common_effect_subtract_22.dds": {
+    "mtime": 1709529071.0,
+    "size": 349680
+  },
+  "common_effect_subtract_23.dds": {
+    "mtime": 1751958325.0,
+    "size": 699178
+  },
+  "common_effect_subtract_3.dds": {
+    "mtime": 1659512535.0,
+    "size": 349680
+  },
+  "common_effect_subtract_4.dds": {
+    "mtime": 1573801341.0,
+    "size": 699178
+  },
+  "common_effect_subtract_5.dds": {
+    "mtime": 1671597470.0,
+    "size": 524416
+  },
+  "common_effect_subtract_6.dds": {
+    "mtime": 1649753507.0,
+    "size": 699178
+  },
+  "common_effect_subtract_7.dds": {
+    "mtime": 1628237057.0,
+    "size": 349680
+  },
+  "common_effect_subtract_8.dds": {
+    "mtime": 1667443059.0,
+    "size": 699178
+  },
+  "common_effect_subtract_9.dds": {
+    "mtime": 1709097892.0,
+    "size": 349680
+  },
+  "crosshaira.dds": {
+    "mtime": 1575530631.0,
+    "size": 174890
+  },
+  "dissolve01.dds": {
+    "mtime": 1055488161.0,
+    "size": 262272
+  },
+  "doll_cursor.dds": {
+    "mtime": 1338252259.0,
+    "size": 174890
+  },
+  "effect_add_beam01.dds": {
+    "mtime": 1530575565.0,
+    "size": 65664
+  },
+  "effect_add_beam01_dx1.dds": {
+    "mtime": 1420778303.0,
+    "size": 174894
+  },
+  "effect_add_beam01_sub.dds": {
+    "mtime": 1530575565.0,
+    "size": 65664
+  },
+  "effect_add_beam02.DDS": {
+    "mtime": 1671595068.0,
+    "size": 65664
+  },
+  "effect_add_beam02_dx1.dds": {
+    "mtime": 1420785961.0,
+    "size": 174894
+  },
+  "effect_add_beam02_sub.DDS": {
+    "mtime": 1671595068.0,
+    "size": 65664
+  },
+  "effect_add_beam03.dds": {
+    "mtime": 1671595075.0,
+    "size": 131200
+  },
+  "effect_add_beam03_sub.dds": {
+    "mtime": 1671595075.0,
+    "size": 131200
+  },
+  "effect_add_beam_dx1.DDS": {
+    "mtime": 1420776909.0,
+    "size": 87518
+  },
+  "effect_add_beat01.dds": {
+    "mtime": 1554190621.0,
+    "size": 43818
+  },
+  "effect_add_blood_uv.dds": {
+    "mtime": 1161670584.0,
+    "size": 32896
+  },
+  "effect_add_blood_uv02.DDS": {
+    "mtime": 1215600865.0,
+    "size": 22032
+  },
+  "effect_add_blood_uv03.dds": {
+    "mtime": 1403063608.0,
+    "size": 32896
+  },
+  "effect_add_blood_uv04.dds": {
+    "mtime": 1688521975.0,
+    "size": 11152
+  },
+  "effect_add_blood_uv05.dds": {
+    "mtime": 1716861133.0,
+    "size": 22032
+  },
+  "effect_add_blunt.dds": {
+    "mtime": 1672199491.0,
+    "size": 87536
+  },
+  "effect_add_chain.dds": {
+    "mtime": 1648170567.0,
+    "size": 174890
+  },
+  "effect_add_charm.dds": {
+    "mtime": 1424145196.0,
+    "size": 87536
+  },
+  "effect_add_darkhailo.dds": {
+    "mtime": 1513127708.0,
+    "size": 131200
+  },
+  "effect_add_darkhailo_sub.dds": {
+    "mtime": 1515049634.0,
+    "size": 131200
+  },
+  "effect_add_distrail.dds": {
+    "mtime": 1505796504.0,
+    "size": 32896
+  },
+  "effect_add_divine_sub.DDS": {
+    "mtime": 1529575740.0,
+    "size": 131200
+  },
+  "effect_add_divine_uv01.DDS": {
+    "mtime": 1435822969.0,
+    "size": 174992
+  },
+  "effect_add_divine_uv02.dds": {
+    "mtime": 1745819466.0,
+    "size": 174992
+  },
+  "effect_add_dorcha_uv01.dds": {
+    "mtime": 1495601416.0,
+    "size": 65664
+  },
+  "effect_add_dust_01.dds": {
+    "mtime": 1111553513.0,
+    "size": 131200
+  },
+  "effect_add_dust_02.dds": {
+    "mtime": 1111412022.0,
+    "size": 32896
+  },
+  "effect_add_dxt1.dds": {
+    "mtime": 1277021905.0,
+    "size": 524416
+  },
+  "effect_add_dxt1_2.dds": {
+    "mtime": 1528949713.0,
+    "size": 131200
+  },
+  "effect_add_dxt1_3.dds": {
+    "mtime": 1646011179.0,
+    "size": 699178
+  },
+  "effect_add_dxt1_4.dds": {
+    "mtime": 1647227724.0,
+    "size": 699178
+  },
+  "effect_add_dxt1_5.dds": {
+    "mtime": 1659592937.0,
+    "size": 699178
+  },
+  "effect_add_etc_01.dds": {
+    "mtime": 1769066379.0,
+    "size": 349680
+  },
+  "effect_add_etc_02.dds": {
+    "mtime": 1769066369.0,
+    "size": 349680
+  },
+  "effect_add_etc_03.dds": {
+    "mtime": 1769562892.0,
+    "size": 349680
+  },
+  "effect_add_etc_04.dds": {
+    "mtime": 1770861323.0,
+    "size": 349680
+  },
+  "effect_add_faliasCircle.dds": {
+    "mtime": 1260597830.0,
+    "size": 262272
+  },
+  "effect_add_falias_altar02.dds": {
+    "mtime": 1260712692.0,
+    "size": 16512
+  },
+  "effect_add_firework.dds": {
+    "mtime": 1105464878.0,
+    "size": 32896
+  },
+  "effect_add_firework04.dds": {
+    "mtime": 1422408490.0,
+    "size": 699178
+  },
+  "effect_add_firework05.dds": {
+    "mtime": 1639128186.0,
+    "size": 699178
+  },
+  "effect_add_firework06.dds": {
+    "mtime": 1590986712.0,
+    "size": 699178
+  },
+  "effect_add_firework2.dds": {
+    "mtime": 1168823717.0,
+    "size": 131200
+  },
+  "effect_add_firework3.DDS": {
+    "mtime": 1467799814.0,
+    "size": 349680
+  },
+  "effect_add_gate_pal.dds": {
+    "mtime": 1428291687.0,
+    "size": 174890
+  },
+  "effect_add_ice_coil.dds": {
+    "mtime": 1143007810.0,
+    "size": 4224
+  },
+  "effect_add_india.dds": {
+    "mtime": 1579065807.0,
+    "size": 43832
+  },
+  "effect_add_light_01.dds": {
+    "mtime": 1111467086.0,
+    "size": 32896
+  },
+  "effect_add_light_02.dds": {
+    "mtime": 1111493587.0,
+    "size": 32896
+  },
+  "effect_add_line01.dds": {
+    "mtime": 1579504742.0,
+    "size": 43818
+  },
+  "effect_add_line02.dds": {
+    "mtime": 1663561237.0,
+    "size": 22000
+  },
+  "effect_add_line03.dds": {
+    "mtime": 1736936225.0,
+    "size": 87536
+  },
+  "effect_add_moonflower.dds": {
+    "mtime": 1501745013.0,
+    "size": 87536
+  },
+  "effect_add_radialstar.dds": {
+    "mtime": 1573809278.0,
+    "size": 87508
+  },
+  "effect_add_root.dds": {
+    "mtime": 1261303749.0,
+    "size": 262272
+  },
+  "effect_add_sector.dds": {
+    "mtime": 1396514258.0,
+    "size": 131200
+  },
+  "effect_add_SfPlanLight.dds": {
+    "mtime": 1657683060.0,
+    "size": 11050
+  },
+  "effect_add_ship_water.dds": {
+    "mtime": 1182234911.0,
+    "size": 16512
+  },
+  "effect_add_spawn.dds": {
+    "mtime": 1260749187.0,
+    "size": 65664
+  },
+  "effect_add_thunder01.dds": {
+    "mtime": 1560928837.0,
+    "size": 43920
+  },
+  "effect_add_thunder02.dds": {
+    "mtime": 1560928842.0,
+    "size": 43920
+  },
+  "effect_alphablend_beam_dx1.dds": {
+    "mtime": 1704247491.0,
+    "size": 43920
+  },
+  "effect_alpha_blood_uv.dds": {
+    "mtime": 1161860920.0,
+    "size": 131200
+  },
+  "effect_alpha_divine_uv01.dds": {
+    "mtime": 1718946867.0,
+    "size": 174992
+  },
+  "effect_alpha_footprint.dds": {
+    "mtime": 1165973553.0,
+    "size": 1152
+  },
+  "effect_alpha_footprint_giant.dds": {
+    "mtime": 1165973531.0,
+    "size": 4224
+  },
+  "effect_alpha_footprint_yeti.dds": {
+    "mtime": 1166453212.0,
+    "size": 16512
+  },
+  "effect_alpha_web_uv.dds": {
+    "mtime": 1175144647.0,
+    "size": 131200
+  },
+  "effect_alpha_web_uv_small.DDS": {
+    "mtime": 1380533279.0,
+    "size": 174894
+  },
+  "effect_blizzard01.dds": {
+    "mtime": 1277345158.0,
+    "size": 2872
+  },
+  "effect_blizzard02.dds": {
+    "mtime": 1277344894.0,
+    "size": 2872
+  },
+  "effect_charge.dds": {
+    "mtime": 1323062645.0,
+    "size": 8320
+  },
+  "effect_circus_nightglow_01.dds": {
+    "mtime": 1693985429.0,
+    "size": 349680
+  },
+  "effect_cokeplay.dds": {
+    "mtime": 1179906982.0,
+    "size": 65664
+  },
+  "effect_cybertechware_station01.dds": {
+    "mtime": 1702348206.0,
+    "size": 43856
+  },
+  "effect_fairyflower01.dds": {
+    "mtime": 1646357945.0,
+    "size": 2872
+  },
+  "effect_firework_nao_devcat.dds": {
+    "mtime": 1204851841.0,
+    "size": 131200
+  },
+  "effect_fire_01_dark.dds": {
+    "mtime": 1665019395.0,
+    "size": 699178
+  },
+  "effect_fire_02.dds": {
+    "mtime": 1582161906.0,
+    "size": 349680
+  },
+  "effect_fire_03.dds": {
+    "mtime": 1646990987.0,
+    "size": 349680
+  },
+  "effect_fire_03_black.dds": {
+    "mtime": 1581047892.0,
+    "size": 349680
+  },
+  "effect_fire_04.dds": {
+    "mtime": 1532666774.0,
+    "size": 262272
+  },
+  "effect_fire_05.dds": {
+    "mtime": 1653465063.0,
+    "size": 349680
+  },
+  "effect_fire_06.dds": {
+    "mtime": 1669252698.0,
+    "size": 524416
+  },
+  "effect_fish01.dds": {
+    "mtime": 1139979240.0,
+    "size": 2176
+  },
+  "effect_fish02.dds": {
+    "mtime": 1139979237.0,
+    "size": 2176
+  },
+  "effect_horse_hair.dds": {
+    "mtime": 1389341955.0,
+    "size": 8320
+  },
+  "effect_itemenhance_01.dds": {
+    "mtime": 1271806947.0,
+    "size": 65664
+  },
+  "effect_Late_add_divine_uv01.dds": {
+    "mtime": 1745819448.0,
+    "size": 174992
+  },
+  "effect_Late_add_etc_01.dds": {
+    "mtime": 1763008259.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_02.dds": {
+    "mtime": 1763008268.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_03.dds": {
+    "mtime": 1764209723.0,
+    "size": 87536
+  },
+  "effect_Late_add_etc_05.dds": {
+    "mtime": 1763027923.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_06.dds": {
+    "mtime": 1763029118.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_07.dds": {
+    "mtime": 1764209907.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_08.dds": {
+    "mtime": 1763967736.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_09.dds": {
+    "mtime": 1763967716.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_10.dds": {
+    "mtime": 1763967694.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_11.dds": {
+    "mtime": 1763967669.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_12.dds": {
+    "mtime": 1764632887.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_13.dds": {
+    "mtime": 1767674141.0,
+    "size": 174928
+  },
+  "effect_Late_add_etc_14.dds": {
+    "mtime": 1768881877.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_15.dds": {
+    "mtime": 1768959264.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_16.dds": {
+    "mtime": 1768972550.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_17.dds": {
+    "mtime": 1768970882.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_18.dds": {
+    "mtime": 1769058601.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_19.dds": {
+    "mtime": 1769058592.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_20.dds": {
+    "mtime": 1769385018.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_21.dds": {
+    "mtime": 1769388422.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_22.dds": {
+    "mtime": 1769565276.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_23.dds": {
+    "mtime": 1769470853.0,
+    "size": 43920
+  },
+  "effect_Late_add_etc_24.dds": {
+    "mtime": 1769470878.0,
+    "size": 43920
+  },
+  "effect_Late_add_etc_25.dds": {
+    "mtime": 1769670836.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_26.dds": {
+    "mtime": 1769670827.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_27.dds": {
+    "mtime": 1769670817.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_28.dds": {
+    "mtime": 1769670798.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_29.dds": {
+    "mtime": 1769670809.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_30.dds": {
+    "mtime": 1769670788.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_31.dds": {
+    "mtime": 1769671537.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_32.dds": {
+    "mtime": 1769671517.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_33.dds": {
+    "mtime": 1769671482.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_34.dds": {
+    "mtime": 1769993915.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_35.dds": {
+    "mtime": 1770007297.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_36.dds": {
+    "mtime": 1770006477.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_37.dds": {
+    "mtime": 1770007327.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_38.dds": {
+    "mtime": 1770086765.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_39.dds": {
+    "mtime": 1770259551.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_40.dds": {
+    "mtime": 1770260747.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_41.dds": {
+    "mtime": 1770283598.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_42.dds": {
+    "mtime": 1770716969.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_43.dds": {
+    "mtime": 1770688042.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_44.dds": {
+    "mtime": 1770716985.0,
+    "size": 1398256
+  },
+  "effect_Late_add_etc_45.dds": {
+    "mtime": 1770794542.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_46.dds": {
+    "mtime": 1770794528.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_47.dds": {
+    "mtime": 1770861299.0,
+    "size": 349680
+  },
+  "effect_Late_add_etc_48.dds": {
+    "mtime": 1770876273.0,
+    "size": 1398256
+  },
+  "effect_Late_add_glow_01.dds": {
+    "mtime": 1763438542.0,
+    "size": 87536
+  },
+  "effect_Late_add_glow_02.dds": {
+    "mtime": 1766118198.0,
+    "size": 87536
+  },
+  "effect_Late_add_glow_03.dds": {
+    "mtime": 1768350442.0,
+    "size": 349680
+  },
+  "effect_Late_add_glow_04.dds": {
+    "mtime": 1769590287.0,
+    "size": 349680
+  },
+  "effect_Late_add_line01.dds": {
+    "mtime": 1686300475.0,
+    "size": 22000
+  },
+  "effect_Late_add_line_01.dds": {
+    "mtime": 1762300643.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_02.dds": {
+    "mtime": 1762733286.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_03.dds": {
+    "mtime": 1762734507.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_04.dds": {
+    "mtime": 1762824075.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_05.dds": {
+    "mtime": 1764222932.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_06.dds": {
+    "mtime": 1768949895.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_07.dds": {
+    "mtime": 1764063356.0,
+    "size": 43920
+  },
+  "effect_Late_add_line_08.dds": {
+    "mtime": 1764566597.0,
+    "size": 1398256
+  },
+  "effect_Late_add_line_09.dds": {
+    "mtime": 1764564048.0,
+    "size": 1398256
+  },
+  "effect_Late_add_line_10.dds": {
+    "mtime": 1764563990.0,
+    "size": 1398256
+  },
+  "effect_Late_add_line_11.dds": {
+    "mtime": 1765853913.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_12.dds": {
+    "mtime": 1767596489.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_13.dds": {
+    "mtime": 1768303269.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_14.dds": {
+    "mtime": 1768303288.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_15.dds": {
+    "mtime": 1768303330.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_16.dds": {
+    "mtime": 1768303347.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_17.dds": {
+    "mtime": 1768353891.0,
+    "size": 43920
+  },
+  "effect_Late_add_line_18.dds": {
+    "mtime": 1768785898.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_19.dds": {
+    "mtime": 1768873200.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_20.dds": {
+    "mtime": 1769488973.0,
+    "size": 1398256
+  },
+  "effect_Late_add_line_21.dds": {
+    "mtime": 1769488936.0,
+    "size": 1398256
+  },
+  "effect_Late_add_line_22.dds": {
+    "mtime": 1770086706.0,
+    "size": 349680
+  },
+  "effect_Late_add_line_23.dds": {
+    "mtime": 1770875137.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_24.dds": {
+    "mtime": 1770875146.0,
+    "size": 87536
+  },
+  "effect_Late_add_line_25.dds": {
+    "mtime": 1770875128.0,
+    "size": 87536
+  },
+  "effect_magic_circle.dds": {
+    "mtime": 1596098688.0,
+    "size": 87536
+  },
+  "effect_magic_circle2.dds": {
+    "mtime": 1595235783.0,
+    "size": 349680
+  },
+  "effect_magic_circle3.dds": {
+    "mtime": 1595236406.0,
+    "size": 349680
+  },
+  "effect_magic_circle4.dds": {
+    "mtime": 1595236527.0,
+    "size": 349680
+  },
+  "effect_magic_circle5.dds": {
+    "mtime": 1595236479.0,
+    "size": 349680
+  },
+  "effect_magic_circleline.dds": {
+    "mtime": 1596101812.0,
+    "size": 87536
+  },
+  "effect_magic_circleline_add.dds": {
+    "mtime": 1596101263.0,
+    "size": 87536
+  },
+  "effect_magic_circle_add.dds": {
+    "mtime": 1596101273.0,
+    "size": 87536
+  },
+  "effect_magic_circle_merlin.dds": {
+    "mtime": 1398407992.0,
+    "size": 262272
+  },
+  "effect_magic_circle_nemeton.dds": {
+    "mtime": 1397717044.0,
+    "size": 524416
+  },
+  "effect_magic_circle_test.dds": {
+    "mtime": 1595231993.0,
+    "size": 349680
+  },
+  "effect_magic_heart.dds": {
+    "mtime": 1596098737.0,
+    "size": 87536
+  },
+  "effect_magic_heartline.dds": {
+    "mtime": 1596100408.0,
+    "size": 87536
+  },
+  "effect_magic_heartline_add.dds": {
+    "mtime": 1596094427.0,
+    "size": 87536
+  },
+  "effect_magic_heart_add.dds": {
+    "mtime": 1596094317.0,
+    "size": 87536
+  },
+  "effect_magic_line.dds": {
+    "mtime": 1596101613.0,
+    "size": 22000
+  },
+  "effect_magic_line_add.dds": {
+    "mtime": 1596101561.0,
+    "size": 22000
+  },
+  "effect_magic_rune01.dds": {
+    "mtime": 1596098921.0,
+    "size": 87536
+  },
+  "effect_magic_rune01_add.dds": {
+    "mtime": 1596097745.0,
+    "size": 87536
+  },
+  "effect_magic_rune02.dds": {
+    "mtime": 1596098945.0,
+    "size": 87536
+  },
+  "effect_magic_rune02_add.dds": {
+    "mtime": 1596097753.0,
+    "size": 87536
+  },
+  "effect_magic_rune03.dds": {
+    "mtime": 1596098967.0,
+    "size": 87536
+  },
+  "effect_magic_rune03_add.dds": {
+    "mtime": 1596097762.0,
+    "size": 87536
+  },
+  "effect_magic_rune04.dds": {
+    "mtime": 1596098983.0,
+    "size": 87536
+  },
+  "effect_magic_rune04_add.dds": {
+    "mtime": 1596097772.0,
+    "size": 87536
+  },
+  "effect_magic_rune05.dds": {
+    "mtime": 1596099007.0,
+    "size": 87536
+  },
+  "effect_magic_rune05_add.dds": {
+    "mtime": 1596097785.0,
+    "size": 87536
+  },
+  "effect_magic_s.dds": {
+    "mtime": 1516773444.0,
+    "size": 4224
+  },
+  "effect_magic_shield_1.dds": {
+    "mtime": 1182305255.0,
+    "size": 32896
+  },
+  "effect_magic_shield_2.dds": {
+    "mtime": 1181810075.0,
+    "size": 4224
+  },
+  "effect_magic_shield_3.dds": {
+    "mtime": 1182042518.0,
+    "size": 8320
+  },
+  "effect_magic_shield_4.dds": {
+    "mtime": 1182479884.0,
+    "size": 4224
+  },
+  "effect_magic_shield_5.dds": {
+    "mtime": 1260361201.0,
+    "size": 22000
+  },
+  "effect_magic_shield_6.DDS": {
+    "mtime": 1260361859.0,
+    "size": 5616
+  },
+  "effect_magic_shield_7.dds": {
+    "mtime": 1398409076.0,
+    "size": 65664
+  },
+  "effect_magic_square.dds": {
+    "mtime": 1596431500.0,
+    "size": 87536
+  },
+  "effect_magic_squareline.dds": {
+    "mtime": 1596431543.0,
+    "size": 87536
+  },
+  "effect_magic_squareline_add.dds": {
+    "mtime": 1596431402.0,
+    "size": 87536
+  },
+  "effect_magic_square_add.dds": {
+    "mtime": 1596431420.0,
+    "size": 87536
+  },
+  "effect_magic_star.dds": {
+    "mtime": 1596098811.0,
+    "size": 87536
+  },
+  "effect_magic_starline.dds": {
+    "mtime": 1596098829.0,
+    "size": 87536
+  },
+  "effect_magic_starline_add.dds": {
+    "mtime": 1596094510.0,
+    "size": 87536
+  },
+  "effect_magic_star_add.dds": {
+    "mtime": 1596094494.0,
+    "size": 87536
+  },
+  "effect_magic_symbol01.dds": {
+    "mtime": 1596098879.0,
+    "size": 87536
+  },
+  "effect_magic_symbol01_add.dds": {
+    "mtime": 1596097642.0,
+    "size": 87536
+  },
+  "effect_magic_symbol02.dds": {
+    "mtime": 1596098898.0,
+    "size": 87536
+  },
+  "effect_magic_symbol02_add.dds": {
+    "mtime": 1596097656.0,
+    "size": 87536
+  },
+  "effect_magic_tori.dds": {
+    "mtime": 1560324206.0,
+    "size": 349680
+  },
+  "effect_magic_triangle.dds": {
+    "mtime": 1596098773.0,
+    "size": 87536
+  },
+  "effect_magic_triangleline.dds": {
+    "mtime": 1596098791.0,
+    "size": 87536
+  },
+  "effect_magic_triangleline_add.dds": {
+    "mtime": 1596094479.0,
+    "size": 87536
+  },
+  "effect_magic_triangle_add.dds": {
+    "mtime": 1596094450.0,
+    "size": 87536
+  },
+  "effect_ManaPierce1_nightglow01.dds": {
+    "mtime": 1689292634.0,
+    "size": 349680
+  },
+  "effect_ManaPierce1_nightglow02.dds": {
+    "mtime": 1689292654.0,
+    "size": 349680
+  },
+  "effect_ManaPierce2_nightglow01.dds": {
+    "mtime": 1689293294.0,
+    "size": 349680
+  },
+  "effect_ManaPierce2_nightglow02.dds": {
+    "mtime": 1689306425.0,
+    "size": 1398256
+  },
+  "effect_ManaPierce3_nightglow01.dds": {
+    "mtime": 1689293261.0,
+    "size": 349680
+  },
+  "effect_ManaPierce3_nightglow02.dds": {
+    "mtime": 1689312992.0,
+    "size": 1398256
+  },
+  "effect_ManaPierce4_nightglow01.dds": {
+    "mtime": 1689293233.0,
+    "size": 349680
+  },
+  "effect_ManaPierce4_nightglow02.dds": {
+    "mtime": 1689293169.0,
+    "size": 349680
+  },
+  "effect_ManaPierce4_nightglow03.dds": {
+    "mtime": 1689563799.0,
+    "size": 1398256
+  },
+  "effect_ManaPierce4_nightglow04.dds": {
+    "mtime": 1689644981.0,
+    "size": 1398256
+  },
+  "effect_ManaPierce5_nightglow01.dds": {
+    "mtime": 1691052046.0,
+    "size": 349680
+  },
+  "effect_nightglow_divine_uv01.dds": {
+    "mtime": 1746094326.0,
+    "size": 174992
+  },
+  "effect_nightglow_etc_01.dds": {
+    "mtime": 1764209707.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_02.dds": {
+    "mtime": 1763008426.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_03.dds": {
+    "mtime": 1763008503.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_04.dds": {
+    "mtime": 1764061193.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_05.dds": {
+    "mtime": 1764061178.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_06.dds": {
+    "mtime": 1764061409.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_07.dds": {
+    "mtime": 1764061435.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_08.dds": {
+    "mtime": 1767673615.0,
+    "size": 174928
+  },
+  "effect_nightglow_etc_09.dds": {
+    "mtime": 1767764700.0,
+    "size": 5616
+  },
+  "effect_nightglow_etc_10.dds": {
+    "mtime": 1767766314.0,
+    "size": 5616
+  },
+  "effect_nightglow_etc_11.dds": {
+    "mtime": 1767766417.0,
+    "size": 22032
+  },
+  "effect_nightglow_etc_12.dds": {
+    "mtime": 1769066188.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_13.dds": {
+    "mtime": 1769066217.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_14.dds": {
+    "mtime": 1768875034.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_15.dds": {
+    "mtime": 1770777012.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_16.dds": {
+    "mtime": 1768199859.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_17.dds": {
+    "mtime": 1769388471.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_18.dds": {
+    "mtime": 1769388454.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_19.dds": {
+    "mtime": 1769388553.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_20.dds": {
+    "mtime": 1769388528.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_21.dds": {
+    "mtime": 1769565299.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_22.dds": {
+    "mtime": 1769562861.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_23.dds": {
+    "mtime": 1769470955.0,
+    "size": 43920
+  },
+  "effect_nightglow_etc_24.dds": {
+    "mtime": 1769471004.0,
+    "size": 43920
+  },
+  "effect_nightglow_etc_25.dds": {
+    "mtime": 1769994010.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_26.dds": {
+    "mtime": 1770007426.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_27.dds": {
+    "mtime": 1770158699.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_28.dds": {
+    "mtime": 1770071727.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_29.dds": {
+    "mtime": 1770086808.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_30.dds": {
+    "mtime": 1770164302.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_31.dds": {
+    "mtime": 1770164473.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_32.dds": {
+    "mtime": 1770164458.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_33.dds": {
+    "mtime": 1770164435.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_34.dds": {
+    "mtime": 1770164417.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_35.dds": {
+    "mtime": 1770164389.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_36.dds": {
+    "mtime": 1770164370.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_37.dds": {
+    "mtime": 1770164353.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_38.dds": {
+    "mtime": 1770164324.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_39.dds": {
+    "mtime": 1770280857.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_40.dds": {
+    "mtime": 1770592605.0,
+    "size": 87536
+  },
+  "effect_nightglow_etc_41.dds": {
+    "mtime": 1770717692.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_42.dds": {
+    "mtime": 1770717666.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_43.dds": {
+    "mtime": 1770717636.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_44.dds": {
+    "mtime": 1770700503.0,
+    "size": 5616
+  },
+  "effect_nightglow_etc_45.dds": {
+    "mtime": 1770861287.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_46.dds": {
+    "mtime": 1770700474.0,
+    "size": 5616
+  },
+  "effect_nightglow_etc_47.dds": {
+    "mtime": 1770876251.0,
+    "size": 1398256
+  },
+  "effect_nightglow_etc_48.dds": {
+    "mtime": 1770891559.0,
+    "size": 349680
+  },
+  "effect_nightglow_etc_49.dds": {
+    "mtime": 1770891571.0,
+    "size": 349680
+  },
+  "effect_nightglow_glow_01.dds": {
+    "mtime": 1766115980.0,
+    "size": 87536
+  },
+  "effect_nightglow_glow_02.dds": {
+    "mtime": 1769590271.0,
+    "size": 349680
+  },
+  "effect_nightglow_glow_03.dds": {
+    "mtime": 1769590799.0,
+    "size": 349680
+  },
+  "effect_nightglow_glow_04.dds": {
+    "mtime": 1770892539.0,
+    "size": 5616
+  },
+  "effect_nightglow_line_01.dds": {
+    "mtime": 1762300723.0,
+    "size": 349680
+  },
+  "effect_nightglow_line_02.dds": {
+    "mtime": 1768949953.0,
+    "size": 349680
+  },
+  "effect_nightglow_line_03.dds": {
+    "mtime": 1764231307.0,
+    "size": 349680
+  },
+  "effect_nightglow_line_04.dds": {
+    "mtime": 1764237839.0,
+    "size": 174928
+  },
+  "effect_nightglow_line_05.dds": {
+    "mtime": 1769478826.0,
+    "size": 1398256
+  },
+  "effect_nightglow_line_06.dds": {
+    "mtime": 1769478811.0,
+    "size": 1398256
+  },
+  "effect_nightglow_line_07.dds": {
+    "mtime": 1770086752.0,
+    "size": 349680
+  },
+  "effect_nightglow_line_08.dds": {
+    "mtime": 1770875016.0,
+    "size": 87536
+  },
+  "effect_nightglow_line_09.dds": {
+    "mtime": 1770874969.0,
+    "size": 87536
+  },
+  "effect_nightglow_line_10.dds": {
+    "mtime": 1770874952.0,
+    "size": 87536
+  },
+  "effect_nightglow_line_11.dds": {
+    "mtime": 1770943130.0,
+    "size": 349680
+  },
+  "effect_rabbit_nightglow_01.dds": {
+    "mtime": 1665624490.0,
+    "size": 349680
+  },
+  "effect_rabbit_nightglow_02.dds": {
+    "mtime": 1665623994.0,
+    "size": 349680
+  },
+  "effect_rabbit_nightglow_03.dds": {
+    "mtime": 1692328857.0,
+    "size": 349680
+  },
+  "effect_rabbit_nightglow_04.dds": {
+    "mtime": 1692328885.0,
+    "size": 349680
+  },
+  "effect_rainbow01.dds": {
+    "mtime": 1462780714.0,
+    "size": 43856
+  },
+  "effect_rainbow02.dds": {
+    "mtime": 1629265107.0,
+    "size": 43856
+  },
+  "effect_snowmountain01.dds": {
+    "mtime": 1694583287.0,
+    "size": 1398256
+  },
+  "effect_snowmountain_nightglow_01.dds": {
+    "mtime": 1694583077.0,
+    "size": 1398256
+  },
+  "effect_spawn.dds": {
+    "mtime": 1261296017.0,
+    "size": 65664
+  },
+  "effect_spin01.dds": {
+    "mtime": 1654665837.0,
+    "size": 22000
+  },
+  "effect_sub_connect.DDS": {
+    "mtime": 1398240091.0,
+    "size": 43920
+  },
+  "effect_water_1.dds": {
+    "mtime": 1182475672.0,
+    "size": 16512
+  },
+  "effect_water_2.dds": {
+    "mtime": 1563346535.0,
+    "size": 22000
+  },
+  "effect_water_shield_1.dds": {
+    "mtime": 1576048898.0,
+    "size": 22000
+  },
+  "effect_water_shield_2.dds": {
+    "mtime": 1576049437.0,
+    "size": 87536
+  },
+  "effect_water_wave.dds": {
+    "mtime": 1591665392.0,
+    "size": 22000
+  },
+  "effect_weather_rain.dds": {
+    "mtime": 1118909113.0,
+    "size": 32896
+  },
+  "effect_witch_add.dds": {
+    "mtime": 1692588718.0,
+    "size": 349680
+  },
+  "FCW_effect_add_01.dds": {
+    "mtime": 1721112860.0,
+    "size": 1398256
+  },
+  "FCW_effect_alpha01_nightglow.dds": {
+    "mtime": 1720667850.0,
+    "size": 1398256
+  },
+  "FCW_effect_alpha02_nightglow.dds": {
+    "mtime": 1721262860.0,
+    "size": 87536
+  },
+  "FCW_effect_alpha03_nightglow.dds": {
+    "mtime": 1721366497.0,
+    "size": 1398256
+  },
+  "FCW_effect_Late_add_01.dds": {
+    "mtime": 1721263452.0,
+    "size": 349680
+  },
+  "FCW_effect_Late_add_02.dds": {
+    "mtime": 1720667866.0,
+    "size": 1398256
+  },
+  "FCW_effect_Late_add_03.dds": {
+    "mtime": 1721209829.0,
+    "size": 1398256
+  },
+  "FCW_effect_Late_add_04.dds": {
+    "mtime": 1721279700.0,
+    "size": 1398256
+  },
+  "FCW_effect_Late_add_05.dds": {
+    "mtime": 1721626458.0,
+    "size": 1398256
+  },
+  "fire_uv_add.DDS": {
+    "mtime": 1271753754.0,
+    "size": 16512
+  },
+  "func_igroo_light_01.dds": {
+    "mtime": 1406006390.0,
+    "size": 32896
+  },
+  "fx_chain_late_add_01.dds": {
+    "mtime": 1696495779.0,
+    "size": 174992
+  },
+  "fx_chain_nightglow01.dds": {
+    "mtime": 1690164628.0,
+    "size": 174992
+  },
+  "fx_chain_nightglow02.dds": {
+    "mtime": 1690158385.0,
+    "size": 174992
+  },
+  "fx_chain_nightglow03.dds": {
+    "mtime": 1712273620.0,
+    "size": 174992
+  },
+  "fx_chain_nightglow04.dds": {
+    "mtime": 1696494605.0,
+    "size": 174992
+  },
+  "fx_chain_nightglow05.dds": {
+    "mtime": 1697007672.0,
+    "size": 349680
+  },
+  "fx_chain_nightglow06.dds": {
+    "mtime": 1697007725.0,
+    "size": 349680
+  },
+  "fx_chain_nightglow07.dds": {
+    "mtime": 1713255361.0,
+    "size": 174992
+  },
+  "GlowOverlay.dds": {
+    "mtime": 1071237653.0,
+    "size": 49280
+  },
+  "greenLightFromSky.dds": {
+    "mtime": 1405412134.0,
+    "size": 5616
+  },
+  "lightFromSky.dds": {
+    "mtime": 1052305366.0,
+    "size": 4224
+  },
+  "luckyFromSky.dds": {
+    "mtime": 1055686136.0,
+    "size": 2176
+  },
+  "magicword01.dds": {
+    "mtime": 1648168425.0,
+    "size": 43822
+  },
+  "morrighaneye01_eye_add.DDS": {
+    "mtime": 1259831709.0,
+    "size": 5616
+  },
+  "ow_shield01.dds": {
+    "mtime": 1605252172.0,
+    "size": 11050
+  },
+  "ow_shield02.dds": {
+    "mtime": 1606789297.0,
+    "size": 5616
+  },
+  "plants_decal.dds": {
+    "mtime": 1578289220.0,
+    "size": 349654
+  },
+  "quest_arrow.dds": {
+    "mtime": 1202968423.0,
+    "size": 640
+  },
+  "quest_arrow_02.dds": {
+    "mtime": 1277999705.0,
+    "size": 8320
+  },
+  "quest_arrow_GonoNet.dds": {
+    "mtime": 1504599616.0,
+    "size": 8320
+  },
+  "runeword.dds": {
+    "mtime": 1610087692.0,
+    "size": 43822
+  },
+  "seal_Cailleach_late_add_1.dds": {
+    "mtime": 1668408552.0,
+    "size": 349680
+  },
+  "seal_Cailleach_late_add_2.dds": {
+    "mtime": 1668408667.0,
+    "size": 349680
+  },
+  "seal_Cailleach_late_add_3.dds": {
+    "mtime": 1668408616.0,
+    "size": 349680
+  },
+  "seal_Cailleach_late_add_4.dds": {
+    "mtime": 1668408503.0,
+    "size": 349680
+  },
+  "seal_Cailleach_late_add_5.dds": {
+    "mtime": 1668408534.0,
+    "size": 349680
+  },
+  "seal_Cailleach_late_add_6.dds": {
+    "mtime": 1669009850.0,
+    "size": 1398256
+  },
+  "seal_Cailleach_late_add_7.dds": {
+    "mtime": 1669009836.0,
+    "size": 1398256
+  },
+  "seal_Cailleach_late_add_8.dds": {
+    "mtime": 1669101823.0,
+    "size": 1398256
+  },
+  "shine01.dds": {
+    "mtime": 1578274207.0,
+    "size": 32896
+  },
+  "skill_Cailleach_add_10.dds": {
+    "mtime": 1669627048.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_add_11.dds": {
+    "mtime": 1670288857.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_add_3.dds": {
+    "mtime": 1671010136.0,
+    "size": 349680
+  },
+  "skill_Cailleach_add_5.dds": {
+    "mtime": 1668141393.0,
+    "size": 349680
+  },
+  "skill_Cailleach_add_6.dds": {
+    "mtime": 1670283151.0,
+    "size": 349680
+  },
+  "skill_Cailleach_add_7.dds": {
+    "mtime": 1668403703.0,
+    "size": 349680
+  },
+  "skill_Cailleach_alpha_1.dds": {
+    "mtime": 1668472970.0,
+    "size": 349680
+  },
+  "skill_Cailleach_alpha_2.dds": {
+    "mtime": 1670483678.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_late_add_1.dds": {
+    "mtime": 1667953201.0,
+    "size": 349680
+  },
+  "skill_Cailleach_late_add_10.dds": {
+    "mtime": 1670911876.0,
+    "size": 349680
+  },
+  "skill_Cailleach_late_add_11.dds": {
+    "mtime": 1670911889.0,
+    "size": 349680
+  },
+  "skill_Cailleach_late_add_2.dds": {
+    "mtime": 1667892469.0,
+    "size": 349680
+  },
+  "skill_Cailleach_late_add_3.dds": {
+    "mtime": 1700709992.0,
+    "size": 349680
+  },
+  "skill_Cailleach_late_add_4.dds": {
+    "mtime": 1669618791.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_late_add_5.dds": {
+    "mtime": 1702271640.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_late_add_6.dds": {
+    "mtime": 1670483752.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_late_add_7.dds": {
+    "mtime": 1671005563.0,
+    "size": 349680
+  },
+  "skill_Cailleach_late_add_8.dds": {
+    "mtime": 1700449067.0,
+    "size": 1398256
+  },
+  "skill_Cailleach_late_add_9.dds": {
+    "mtime": 1700186015.0,
+    "size": 349680
+  },
+  "skill_Cailleach_nightglow_1.dds": {
+    "mtime": 1670981496.0,
+    "size": 349680
+  },
+  "snake_eye.dds": {
+    "mtime": 1351754873.0,
+    "size": 65664
+  },
+  "training_heart.dds": {
+    "mtime": 1182483554.0,
+    "size": 4224
+  },
+  "tree_grow_up_01.dds": {
+    "mtime": 1192667452.0,
+    "size": 2097280
+  },
+  "warning_circle01.dds": {
+    "mtime": 1614752068.0,
+    "size": 87536
+  },
+  "warning_circle02.dds": {
+    "mtime": 1614755002.0,
+    "size": 87536
+  },
+  "warning_circle03.dds": {
+    "mtime": 1700121885.0,
+    "size": 349680
+  },
+  "warning_circle04.dds": {
+    "mtime": 1712551990.0,
+    "size": 349680
+  },
+  "warning_circle05.dds": {
+    "mtime": 1712036041.0,
+    "size": 87536
+  },
+  "warning_circle06.dds": {
+    "mtime": 1713147254.0,
+    "size": 87536
+  },
+  "warning_circle07.dds": {
+    "mtime": 1716181577.0,
+    "size": 349680
+  },
+  "warning_circle_alpha01.dds": {
+    "mtime": 1714366384.0,
+    "size": 349680
+  },
+  "warning_grid1.dds": {
+    "mtime": 1730782362.0,
+    "size": 22000
+  },
+  "warning_grid2.dds": {
+    "mtime": 1730782462.0,
+    "size": 22000
+  },
+  "water_wave.DDS": {
+    "mtime": 1576043590.0,
+    "size": 5648
+  },
+  "water_wave01.DDS": {
+    "mtime": 1609986532.0,
+    "size": 87510
+  },
+  "water_wave02.DDS": {
+    "mtime": 1609997596.0,
+    "size": 87510
+  },
+  "weapon_c4_radeka_sword_add.dds": {
+    "mtime": 1282723242.0,
+    "size": 4224
+  },
+  "word_uvscroll.dds": {
+    "mtime": 1656471458.0,
+    "size": 11050
+  },
+  "word_uvscroll_add1.dds": {
+    "mtime": 1705028029.0,
+    "size": 87536
+  },
+  "word_uvscroll_add2.dds": {
+    "mtime": 1705028061.0,
+    "size": 87536
+  },
+  "word_uvscroll_add3.dds": {
+    "mtime": 1704927422.0,
+    "size": 174928
+  },
+  "word_uvscroll_add4.dds": {
+    "mtime": 1704928560.0,
+    "size": 174928
+  },
+  "word_uvscroll_nightglow1.dds": {
+    "mtime": 1691569182.0,
+    "size": 87536
+  },
+  "word_uvscroll_nightglow2.dds": {
+    "mtime": 1691733855.0,
+    "size": 1398256
+  },
+  "word_uvscroll_nightglow3.dds": {
+    "mtime": 1691733916.0,
+    "size": 1398256
+  },
+  "XR_sky_cloud03.dds": {
+    "mtime": 1252627811.0,
+    "size": 65664
+  },
+  "ZLP_effect_add_01.dds": {
+    "mtime": 1760938922.0,
+    "size": 349680
+  },
+  "ZLP_effect_alpha01_nightglow.dds": {
+    "mtime": 1761024956.0,
+    "size": 1398256
+  },
+  "ZLP_effect_alpha02_nightglow.dds": {
+    "mtime": 1760922699.0,
+    "size": 1398256
+  },
+  "ZLP_effect_alpha03_nightglow.dds": {
+    "mtime": 1760938456.0,
+    "size": 1398256
+  },
+  "ZLP_effect_alpha04_nightglow.dds": {
+    "mtime": 1761026823.0,
+    "size": 1398256
+  },
+  "ZLP_effect_alpha05_nightglow.dds": {
+    "mtime": 1760582118.0,
+    "size": 1398256
+  },
+  "ZLP_effect_alpha06_nightglow.dds": {
+    "mtime": 1761697485.0,
+    "size": 174928
+  },
+  "ZLP_effect_Late_add_01.dds": {
+    "mtime": 1760922891.0,
+    "size": 1398256
+  },
+  "ZLP_effect_Late_add_02.dds": {
+    "mtime": 1761701583.0,
+    "size": 174928
+  }
+}

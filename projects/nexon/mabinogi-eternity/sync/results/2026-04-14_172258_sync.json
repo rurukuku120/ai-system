@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-04-14T17:22:58.506759",
+  "total": 2,
+  "success": 0,
+  "failed": 2,
+  "items": [
+    {
+      "type": "texture",
+      "file": "common_effect.dds",
+      "action": "upscale_and_import",
+      "status": "error",
+      "detail": {
+        "src": "C:\\Users\\cukirang\\Desktop\\vfx_sync_test\\input\\texture\\common_effect.dds",
+        "error": "'ImageModelDescriptor' object has no attribute 'parameters'"
+      }
+    },
+    {
+      "type": "texture",
+      "file": "common_effect_add_10.dds",
+      "action": "upscale_and_import",
+      "status": "error",
+      "detail": {
+        "src": "C:\\Users\\cukirang\\Desktop\\vfx_sync_test\\input\\texture\\common_effect_add_10.dds",
+        "error": "'ImageModelDescriptor' object has no attribute 'parameters'"
+      }
+    }
+  ]
+}

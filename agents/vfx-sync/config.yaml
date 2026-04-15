@@ -1,0 +1,33 @@
+# VFX Sync Agent 설정
+# 경로는 나중에 필요에 따라 수정 가능
+
+paths:
+  # 라이브 소스 (읽기 전용)
+  source_xml: "Z:/Mabinogi/dev/release/asset/data/gfx/fx/effect"
+  source_texture: "Z:/Mabinogi/dev/release/asset/data/material/fx/effect"
+
+  # 업스케일 출력 (중간 결과물)
+  upscale_output: ""
+
+  # 언리얼 대상 폴더
+  unreal_texture_dest: ""
+  unreal_fx_dest: ""
+
+  # 언리얼 엔진
+  unreal_project: "Z:/Eternity/dev/Client/Mabinogi.uproject"
+  unreal_editor_cmd: "Z:/Eternity/dev/UE_5/Engine/Binaries/Win64/UnrealEditor-Cmd.exe"
+
+  # AI 모델
+  model_path: "C:/Users/cukirang/Desktop/upscale_poc/models/RealESRGAN_x4plus.pth"
+
+  # 스냅샷 저장 위치
+  snapshot_dir: ""  # 비어있으면 agents/vfx-sync/.snapshots/ 사용
+
+upscale:
+  scale: 4
+  tile_size: 512
+  format: "png"  # 업스케일 출력 포맷
+
+unreal:
+  headless_flags: "-unattended -nosplash -nullrhi"
+  timeout_seconds: 600
