@@ -1,6 +1,6 @@
 # ai-system
 
-> 자동 생성됨 — 2026-04-16 23:57
+> 자동 생성됨 — 2026-04-17 00:02
 > `scripts/update_readme.py`가 갱신합니다. 직접 편집하지 마세요.
 
 Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
@@ -46,6 +46,7 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 
 | 폴더 | 이름 | 역할 |
 |------|------|------|
+| `agents/agent-manager/` | Agent Manager | `agents/` 폴더를 스캔하여 각 에이전트의 `CLAUDE.md`를 읽고, `agents/README.m |
 | `agents/asset-parser/` | Unreal Asset Parser Agent | UE5 `.uasset` 바이너리 파일을 파싱하여 구조화된 데이터를 추출하는 에이전트. 에디터 없이 독립 실 |
 | `agents/dashboard-builder/` | Dashboard Builder Agent | `results/` JSON과 `agents/status.json`을 읽어 `docs/index.html`  |
 | `agents/notion-writer/` | Notion Writer Agent | 구조화된 데이터(JSON)를 받아 Notion 데이터베이스에 페이지를 생성하는 범용 쓰기 에이전트. VFX  |

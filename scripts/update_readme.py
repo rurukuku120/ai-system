@@ -18,7 +18,7 @@ COMMANDS_DIR  = REPO_ROOT / ".claude" / "commands"
 WORKFLOWS_DIR = REPO_ROOT / ".github" / "workflows"
 README_PATH   = REPO_ROOT / "README.md"
 
-SKIP_AGENTS = {"agent-manager"}
+SKIP_AGENTS: set[str] = set()
 
 
 def collect_agents() -> list[dict]:
