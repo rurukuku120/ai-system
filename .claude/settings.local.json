@@ -22,7 +22,24 @@
       "Bash(python3 scripts/health_check.py)",
       "Bash(py scripts/health_check.py)",
       "Bash(chmod +x:*)",
-      "Bash(py agents/dashboard-builder/runner.py)"
+      "Bash(py agents/dashboard-builder/runner.py)",
+      "Bash(python3 -c \"import PIL; print\\('PIL OK'\\)\")",
+      "Bash(python3 -c \"import matplotlib; print\\('matplotlib OK'\\)\")",
+      "Bash(python3 -m pip list)",
+      "Bash(python -m pip list)",
+      "Bash(npm --version)",
+      "Bash(convert --version)",
+      "Bash(pillow --version)",
+      "Bash(python -m pip show Pillow)",
+      "Bash(python -c \"import PIL; print\\('Pillow installed:', PIL.__version__\\)\")",
+      "Bash(python -c \"import PyMuPDF; print\\('PyMuPDF \\(fitz\\) available:', PyMuPDF.__version__\\)\")",
+      "Bash(python -m pip list --format=table)",
+      "Bash(python -m pip list --format=columns)",
+      "Bash(npm list:*)",
+      "Bash(pip install:*)",
+      "Bash(python3 -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe /c/Users/user/Documents/GitHub/vfx-unit-system/scripts/generate_structure_image.py)"
     ]
   }
 }
