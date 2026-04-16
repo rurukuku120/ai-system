@@ -1,0 +1,56 @@
+name: Sync Notion Skills
+
+on:
+  schedule:
+    # 매일 09:00 KST (= 00:00 UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry-run (파일 변경 없이 미리보기)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run sync (dry-run)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python scripts/notion_to_skill.py --dry-run
+
+      - name: Run sync
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        run: python scripts/notion_to_skill.py
+
+      - name: Commit updated skill files
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "Skill Sync Bot"
+          git config user.email "skill-sync-bot@nexon.com"
+          git add .claude/commands/
+          git diff --staged --quiet || git commit -m "chore: sync skills from Notion [skip ci]"
+          git push

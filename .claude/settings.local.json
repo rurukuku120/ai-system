@@ -39,7 +39,8 @@
       "Bash(pip install:*)",
       "Bash(python3 -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
       "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
-      "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe /c/Users/user/Documents/GitHub/vfx-unit-system/scripts/generate_structure_image.py)"
+      "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe /c/Users/user/Documents/GitHub/vfx-unit-system/scripts/generate_structure_image.py)",
+      "Bash(git:*)"
     ]
   }
 }
