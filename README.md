@@ -1,6 +1,6 @@
 # ai-system
 
-> 자동 생성됨 — 2026-04-16 23:54
+> 자동 생성됨 — 2026-04-16 23:57
 > `scripts/update_readme.py`가 갱신합니다. 직접 편집하지 마세요.
 
 Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
@@ -28,6 +28,17 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 | `security/` | 접근 권한, API 키 관리 기준 |
 | `sync/` | 외부 시스템 연동 (Notion / GitHub) |
 
+
+---
+
+## 자동화
+
+| 위치 | 트리거 | 설명 |
+|------|--------|------|
+| `.github/workflows/` | GitHub 이벤트 / 스케줄 | GitHub Actions 워크플로우 |
+| `hooks/dispatcher.py` | Claude Code 도구 실행 후 | PostToolUse 훅 디스패처 |
+| `.git/hooks/pre-commit` | git commit | agents/ 변경 시 README 자동 갱신 |
+| `scripts/` | 수동 / 워크플로우에서 호출 | 자동화 실행 스크립트 |
 
 ---
 
