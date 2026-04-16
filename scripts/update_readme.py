@@ -102,6 +102,29 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 
 ---
 
+## 폴더 구조
+
+| 폴더 | 설명 |
+|------|------|
+| `agents/` | 에이전트 정의 및 실행 스크립트 |
+| `common/` | 전체 에이전트 공통 기반 (규칙/형식/프로토콜/스키마) |
+| `config/` | 환경별 설정 (dev / staging / prod) |
+| `docs/` | 대시보드 및 문서 |
+| `hooks/` | Claude Code 훅 (dispatcher, registry) |
+| `inbox/` | VFX 작업물 피드백 요청 이미지 투입 폴더 |
+| `logs/` | 세션 로그 |
+| `memory/` | 에이전트 학습 결과 누적 |
+| `models/` | LLM별 개별 지침 (claude / gemini / gpt) |
+| `monitoring/` | 실행 로그, 오류 추적, 성능 지표 |
+| `projects/` | 프로젝트별 결과물 저장 |
+| `scripts/` | 유틸리티 스크립트 |
+| `security/` | 접근 권한, API 키 관리 기준 |
+| `sync/` | 외부 시스템 연동 (Notion / GitHub) |
+| `.claude/commands/` | 슬래시 커맨드 정의 |
+| `.github/workflows/` | 자동화 워크플로우 |
+
+---
+
 ## 에이전트
 
 | 폴더 | 이름 | 역할 |
@@ -123,19 +146,6 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 | 파일 | 이름 |
 |------|------|
 {workflow_rows}
----
-
-## 주요 폴더
-
-| 폴더 | 설명 |
-|------|------|
-| `agents/` | 에이전트 정의 및 실행 스크립트 |
-| `inbox/` | VFX 작업물 피드백 요청 이미지 투입 폴더 |
-| `scripts/` | 유틸리티 스크립트 |
-| `projects/` | 프로젝트별 결과물 저장 |
-| `docs/` | 대시보드 및 문서 |
-| `.claude/commands/` | 슬래시 커맨드 정의 |
-| `.github/workflows/` | 자동화 워크플로우 |
 """
 
 
