@@ -101,7 +101,7 @@ SKIP_FOLDERS = {".git", "__pycache__"}
 def collect_folders() -> list[dict]:
     """루트 폴더를 스캔하여 존재하는 폴더 목록 반환 (숨김 폴더 포함)"""
     folders = []
-    for entry in sorted(REPO_ROOT.iterdir(), key=lambda p: (p.name.startswith("."), p.name)):
+    for entry in sorted(REPO_ROOT.iterdir(), key=lambda p: p.name.lower()):
         if not entry.is_dir() or entry.name in SKIP_FOLDERS:
             continue
         desc = FOLDER_DESCRIPTIONS.get(entry.name, "—")
