@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-04-14T17:24:04.919372",
+  "total": 2,
+  "success": 2,
+  "failed": 0,
+  "items": [
+    {
+      "type": "texture",
+      "file": "common_effect.dds",
+      "action": "upscale_and_import",
+      "status": "success",
+      "detail": {
+        "src": "C:\\Users\\cukirang\\Desktop\\vfx_sync_test\\input\\texture\\common_effect.dds",
+        "dst": "C:\\Users\\cukirang\\Desktop\\vfx_sync_test\\output\\upscaled\\common_effect_x4.png",
+        "original_size": "512x512",
+        "upscaled_size": "2048x2048",
+        "time": 1.54
+      }
+    },
+    {
+      "type": "texture",
+      "file": "common_effect_add_10.dds",
+      "action": "upscale_and_import",
+      "status": "success",
+      "detail": {
+        "src": "C:\\Users\\cukirang\\Desktop\\vfx_sync_test\\input\\texture\\common_effect_add_10.dds",
+        "dst": "C:\\Users\\cukirang\\Desktop\\vfx_sync_test\\output\\upscaled\\common_effect_add_10_x4.png",
+        "original_size": "128x128",
+        "upscaled_size": "512x512",
+        "time": 0.07
+      }
+    }
+  ]
+}

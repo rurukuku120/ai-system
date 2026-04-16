@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "unreal": {
+      "command": "python",
+      "args": ["scripts/ue/ue_mcp_server.py"]
+    }
+  }
+}

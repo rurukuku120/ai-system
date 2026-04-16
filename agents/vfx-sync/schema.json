@@ -1,0 +1,22 @@
+{
+  "timestamp": "ISO 8601 datetime",
+  "total": "int — 전체 처리 건수",
+  "success": "int — 성공 건수",
+  "failed": "int — 실패 건수",
+  "items": [
+    {
+      "type": "xml | texture",
+      "file": "파일명",
+      "action": "import_effect | upscale_and_import",
+      "status": "success | submitted | failed | error",
+      "detail": {
+        "src": "소스 파일 경로",
+        "dst": "출력 파일 경로 (텍스처)",
+        "original_size": "WxH (텍스처)",
+        "upscaled_size": "WxH (텍스처)",
+        "time": "float — 처리 시간(초)",
+        "asset_path": "언리얼 에셋 경로"
+      }
+    }
+  ]
+}
