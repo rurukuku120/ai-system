@@ -156,7 +156,8 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 | `.github/workflows/` | GitHub 이벤트 / 스케줄 | GitHub Actions 워크플로우 |
 | `hooks/dispatcher.py` | Claude Code 도구 실행 후 | PostToolUse 훅 디스패처 |
 | `.git/hooks/pre-commit` | git commit | agents/ 변경 시 README 자동 갱신 |
-| `scripts/` | 수동 / 워크플로우에서 호출 | 자동화 실행 스크립트 |
+| `monitoring/health_check.py` | 수동 / 워크플로우에서 호출 | 에이전트 상태 점검 |
+| `sync/notion/notion_to_skill.py` | 매일 09:00 KST / 수동 | Notion → 슬래시 커맨드 동기화 |
 
 ---
 

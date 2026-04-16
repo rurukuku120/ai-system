@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-VFX Evaluation Agent
-GitHub Actions에서 자동 실행되는 VFX 가독성 평가 에이전트.
+VFX Feedback Agent
+GitHub Actions에서 자동 실행되는 VFX 작업물 피드백 에이전트.
 
-inbox/ 폴더의 이미지를 감지 → Gemini API 평가 → JSON 저장 → Notion 등록
+inbox/ 폴더의 이미지를 감지 → Claude API 평가 → JSON 저장 → Notion 등록
 """
 
 import os

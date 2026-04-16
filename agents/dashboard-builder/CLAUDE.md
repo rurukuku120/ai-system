@@ -4,7 +4,7 @@
 `results/` JSON과 `agents/status.json`을 읽어 `docs/index.html` 대시보드를 생성하는 에이전트.
 
 ## 트리거
-- VFX 평가 완료 후 자동 실행 (vfx-evaluator runner에서 호출)
+- VFX 피드백 완료 후 자동 실행 (vfx-feedback runner에서 호출)
 - 수동: `python agents/dashboard-builder/runner.py`
 - 슬래시 커맨드: `/dashboard-build`
 

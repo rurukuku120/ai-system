@@ -100,7 +100,7 @@ def build_status_md(results: list[dict]) -> str:
         "# Agent Status",
         "",
         f"> 마지막 점검: {now}  ",
-        "> `scripts/health_check.py` 로 자동 생성됨.",
+        "> `monitoring/health_check.py` 로 자동 생성됨.",
         "",
         "---",
         "",

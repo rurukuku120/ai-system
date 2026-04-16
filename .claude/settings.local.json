@@ -17,10 +17,10 @@
       "Bash(gh api:*)",
       "Bash(git config:*)",
       "Bash(claude config:*)",
-      "Bash(python scripts/update_registry.py)",
-      "Bash(python scripts/health_check.py)",
-      "Bash(python3 scripts/health_check.py)",
-      "Bash(py scripts/health_check.py)",
+
+      "Bash(python monitoring/health_check.py)",
+      "Bash(python3 monitoring/health_check.py)",
+      "Bash(py monitoring/health_check.py)",
       "Bash(chmod +x:*)",
       "Bash(py agents/dashboard-builder/runner.py)",
       "Bash(python3 -c \"import PIL; print\\('PIL OK'\\)\")",
@@ -40,7 +40,8 @@
       "Bash(python3 -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
       "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
       "Bash(/c/Users/user/AppData/Local/Programs/Python/Python310/python.exe /c/Users/user/Documents/GitHub/vfx-unit-system/scripts/generate_structure_image.py)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "Bash(python scripts/update_readme.py)"
     ]
   }
 }

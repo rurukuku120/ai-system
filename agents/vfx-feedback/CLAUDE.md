@@ -1,10 +1,10 @@
-# VFX Evaluator Agent
+# VFX Feedback Agent
 
-Nexon 마비노기 이터니티 VFX 가독성 자동 평가 에이전트.
+Nexon 마비노기 이터니티 VFX 작업물 피드백 에이전트.
 
 ## 역할
 
-VFX 스크린샷을 입력받아 가독성 기준으로 평가하고, 결과를 JSON으로 저장 + Notion에 등록.
+VFX 작업물 스크린샷을 입력받아 가독성 기준으로 평가하고, 결과를 JSON으로 저장 + Notion에 등록.
 
 ## 파일 구성
 
@@ -27,7 +27,7 @@ VFX 스크린샷을 입력받아 가독성 기준으로 평가하고, 결과를 
 ```bash
 # GitHub Actions 자동 실행: inbox/에 이미지 push 시 트리거
 # 로컬 수동 실행:
-ANTHROPIC_API_KEY=... NOTION_TOKEN=... python agents/vfx-evaluator/runner.py
+ANTHROPIC_API_KEY=... NOTION_TOKEN=... python agents/vfx-feedback/runner.py
 ```
 
 ## 환경 변수

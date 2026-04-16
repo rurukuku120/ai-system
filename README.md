@@ -1,6 +1,6 @@
 # ai-system
 
-> 자동 생성됨 — 2026-04-17 00:02
+> 자동 생성됨 — 2026-04-17 00:19
 > `scripts/update_readme.py`가 갱신합니다. 직접 편집하지 마세요.
 
 Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
@@ -38,7 +38,8 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 | `.github/workflows/` | GitHub 이벤트 / 스케줄 | GitHub Actions 워크플로우 |
 | `hooks/dispatcher.py` | Claude Code 도구 실행 후 | PostToolUse 훅 디스패처 |
 | `.git/hooks/pre-commit` | git commit | agents/ 변경 시 README 자동 갱신 |
-| `scripts/` | 수동 / 워크플로우에서 호출 | 자동화 실행 스크립트 |
+| `monitoring/health_check.py` | 수동 / 워크플로우에서 호출 | 에이전트 상태 점검 |
+| `sync/notion/notion_to_skill.py` | 매일 09:00 KST / 수동 | Notion → 슬래시 커맨드 동기화 |
 
 ---
 
@@ -51,7 +52,7 @@ Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
 | `agents/dashboard-builder/` | Dashboard Builder Agent | `results/` JSON과 `agents/status.json`을 읽어 `docs/index.html`  |
 | `agents/notion-writer/` | Notion Writer Agent | 구조화된 데이터(JSON)를 받아 Notion 데이터베이스에 페이지를 생성하는 범용 쓰기 에이전트. VFX  |
 | `agents/session-logger/` | Claude Session Logger Agent | Claude Code 세션 종료 시 대화 내용을 마크다운으로 변환하고 GitHub에 자동으로 푸시하는 에이전 |
-| `agents/vfx-evaluator/` | VFX Evaluator Agent | VFX 스크린샷을 입력받아 가독성 기준으로 평가하고, 결과를 JSON으로 저장 + Notion에 등록. |
+| `agents/vfx-feedback/` | VFX Feedback Agent | VFX 작업물 스크린샷을 입력받아 가독성 기준으로 평가하고, 결과를 JSON으로 저장 + Notion에 등록 |
 | `agents/vfx-sync/` | VFX Sync Agent | 라이브 프로젝트의 VFX XML/Texture 파일 변경을 감지하여: - **XML** → Unreal Vi |
 
 → 상세: [`agents/README.md`](agents/README.md)

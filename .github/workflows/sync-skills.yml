@@ -37,14 +37,14 @@ jobs:
         if: ${{ github.event.inputs.dry_run == 'true' }}
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: python scripts/notion_to_skill.py --dry-run
+        run: python sync/notion/notion_to_skill.py --dry-run
 
       - name: Run sync
         if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        run: python scripts/notion_to_skill.py
+        run: python sync/notion/notion_to_skill.py
 
       - name: Commit updated skill files
         if: ${{ github.event.inputs.dry_run != 'true' }}

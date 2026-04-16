@@ -18,8 +18,8 @@ Notion 스킬 DB의 각 페이지를 읽어 .claude/commands/{name}.md 파일로
 | SLACK_TOKEN    | 선택 | Slack Bot Token (알림 생략 가능)  |
 
 ## 사용법
-  python scripts/notion_to_skill.py           # 실제 파일 쓰기
-  python scripts/notion_to_skill.py --dry-run # 변경사항 미리보기
+  python sync/notion/notion_to_skill.py           # 실제 파일 쓰기
+  python sync/notion/notion_to_skill.py --dry-run # 변경사항 미리보기
 """
 
 import argparse
@@ -30,7 +30,7 @@ from pathlib import Path
 import requests
 
 # ── 설정 ──────────────────────────────────────────────────────────────────────
-REPO_ROOT      = Path(__file__).parent.parent
+REPO_ROOT      = Path(__file__).parent.parent.parent
 COMMANDS_DIR   = REPO_ROOT / ".claude" / "commands"
 
 NOTION_API_BASE  = os.environ.get("NOTION_API_BASE", "https://notion-pat-proxy.nexon.co.kr")

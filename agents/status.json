@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-16T23:07:51.388358",
+  "updated_at": "2026-04-17T00:05:31.365583",
   "agents": [
     {
       "name": "agent-manager",
@@ -54,7 +54,7 @@
       "issues": []
     },
     {
-      "name": "vfx-evaluator",
+      "name": "vfx-feedback",
       "status": "healthy",
       "icon": "✅",
       "has_claude_md": true,
