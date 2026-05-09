@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1c7a50"/>
+  <!-- 바벨 -->
+  <rect x="80" y="228" width="352" height="56" rx="28" fill="#ffffff" opacity="0.15"/>
+  <rect x="156" y="200" width="200" height="112" rx="20" fill="none" stroke="#ffffff" stroke-width="16" opacity="0.3"/>
+  <!-- 왼쪽 플레이트 -->
+  <rect x="72" y="196" width="36" height="120" rx="12" fill="#a8e6c8"/>
+  <rect x="108" y="208" width="20" height="96" rx="8" fill="#7dd4aa"/>
+  <!-- 오른쪽 플레이트 -->
+  <rect x="404" y="196" width="36" height="120" rx="12" fill="#a8e6c8"/>
+  <rect x="384" y="208" width="20" height="96" rx="8" fill="#7dd4aa"/>
+  <!-- 바 -->
+  <rect x="128" y="240" width="256" height="32" rx="16" fill="#e8f5ee"/>
+  <!-- FC 텍스트 -->
+  <text x="256" y="420" font-family="system-ui, sans-serif" font-size="80" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.9">FC</text>
+</svg>

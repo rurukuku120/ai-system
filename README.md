@@ -1,79 +1,51 @@
 # ai-system
 
-> 자동 생성됨 — 2026-04-17 00:19
-> `scripts/update_readme.py`가 갱신합니다. 직접 편집하지 마세요.
+> 자동 생성됨 - 2026-05-10 00:35
+> `scripts/update_readme.py`가 갱신합니다.
 
-Nexon VFX팀의 AI 도구 및 에이전트 관리 저장소.
+Claude, Codex/GPT, Gemini가 같은 에이전트 구조를 읽고 실행할 수 있도록 설계한 운영 저장소다.
 
----
+## 지침 체계
+
+| 파일 | 역할 | 상태 |
+|---|---|---|
+| `AGENTS.md` | 공통 원본 지침 | yes |
+| `CLAUDE.md` | Claude Code용 진입점 | yes |
+| `GEMINI.md` | Gemini용 진입점 | yes |
+| `models/` | 모델별 부록 | yes |
+
+설계 기준: [`docs/architecture/llm-agent-operating-model.md`](docs/architecture/llm-agent-operating-model.md)
 
 ## 폴더 구조
 
 | 폴더 | 설명 |
-|------|------|
-| `.claude/` | Claude Code 설정 및 슬래시 커맨드 정의 |
+|---|---|
+| `.claude/` | Claude Code 설정과 슬래시 커맨드 |
 | `.github/` | GitHub Actions 워크플로우 |
-| `agents/` | 에이전트 정의 및 실행 스크립트 |
-| `common/` | 전체 에이전트 공통 기반 (규칙/형식/프로토콜/스키마) |
-| `config/` | 환경별 설정 (dev / staging / prod) |
-| `docs/` | 대시보드 및 문서 |
-| `hooks/` | Claude Code 훅 (dispatcher, registry) |
-| `inbox/` | VFX 작업물 피드백 요청 이미지 투입 폴더 |
-| `logs/` | 세션 로그 |
-| `memory/` | 에이전트 학습 결과 누적 |
-| `models/` | LLM별 개별 지침 (claude / gemini / gpt) |
-| `monitoring/` | 실행 로그, 오류 추적, 성능 지표 |
-| `projects/` | 프로젝트별 결과물 저장 |
-| `scripts/` | 유틸리티 스크립트 |
-| `security/` | 접근 권한, API 키 관리 기준 |
-| `sync/` | 외부 시스템 연동 (Notion / GitHub) |
-
-
----
-
-## 자동화
-
-| 위치 | 트리거 | 설명 |
-|------|--------|------|
-| `.github/workflows/` | GitHub 이벤트 / 스케줄 | GitHub Actions 워크플로우 |
-| `hooks/dispatcher.py` | Claude Code 도구 실행 후 | PostToolUse 훅 디스패처 |
-| `.git/hooks/pre-commit` | git commit | agents/ 변경 시 README 자동 갱신 |
-| `monitoring/health_check.py` | 수동 / 워크플로우에서 호출 | 에이전트 상태 점검 |
-| `sync/notion/notion_to_skill.py` | 매일 09:00 KST / 수동 | Notion → 슬래시 커맨드 동기화 |
-
----
+| `agents/` | 업무 단위 에이전트와 템플릿 |
+| `common/` | 공통 규칙, 프로토콜, 스키마, 테스트 케이스 |
+| `config/` | 환경별 설정 |
+| `docs/` | 운영 문서와 아키텍처 |
+| `hooks/` | 자동화 hook, scheduler, trigger 중앙 관제 |
+| `memory/` | 장기 메모리와 운영 노트 |
+| `models/` | 모델별 부록 |
+| `monitoring/` | 상태 점검 |
+| `projects/` | 프로젝트별 산출물 |
+| `scripts/` | 관리 스크립트 |
+| `security/` | 보안 기준 |
+| `skills/` | AI와 CLI가 재사용하는 skill |
+| `sync/` | 외부 시스템 동기화 |
+| `wiki/` | AI가 읽고 사람이 관리하는 지식 베이스 |
 
 ## 에이전트
 
-| 폴더 | 이름 | 역할 |
-|------|------|------|
-| `agents/agent-manager/` | Agent Manager | `agents/` 폴더를 스캔하여 각 에이전트의 `CLAUDE.md`를 읽고, `agents/README.m |
-| `agents/asset-parser/` | Unreal Asset Parser Agent | UE5 `.uasset` 바이너리 파일을 파싱하여 구조화된 데이터를 추출하는 에이전트. 에디터 없이 독립 실 |
-| `agents/dashboard-builder/` | Dashboard Builder Agent | `results/` JSON과 `agents/status.json`을 읽어 `docs/index.html`  |
-| `agents/notion-writer/` | Notion Writer Agent | 구조화된 데이터(JSON)를 받아 Notion 데이터베이스에 페이지를 생성하는 범용 쓰기 에이전트. VFX  |
-| `agents/session-logger/` | Claude Session Logger Agent | Claude Code 세션 종료 시 대화 내용을 마크다운으로 변환하고 GitHub에 자동으로 푸시하는 에이전 |
-| `agents/vfx-feedback/` | VFX Feedback Agent | VFX 작업물 스크린샷을 입력받아 가독성 기준으로 평가하고, 결과를 JSON으로 저장 + Notion에 등록 |
-| `agents/vfx-sync/` | VFX Sync Agent | 라이브 프로젝트의 VFX XML/Texture 파일 변경을 감지하여: - **XML** → Unreal Vi |
+| ID | 이름 | 진입점 | 설명 |
+|---|---|---|---|
+| - | - | - | 아직 등록된 에이전트가 없습니다. |
 
-→ 상세: [`agents/README.md`](agents/README.md)
+## 기본 명령
 
----
-
-## 슬래시 커맨드
-
-| 커맨드 | 설명 |
-|--------|------|
-| `/dashboard-build` | VFX 평가 결과 + 에이전트 상태를 읽어 docs/index.html 대시보드를 재생성합니다. |
-| `/session-logger` | 현재 세션의 대화 내용을 마크다운으로 변환하고 GitHub에 푸시합니다. |
-| `/vfx-eval` | inbox/ 폴더에 있는 VFX 스크린샷 이미지를 평가하라. |
-| `/vfx-sync` | 라이브(마비노기) VFX 리소스를 감지하여 언리얼(이터니티)에 자동 동기화하라. |
-
----
-
-## GitHub Actions 워크플로우
-
-| 파일 | 이름 |
-|------|------|
-| `sync-skills.yml` | Sync Notion Skills |
-| `vfx-eval.yml` | VFX Evaluation Agent |
-
+```powershell
+python monitoring/health_check.py
+python scripts/update_readme.py
+```

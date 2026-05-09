@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Fit Coach" />
+    <meta name="theme-color" content="#1c7a50" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <title>Fit Coach</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header" aria-label="오늘의 코칭 요약">
+        <div class="header-row">
+          <div>
+            <p class="eyebrow">Fit Coach</p>
+            <h1>오늘 기록</h1>
+          </div>
+          <div class="header-buttons">
+            <button class="icon-button" type="button" id="themeToggle" aria-label="다크모드 전환">
+              <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </button>
+            <button class="icon-button" type="button" id="openSettings" aria-label="AI 설정 열기">⚙</button>
+          </div>
+        </div>
+
+        <section class="score-card" aria-live="polite">
+          <div>
+            <span>오늘 균형 점수</span>
+            <strong id="balanceScore">0</strong>
+          </div>
+          <p id="coachHeadline">오늘 기록을 추가하면 코칭이 시작된다.</p>
+          <span class="status-pill" id="apiStatus">로컬 분석</span>
+        </section>
+      </header>
+
+      <section class="metric-strip" aria-label="핵심 지표">
+        <article class="metric-card">
+          <span>식단</span>
+          <strong id="mealCount">0개</strong>
+        </article>
+        <article class="metric-card">
+          <span>헬스 볼륨</span>
+          <strong id="strengthVolume">0kg</strong>
+        </article>
+        <article class="metric-card">
+          <span>러닝</span>
+          <strong id="runDistance">0km</strong>
+        </article>
+        <article class="metric-card">
+          <span>이번 주</span>
+          <strong id="weekWorkouts">0회</strong>
+        </article>
+      </section>
+
+      <section class="quick-section" aria-label="빠른 기록">
+        <div class="quick-tabs" id="quickTabs" role="tablist" aria-label="기록 종류">
+          <button class="quick-tab is-active" type="button" role="tab" aria-selected="true" data-card-index="0">식단</button>
+          <button class="quick-tab" type="button" role="tab" aria-selected="false" data-card-index="1">헬스</button>
+          <button class="quick-tab" type="button" role="tab" aria-selected="false" data-card-index="2">러닝</button>
+        </div>
+
+        <div class="quick-cards" id="quickCards">
+          <article class="quick-card meal-card" aria-label="식단 촬영">
+            <div class="card-topline">
+              <span class="card-icon">●</span>
+              <span>식단 촬영</span>
+            </div>
+            <h3>밥 먹기 전에 한 장</h3>
+            <p>사진을 찍고 보이는 음식만 적으면 탄단지 균형을 바로 추정한다.</p>
+
+            <form id="mealForm" class="stack-form">
+              <label class="upload-box">
+                <input id="mealPhoto" type="file" accept="image/*" capture="environment" />
+                <span>사진 찍기</span>
+                <img id="mealPreview" alt="" />
+              </label>
+              <div class="field-row">
+                <label>
+                  식사
+                  <select id="mealType">
+                    <option>아침</option>
+                    <option>점심</option>
+                    <option>저녁</option>
+                    <option>간식</option>
+                  </select>
+                </label>
+                <label>
+                  목표
+                  <select id="mealGoal">
+                    <option>감량</option>
+                    <option>유지</option>
+                    <option>증량</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                보이는 음식
+                <textarea id="mealMemo" rows="3" placeholder="예: 닭가슴살, 밥, 샐러드"></textarea>
+              </label>
+              <button class="primary-button" id="mealSubmit" type="submit">식단 분석 저장</button>
+            </form>
+            <div class="insight-box" id="mealInsight">사진과 음식을 입력하면 탄단지 균형을 추정한다.</div>
+          </article>
+
+          <article class="quick-card strength-card" aria-label="헬스 기록">
+            <div class="card-topline">
+              <span class="card-icon">●</span>
+              <span>헬스 기록</span>
+            </div>
+            <div class="card-heading-row">
+              <div>
+                <h3 id="routineTitle">오늘의 이분할</h3>
+                <p id="routineDesc">상체와 하체를 바꿔가며 볼륨과 컨디션을 남긴다.</p>
+              </div>
+              <div class="routine-mode-group">
+                <div class="segmented segmented-sm" role="group" aria-label="루틴 모드" id="routineModeSeg">
+                  <button type="button" class="segment is-active" data-mode="이분할">2분할</button>
+                  <button type="button" class="segment" data-mode="PPL">PPL</button>
+                </div>
+                <div class="segmented" role="group" aria-label="운동 분할 선택" id="splitSeg">
+                  <button type="button" class="segment is-active" data-split="상체">상체</button>
+                  <button type="button" class="segment" data-split="하체">하체</button>
+                </div>
+              </div>
+            </div>
+
+            <form id="strengthForm" class="stack-form">
+              <label>
+                운동
+                <select id="liftName"></select>
+              </label>
+              <label id="customLiftLabel" style="display:none">
+                운동 이름
+                <input id="customLiftInput" type="text" placeholder="예: 인클라인 케이블 플라이" />
+              </label>
+              <div class="metrics-grid">
+                <label>
+                  세트
+                  <input id="liftSets" type="number" inputmode="numeric" min="1" value="4" />
+                </label>
+                <label>
+                  반복
+                  <input id="liftReps" type="number" inputmode="numeric" min="1" value="8" />
+                </label>
+                <label>
+                  중량 kg
+                  <input id="liftWeight" type="number" inputmode="decimal" min="0" step="0.5" value="40" />
+                </label>
+              </div>
+              <label>
+                컨디션
+                <select id="liftRpe">
+                  <option value="7">여유 있음</option>
+                  <option value="8" selected>적당히 힘듦</option>
+                  <option value="9">거의 한계</option>
+                </select>
+              </label>
+              <button class="primary-button" type="submit">헬스 기록 저장</button>
+            </form>
+            <section class="lift-guide" id="liftGuide" aria-live="polite" aria-label="운동 자세 안내"></section>
+            <div class="routine-grid" id="splitRoutine"></div>
+          </article>
+
+          <article class="quick-card run-card" aria-label="러닝 스크린샷">
+            <div class="card-topline">
+              <span class="card-icon">●</span>
+              <span>러닝 스샷</span>
+            </div>
+            <h3>끝난 화면을 올리기</h3>
+            <p>런데이, Nike Run Club, Garmin 같은 앱 결과 화면을 선택한다.</p>
+
+            <form id="runForm" class="stack-form">
+              <label class="upload-box">
+                <input id="runPhoto" type="file" accept="image/*" />
+                <span>스샷 선택</span>
+                <img id="runPreview" alt="" />
+              </label>
+              <div class="metrics-grid">
+                <label>
+                  거리 km
+                  <input id="runKm" type="number" inputmode="decimal" min="0" step="0.01" value="5" />
+                </label>
+                <label>
+                  시간 분
+                  <input id="runMinutes" type="number" inputmode="numeric" min="0" value="35" />
+                </label>
+                <label>
+                  평균 심박
+                  <input id="runHr" type="number" inputmode="numeric" min="0" value="145" />
+                </label>
+              </div>
+              <button class="primary-button" id="runSubmit" type="submit">러닝 분석 저장</button>
+            </form>
+            <div class="insight-box" id="runInsight">스크린샷 수치를 입력하면 페이스와 회복 강도를 계산한다.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="weekly-stats panel" aria-label="주간 통계">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">주간 통계</p>
+            <h2>최근 7일</h2>
+          </div>
+        </div>
+        <div class="chart-row">
+          <div class="mini-chart">
+            <p class="chart-label">식단 점수</p>
+            <div id="chartMealScore"></div>
+          </div>
+          <div class="mini-chart">
+            <p class="chart-label">헬스 볼륨 (kg)</p>
+            <div id="chartVolume"></div>
+          </div>
+          <div class="mini-chart">
+            <p class="chart-label">러닝 (km)</p>
+            <div id="chartDistance"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="today-coach panel" aria-label="오늘의 수정 제안">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">종합 코치</p>
+            <h2>오늘의 수정 제안</h2>
+          </div>
+        </div>
+        <ul class="coach-list" id="coachList"></ul>
+      </section>
+
+      <section class="recent-log panel" aria-label="최근 기록">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">타임라인</p>
+            <h2>최근 기록</h2>
+          </div>
+          <button class="ghost-button" type="button" id="clearAll">전체 삭제</button>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+        <div class="empty-state" id="emptyState">아직 기록이 없다. 사진, 헬스, 러닝 중 하나를 먼저 저장해보자.</div>
+      </section>
+    </main>
+
+    <div class="sheet-backdrop" id="settingsBackdrop" hidden></div>
+    <aside class="settings-sheet" id="settingsSheet" aria-label="AI 설정" aria-hidden="true">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">AI 설정</p>
+          <h2>이미지 분석 연결</h2>
+        </div>
+        <button class="icon-button" type="button" id="closeSettings" aria-label="AI 설정 닫기">×</button>
+      </div>
+      <form id="settingsForm" class="stack-form">
+        <label>
+          OpenAI API Key
+          <input id="apiKey" type="password" placeholder="sk-..." autocomplete="off" />
+        </label>
+        <label>
+          모델
+          <input id="modelName" type="text" value="gpt-4.1-mini" />
+        </label>
+        <label>
+          분석 방식
+          <select id="analysisMode">
+            <option value="auto">AI 우선</option>
+            <option value="local">로컬만</option>
+          </select>
+        </label>
+        <button class="primary-button" type="submit">설정 적용</button>
+      </form>
+      <div class="insight-box compact">로컬 프로토타입용 설정이다. 실제 배포 버전은 서버에서 API 키를 보호해야 한다.</div>
+    </aside>
+
+    <script src="./app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/sw.js");
+      }
+    </script>
+  </body>
+</html>
