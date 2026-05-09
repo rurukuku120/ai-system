@@ -974,8 +974,43 @@ document.addEventListener("keydown", (event) => {
 
 elements.mealPhoto.addEventListener("change", () => setPreview(elements.mealPhoto, elements.mealPreview));
 elements.mealPhotoCamera?.addEventListener("change", () => setPreview(elements.mealPhotoCamera, elements.mealPreviewCamera));
-elements.runPhoto.addEventListener("change", () => setPreview(elements.runPhoto, elements.runPreview));
-elements.runPhotoCamera?.addEventListener("change", () => setPreview(elements.runPhotoCamera, elements.runPreviewCamera));
+
+async function autoFillRunFields(file) {
+  if (!file) return;
+  const kmEl = document.querySelector("#runKm");
+  const minEl = document.querySelector("#runMinutes");
+  const hrEl = document.querySelector("#runHr");
+  const submitEl = elements.runSubmit;
+  const prevText = submitEl.textContent;
+  submitEl.textContent = "이미지 읽는 중...";
+  submitEl.disabled = true;
+  try {
+    const aiResult = await analyzeImageWithOpenAI({
+      file,
+      task: "러닝 앱 스크린샷에서 수치만 추출하라. 반드시 JSON만 반환한다. 스키마: {\"km\": number, \"minutes\": number, \"hr\": number}",
+      context: {},
+    });
+    if (aiResult) {
+      const parsed = typeof aiResult === "string" ? JSON.parse(aiResult) : aiResult;
+      if (parsed.km > 0) kmEl.value = parsed.km;
+      if (parsed.minutes > 0) minEl.value = parsed.minutes;
+      if (parsed.hr > 0) hrEl.value = parsed.hr;
+    }
+  } catch {}
+  finally {
+    submitEl.textContent = prevText;
+    submitEl.disabled = false;
+  }
+}
+
+elements.runPhoto.addEventListener("change", () => {
+  setPreview(elements.runPhoto, elements.runPreview);
+  autoFillRunFields(elements.runPhoto.files?.[0]);
+});
+elements.runPhotoCamera?.addEventListener("change", () => {
+  setPreview(elements.runPhotoCamera, elements.runPreviewCamera);
+  autoFillRunFields(elements.runPhotoCamera.files?.[0]);
+});
 
 elements.mealForm.addEventListener("submit", async (event) => {
   event.preventDefault();

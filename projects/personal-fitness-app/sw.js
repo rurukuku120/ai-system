@@ -1,4 +1,4 @@
-const CACHE = "fit-coach-v1";
+const CACHE = "fit-coach-v3";
 const STATIC = ["/", "/index.html", "/app.js", "/styles.css", "/manifest.json"];
 
 self.addEventListener("install", (e) => {
