@@ -1148,7 +1148,8 @@ switchTab(0);
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
   if (isStandalone) return;
 
-  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+  // 항상 버튼 표시
+  installBtn.removeAttribute("hidden");
 
   function openIosSheet() {
     iosSheet.removeAttribute("hidden");
@@ -1166,27 +1167,24 @@ switchTab(0);
     setTimeout(() => iosSheet.setAttribute("hidden", ""), 300);
   }
 
-  if (isIos) {
-    installBtn.removeAttribute("hidden");
-    installBtn.addEventListener("click", openIosSheet);
-    closeIos?.addEventListener("click", closeIosSheet);
-    iosBackdrop?.addEventListener("click", closeIosSheet);
-    return;
-  }
+  closeIos?.addEventListener("click", closeIosSheet);
+  iosBackdrop?.addEventListener("click", closeIosSheet);
 
   let deferredPrompt;
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    installBtn.removeAttribute("hidden");
   });
 
   installBtn.addEventListener("click", async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") installBtn.setAttribute("hidden", "");
-    deferredPrompt = null;
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === "accepted") installBtn.setAttribute("hidden", "");
+      deferredPrompt = null;
+    } else {
+      openIosSheet();
+    }
   });
 
   window.addEventListener("appinstalled", () => {
