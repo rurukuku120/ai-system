@@ -1137,3 +1137,59 @@ renderSplitButtons();
 renderSplit();
 render();
 switchTab(0);
+
+// PWA 설치
+(function initPwaInstall() {
+  const installBtn = document.getElementById("installApp");
+  const iosSheet = document.getElementById("iosInstallSheet");
+  const iosBackdrop = document.getElementById("iosInstallBackdrop");
+  const closeIos = document.getElementById("closeIosInstall");
+
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+  if (isStandalone) return;
+
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+
+  function openIosSheet() {
+    iosSheet.removeAttribute("hidden");
+    iosBackdrop.removeAttribute("hidden");
+    iosSheet.classList.add("is-open");
+    iosSheet.setAttribute("aria-hidden", "false");
+    document.body.classList.add("sheet-open");
+  }
+
+  function closeIosSheet() {
+    iosSheet.classList.remove("is-open");
+    iosSheet.setAttribute("aria-hidden", "true");
+    iosBackdrop.setAttribute("hidden", "");
+    document.body.classList.remove("sheet-open");
+    setTimeout(() => iosSheet.setAttribute("hidden", ""), 300);
+  }
+
+  if (isIos) {
+    installBtn.removeAttribute("hidden");
+    installBtn.addEventListener("click", openIosSheet);
+    closeIos?.addEventListener("click", closeIosSheet);
+    iosBackdrop?.addEventListener("click", closeIosSheet);
+    return;
+  }
+
+  let deferredPrompt;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.removeAttribute("hidden");
+  });
+
+  installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") installBtn.setAttribute("hidden", "");
+    deferredPrompt = null;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    installBtn.setAttribute("hidden", "");
+  });
+}());

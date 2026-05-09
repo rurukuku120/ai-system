@@ -22,6 +22,10 @@
             <h1>오늘 기록</h1>
           </div>
           <div class="header-buttons">
+            <button class="install-button" type="button" id="installApp" aria-label="앱 설치" hidden>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v13M7 11l5 5 5-5"/><path d="M3 18h18"/></svg>
+              앱 설치
+            </button>
             <button class="icon-button" type="button" id="themeToggle" aria-label="다크모드 전환">
               <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
@@ -279,6 +283,48 @@
         <button class="primary-button" type="submit">설정 적용</button>
       </form>
       <div class="insight-box compact">로컬 프로토타입용 설정이다. 실제 배포 버전은 서버에서 API 키를 보호해야 한다.</div>
+    </aside>
+
+    <div class="sheet-backdrop" id="iosInstallBackdrop" hidden></div>
+    <aside class="settings-sheet ios-install-sheet" id="iosInstallSheet" aria-label="앱 설치 안내" aria-hidden="true">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">앱 설치</p>
+          <h2>홈 화면에 추가하기</h2>
+        </div>
+        <button class="icon-button" type="button" id="closeIosInstall" aria-label="닫기">×</button>
+      </div>
+      <ol class="install-steps">
+        <li>
+          <span class="install-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          </span>
+          <div>
+            <strong>하단 공유 버튼 탭</strong>
+            <p>Safari 하단 가운데 □↑ 아이콘</p>
+          </div>
+        </li>
+        <li>
+          <span class="install-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </span>
+          <div>
+            <strong>"홈 화면에 추가" 선택</strong>
+            <p>스크롤해서 찾거나 검색</p>
+          </div>
+        </li>
+        <li>
+          <span class="install-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <div>
+            <strong>"추가" 탭</strong>
+            <p>홈 화면에 Fit Coach 아이콘 생성</p>
+          </div>
+        </li>
+      </ol>
+      <div class="insight-box compact" style="margin-top:8px">Safari에서만 홈 화면 추가가 가능하다. Chrome 사용 중이면 Safari로 열어야 한다.</div>
     </aside>
 
     <script src="./app.js"></script>
