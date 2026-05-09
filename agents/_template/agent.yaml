@@ -1,0 +1,18 @@
+id: template-agent
+name: Template Agent
+version: 0.1.0
+entrypoint: agents/_template/runner.py
+description: 새 에이전트를 만들기 위한 템플릿.
+triggers:
+  - type: manual
+    command: python agents/_template/runner.py
+inputs: []
+outputs: []
+env:
+  required: []
+  optional: []
+health:
+  syntax: true
+  dry_run: python agents/_template/runner.py --dry-run
+owners: []
+notes: 복사 후 id, name, entrypoint를 실제 값으로 바꾼다.

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/ai-system/schemas/skill.schema.json",
+  "title": "AI System Skill Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "version", "description", "source"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["local", "notion"]
+        },
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "default": [],
+      "items": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "default": [],
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "default": [],
+      "items": { "type": "string" }
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  }
+}

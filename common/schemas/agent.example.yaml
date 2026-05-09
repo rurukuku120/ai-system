@@ -1,0 +1,25 @@
+id: example-agent
+name: Example Agent
+version: 0.1.0
+entrypoint: agents/example-agent/runner.py
+description: 에이전트 manifest 예시.
+triggers:
+  - type: manual
+    command: python agents/example-agent/runner.py
+inputs:
+  - name: source
+    type: directory
+    path: inbox/
+    required: true
+outputs:
+  - name: result
+    type: json
+    path: projects/example/results/
+env:
+  required: []
+  optional: []
+health:
+  syntax: true
+  dry_run: python agents/example-agent/runner.py --dry-run
+owners: []
+notes: 실제 에이전트에 맞게 수정한다.

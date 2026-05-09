@@ -1,0 +1,12 @@
+id: template-skill
+name: Template Skill
+version: 0.1.0
+description: 새 skill을 만들기 위한 템플릿.
+source:
+  type: local
+  id: ""
+  url: ""
+inputs: []
+outputs: []
+tags: []
+updated_at: ""

@@ -1,3 +1,7 @@
 # config
 
-환경별 설정 관리 (dev/staging/prod).
+환경별 설정을 둔다.
+
+- `dev/`
+- `staging/`
+- `prod/`

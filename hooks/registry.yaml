@@ -1,0 +1,33 @@
+version: 1
+description: ai-system 자동화 트리거와 스케줄러의 중앙 목록.
+automations:
+  - id: git.pre-commit
+    type: git-hook
+    source: hooks/git/pre-commit
+    installed_to: .git/hooks/pre-commit
+    task: hooks/git/pre_commit.py
+    description: 커밋 전에 README와 에이전트 상태 파일을 갱신하고 stage한다.
+    commands:
+      install: python hooks/install.py
+      run: python hooks/git/pre_commit.py
+  - id: readme.update
+    type: task
+    source: scripts/update_readme.py
+    description: 루트 README.md를 현재 repo 구조 기준으로 재생성한다.
+  - id: agents.health-check
+    type: task
+    source: monitoring/health_check.py
+    description: agents/*/agent.yaml과 entrypoint 상태를 점검한다.
+  - id: github.example
+    type: github-actions-template
+    source: hooks/github/workflow.example.yml
+    installed_to: .github/workflows/
+    description: GitHub Actions workflow는 실제 실행 파일은 .github/workflows/에 두고, 관리 문서는 hooks/github/에 둔다.
+  - id: notion.skills-sync
+    type: manual-sync
+    source: sync/notion/notion_to_skills.py
+    output: skills/
+    description: Notion skill 데이터베이스를 CLI에서 읽을 수 있는 skills/* 파일로 동기화한다.
+    commands:
+      dry_run: python sync/notion/notion_to_skills.py --dry-run
+      run: python sync/notion/notion_to_skills.py

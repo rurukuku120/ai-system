@@ -1,26 +1,12 @@
-# 환경 변수
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .env
 .env.*
 !.env.example
-
-# 로그
+logs/
+tmp/
 *.log
-monitoring/logs/
-logs/sessions/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# 편집기
-.vscode/
-.idea/
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-
-# 민감 정보
-security/secrets/
-config/*/secrets.*

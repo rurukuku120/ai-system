@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/ai-system/schemas/agent.schema.json",
+  "title": "AI System Agent Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "version", "entrypoint", "description", "triggers"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "entrypoint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "triggers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["manual", "slash_command", "github_actions", "hook", "schedule", "watcher"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "command": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/io"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/io"
+      }
+    },
+    "env": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "optional": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "health": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "syntax": { "type": "boolean" },
+        "dry_run": { "type": "string" },
+        "schema": { "type": "string" }
+      }
+    },
+    "owners": {
+      "type": "array",
+      "default": [],
+      "items": { "type": "string" }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "io": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["file", "directory", "json", "image", "text", "database", "url", "artifact"]
+        },
+        "path": { "type": "string" },
+        "description": { "type": "string" },
+        "required": { "type": "boolean" }
+      }
+    }
+  }
+}
