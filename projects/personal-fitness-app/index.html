@@ -81,11 +81,18 @@
             <p>사진을 찍고 보이는 음식만 적으면 탄단지 균형을 바로 추정한다.</p>
 
             <form id="mealForm" class="stack-form">
-              <label class="upload-box">
-                <input id="mealPhoto" type="file" accept="image/*" />
-                <span>사진 촬영 또는 갤러리 선택</span>
-                <img id="mealPreview" alt="" />
-              </label>
+              <div class="upload-row">
+                <label class="upload-box">
+                  <input id="mealPhoto" type="file" accept="image/*" />
+                  <span>갤러리 선택</span>
+                  <img id="mealPreview" alt="" />
+                </label>
+                <label class="upload-box">
+                  <input id="mealPhotoCamera" type="file" accept="image/*" capture="environment" />
+                  <span>카메라 촬영</span>
+                  <img id="mealPreviewCamera" alt="" />
+                </label>
+              </div>
               <div class="field-row">
                 <label>
                   식사
@@ -182,11 +189,18 @@
             <p>런데이, Nike Run Club, Garmin 같은 앱 결과 화면을 선택한다.</p>
 
             <form id="runForm" class="stack-form">
-              <label class="upload-box">
-                <input id="runPhoto" type="file" accept="image/*" />
-                <span>사진 촬영 또는 갤러리 선택</span>
-                <img id="runPreview" alt="" />
-              </label>
+              <div class="upload-row">
+                <label class="upload-box">
+                  <input id="runPhoto" type="file" accept="image/*" />
+                  <span>갤러리 선택</span>
+                  <img id="runPreview" alt="" />
+                </label>
+                <label class="upload-box">
+                  <input id="runPhotoCamera" type="file" accept="image/*" capture="environment" />
+                  <span>카메라 촬영</span>
+                  <img id="runPreviewCamera" alt="" />
+                </label>
+              </div>
               </label>
               <div class="metrics-grid">
                 <label>
