@@ -181,7 +181,9 @@ const elements = {
   mealSubmit: document.querySelector("#mealSubmit"),
   runSubmit: document.querySelector("#runSubmit"),
   mealPhoto: document.querySelector("#mealPhoto"),
+  mealPhotoCamera: document.querySelector("#mealPhotoCamera"),
   runPhoto: document.querySelector("#runPhoto"),
+  runPhotoCamera: document.querySelector("#runPhotoCamera"),
   mealPreview: document.querySelector("#mealPreview"),
   runPreview: document.querySelector("#runPreview"),
   mealInsight: document.querySelector("#mealInsight"),
@@ -969,7 +971,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 elements.mealPhoto.addEventListener("change", () => setPreview(elements.mealPhoto, elements.mealPreview));
+elements.mealPhotoCamera?.addEventListener("change", () => setPreview(elements.mealPhotoCamera, elements.mealPreview));
 elements.runPhoto.addEventListener("change", () => setPreview(elements.runPhoto, elements.runPreview));
+elements.runPhotoCamera?.addEventListener("change", () => setPreview(elements.runPhotoCamera, elements.runPreview));
 
 elements.mealForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -983,7 +987,7 @@ elements.mealForm.addEventListener("submit", async (event) => {
   elements.mealSubmit.textContent = "분석 중";
   try {
     const aiResult = await analyzeImageWithOpenAI({
-      file: elements.mealPhoto.files?.[0],
+      file: elements.mealPhotoCamera?.files?.[0] || elements.mealPhoto.files?.[0],
       task: "식사 사진을 보고 피트니스 코치 관점에서 상세히 분석하라. 반드시 JSON만 반환한다. 스키마: {\"score\": number(0-100, 목표 달성 적합도), \"macro\": string(단백질/탄수화물/지방/채소 한 줄 요약), \"advice\": string(다음 끼니 핵심 조언 한 문장), \"calories\": number(추정 총 kcal), \"protein\": number(추정 단백질 g), \"carbs\": number(추정 탄수화물 g), \"fat\": number(추정 지방 g), \"foodList\": [{\"name\": string, \"kcal\": number, \"note\": string}](음식별 칼로리와 한 줄 코멘트), \"detail\": string(이 식사의 전반적인 구성 평가, 3-4문장, 목표와 연계해서), \"concerns\": string[](나트륨/당분/포화지방 등 주의할 점 목록), \"nextMeal\": string(다음 끼니 구체적인 추천 메뉴 예시)}",
       context: { mealType, goal, memo },
     });
@@ -1061,7 +1065,7 @@ elements.runForm.addEventListener("submit", async (event) => {
   elements.runSubmit.textContent = "분석 중";
   try {
     const aiResult = await analyzeImageWithOpenAI({
-      file: elements.runPhoto.files?.[0],
+      file: elements.runPhotoCamera?.files?.[0] || elements.runPhoto.files?.[0],
       task: "러닝 앱 스크린샷을 보고 피트니스 코치 관점에서 상세히 분석하라. 반드시 JSON만 반환한다. 스키마: {\"km\": number, \"minutes\": number, \"hr\": number, \"paceText\": string, \"intensity\": string(저강도/중강도/고강도), \"advice\": string(다음 운동 핵심 조언 한 문장), \"calories\": number(소모 칼로리 추정), \"detail\": string(이번 러닝 전체 총평, 3-4문장, 페이스 일관성/심박 안정성/강도 적절성 포함), \"splits\": string[](구간 페이스, 심박 변화 등 눈에 띄는 수치 목록), \"trainingZone\": string(심박 기반 훈련 존, ex: Zone 2 유산소), \"recoveryAdvice\": string(이번 세션 후 회복 방법 구체적으로), \"nextSession\": string(다음 러닝/훈련 세션 구체적인 추천)}",
       context: { km, minutes, hr },
     });
