@@ -1,6 +1,6 @@
 # ai-system
 
-> 자동 생성됨 - 2026-05-10 20:42
+> 자동 생성됨 - 2026-05-10 20:46
 > `scripts/update_readme.py`가 갱신합니다.
 
 Claude, Codex/GPT, Gemini가 같은 에이전트 구조를 읽고 실행할 수 있도록 설계한 운영 저장소다.
