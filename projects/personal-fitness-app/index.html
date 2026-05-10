@@ -436,6 +436,10 @@
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/sw.js");
+        // 새 서비스 워커가 페이지를 장악하면 자동으로 최신 버전 로드
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          location.reload();
+        });
       }
     </script>
   </body>
