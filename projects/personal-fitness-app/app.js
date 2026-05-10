@@ -178,6 +178,7 @@ const elements = {
   mealForm: document.querySelector("#mealForm"),
   strengthForm: document.querySelector("#strengthForm"),
   runForm: document.querySelector("#runForm"),
+  mealAnalyze: document.querySelector("#mealAnalyze"),
   mealSubmit: document.querySelector("#mealSubmit"),
   runSubmit: document.querySelector("#runSubmit"),
   mealPhoto: document.querySelector("#mealPhoto"),
@@ -209,6 +210,9 @@ function loadSettings() {
     apiKey: readStorage(session, "fit-coach-api-key"),
     model: readStorage(local, "fit-coach-model", "gpt-4.1-mini"),
     mode: readStorage(local, "fit-coach-analysis-mode", "auto"),
+    notionEnabled: readStorage(local, "fit-coach-notion-enabled", "false") === "true",
+    notionToken: readStorage(local, "fit-coach-notion-token"),
+    notionDbId: readStorage(local, "fit-coach-notion-db-id"),
   };
 }
 
@@ -222,6 +226,9 @@ function saveSettings(settings) {
   }
   writeStorage(local, "fit-coach-model", settings.model || "gpt-4.1-mini");
   writeStorage(local, "fit-coach-analysis-mode", settings.mode || "auto");
+  writeStorage(local, "fit-coach-notion-enabled", settings.notionEnabled ? "true" : "false");
+  if (settings.notionToken) writeStorage(local, "fit-coach-notion-token", settings.notionToken);
+  if (settings.notionDbId) writeStorage(local, "fit-coach-notion-db-id", settings.notionDbId);
 }
 
 function loadRecords() {
@@ -302,6 +309,20 @@ function hydrateSettings() {
   elements.apiKey.value = settings.apiKey;
   elements.modelName.value = settings.model;
   elements.analysisMode.value = settings.mode;
+  const notionToggle = document.querySelector("#notionEnabled");
+  const notionFields = document.querySelector("#notionFields");
+  if (notionToggle) {
+    notionToggle.checked = settings.notionEnabled;
+    if (notionFields) notionFields.style.display = settings.notionEnabled ? "" : "none";
+    notionToggle.addEventListener("change", () => {
+      if (notionFields) notionFields.style.display = notionToggle.checked ? "" : "none";
+    });
+  }
+  const notionTokenEl = document.querySelector("#notionToken");
+  const notionDbIdEl = document.querySelector("#notionDbId");
+  if (notionTokenEl) notionTokenEl.value = settings.notionToken || "";
+  if (notionDbIdEl) notionDbIdEl.value = settings.notionDbId || "";
+  notionReady = settings.notionEnabled && Boolean(settings.notionToken) && Boolean(settings.notionDbId);
   renderApiStatus();
 }
 
@@ -313,6 +334,9 @@ function renderApiStatus() {
   else if (aiReady) elements.apiStatus.textContent = "AI 분석 준비";
   else elements.apiStatus.textContent = "로컬 분석";
   elements.apiStatus.classList.toggle("is-ready", aiReady || notionReady);
+  // 서버 키 연결 시 안내
+  const notice = document.querySelector("#serverKeyNotice");
+  if (notice) notice.style.display = proxyReady ? "" : "none";
 }
 
 async function notionFetch(path, method = "GET", body = null) {
@@ -427,9 +451,17 @@ function parseJsonLoose(text) {
   try {
     return JSON.parse(text);
   } catch {
-    const match = text.match(/\{[\s\S]*\}/);
-    if (!match) throw new Error("JSON 응답을 찾지 못했다.");
-    return JSON.parse(match[0]);
+    // 첫 번째 { 부터 짝이 맞는 } 까지만 추출
+    const start = text.indexOf("{");
+    if (start === -1) throw new Error("JSON 응답을 찾지 못했다.");
+    let depth = 0;
+    let end = -1;
+    for (let i = start; i < text.length; i++) {
+      if (text[i] === "{") depth++;
+      else if (text[i] === "}") { depth--; if (depth === 0) { end = i; break; } }
+    }
+    if (end === -1) throw new Error("JSON 응답을 찾지 못했다.");
+    return JSON.parse(text.slice(start, end + 1));
   }
 }
 
@@ -767,36 +799,69 @@ function calculateStats(records) {
 }
 
 function createCoachItems(records) {
-  if (records.length === 0) {
-    return ["식단 사진, 이분할 운동, 러닝 스샷 중 하나를 저장하면 코칭이 시작된다."];
+  const todayRecords = records.filter((r) => r.date.slice(0, 10) === todayKey());
+  const meals = todayRecords.filter((r) => r.type === "meal");
+  const lifts = todayRecords.filter((r) => r.type === "strength");
+  const runs = todayRecords.filter((r) => r.type === "run");
+  const hasAny = meals.length || lifts.length || runs.length;
+
+  if (!hasAny) {
+    return [
+      "오늘 기록이 아직 없어요. 식단 한 장, 운동 한 세트, 러닝 결과 중 하나만 남겨도 제가 바로 분석해드릴 수 있어요.",
+      "내일 제안: 지금 시작한다면 가볍게 20분 유산소나 상체 루틴 한 세션 어떨까요?"
+    ];
   }
 
-  const todayRecords = records.filter((record) => record.date.slice(0, 10) === todayKey());
-  const meals = todayRecords.filter((record) => record.type === "meal");
-  const lifts = todayRecords.filter((record) => record.type === "strength");
-  const runs = todayRecords.filter((record) => record.type === "run");
   const items = [];
 
-  if (meals.length === 0) {
-    items.push("오늘 식단 기록이 없다. 운동 전후 한 끼라도 사진으로 남기면 조정 정확도가 오른다.");
-  } else {
-    const averageMeal = Math.round(meals.reduce((sum, meal) => sum + meal.score, 0) / meals.length);
-    items.push(`오늘 식단 평균은 ${averageMeal}점이다. ${averageMeal < 70 ? "다음 끼니에 단백질과 채소를 먼저 채우자." : "현재 구성을 유지해도 좋다."}`);
+  // 종합 평가
+  const mealAvg = meals.length
+    ? Math.round(meals.reduce((s, r) => s + r.score, 0) / meals.length) : null;
+  const liftVol = lifts.reduce((s, r) => s + (r.volume || 0), 0);
+  const runKm = runs.reduce((s, r) => s + (r.km || 0), 0);
+  const highRpe = lifts.some((r) => Number(r.rpe) >= 9);
+  const hardRun = runs.some((r) => r.intensity === "고강도");
+
+  // 식단 코칭
+  if (meals.length) {
+    if (mealAvg >= 80) {
+      items.push(`오늘 식단 구성 정말 잘 하셨어요 (평균 ${mealAvg}점). 단백질과 채소 밸런스가 잘 잡혀 있어요. 이 흐름 그대로 유지하시면 됩니다.`);
+    } else if (mealAvg >= 60) {
+      items.push(`식단 평균 ${mealAvg}점으로 무난한 수준이에요. 다음 끼니엔 정제 탄수화물 대신 현미나 고구마로 교체하고, 단백질을 30g 이상 맞춰보세요.`);
+    } else {
+      items.push(`식단 점수가 ${mealAvg}점으로 좀 아쉬워요. 탄수화물 과다 또는 단백질 부족이 원인일 수 있어요. 내일 아침부터 달걀 2개 + 채소로 시작해보는 건 어떨까요?`);
+    }
   }
 
-  if (lifts.some((lift) => Number(lift.rpe) >= 9)) {
-    items.push("헬스 강도가 높았다. 같은 부위는 다음 세션에서 세트 수를 1세트 줄여도 충분하다.");
-  } else if (lifts.length > 0) {
-    items.push("근력 기록 강도는 안정적이다. 다음 같은 루틴에서 2.5kg 또는 1회만 올려보자.");
-  } else {
-    items.push("오늘 헬스 기록이 없다. 이분할 흐름을 유지하려면 상체/하체 중 하나를 짧게라도 남기자.");
+  // 헬스 코칭
+  if (lifts.length) {
+    if (highRpe) {
+      items.push(`오늘 운동 강도가 매우 높았어요 (${Math.round(liftVol).toLocaleString("ko-KR")}kg). 근육 회복에 48시간이 필요하니 같은 부위는 모레 이후에 다시 하세요. 충분한 수면과 단백질 섭취가 지금 가장 중요합니다.`);
+    } else {
+      items.push(`헬스 볼륨 ${Math.round(liftVol).toLocaleString("ko-KR")}kg, 안정적인 강도였어요. 다음 세션에서는 주 동작 1개에만 2.5kg 또는 1회를 올려보세요. 점진적 과부하가 성장의 핵심입니다.`);
+    }
   }
 
-  if (runs.some((run) => run.intensity === "고강도")) {
-    items.push("러닝이 고강도였다. 내일은 하체 고중량보다 상체나 회복 세션이 낫다.");
-  } else if (runs.length > 0) {
-    items.push("러닝 강도는 병행 가능한 수준이다. 하체 운동 전이라면 워밍업 볼륨으로 활용 가능하다.");
+  // 러닝 코칭
+  if (runs.length) {
+    if (hardRun) {
+      items.push(`${runKm.toFixed(1)}km 고강도 러닝, 잘 하셨어요! 하지만 내일 하체 고중량은 피하는 게 좋아요. 폼롤러 스트레칭과 충분한 수분 보충을 꼭 해주세요.`);
+    } else {
+      items.push(`${runKm.toFixed(1)}km 달리셨어요. 이 정도 페이스라면 헬스와 병행해도 회복에 무리가 없어요. 꾸준히 이어가면 2주 안에 체감 페이스가 달라질 겁니다.`);
+    }
   }
+
+  // 내일 제안
+  const tomorrowMsg = (() => {
+    if (hardRun && highRpe) return "내일 제안: 하체와 러닝 모두 고강도였으니 내일은 완전 휴식이나 가벼운 스트레칭만 하세요. 회복도 훈련입니다.";
+    if (hardRun) return "내일 제안: 고강도 러닝 다음 날은 상체 루틴이 이상적이에요. 가슴·어깨·삼두 위주로 구성해보세요.";
+    if (highRpe) return "내일 제안: 고강도 웨이트 후라면 내일은 30분 이하 가벼운 조깅이나 코어 루틴을 추천해요.";
+    if (lifts.length && !runs.length) return "내일 제안: 오늘 근력 운동을 하셨으니 내일 20~30분 가벼운 러닝을 더하면 심폐 능력과 회복 순환에 도움이 돼요.";
+    if (runs.length && !lifts.length) return "내일 제안: 러닝만 하셨다면 내일은 상체 또는 하체 근력 운동을 한 세션 넣어보세요. 근육량이 기초대사를 올려줍니다.";
+    if (mealAvg && mealAvg < 65) return "내일 제안: 내일은 아침에 고단백 식사로 시작해보세요. 삶은 달걀 2개 + 통곡물 식빵 + 채소 조합이 간단하면서도 효과적이에요.";
+    return "내일 제안: 오늘 기록을 바탕으로 내일도 같은 흐름을 유지해보세요. 꾸준함이 가장 강력한 루틴입니다.";
+  })();
+  items.push(tomorrowMsg);
 
   return items;
 }
@@ -829,6 +894,146 @@ function renderWeeklyStats(records) {
   renderMiniBarChart("chartDistance", stats.dailyDistance, "bar-amber");
 }
 
+// ─── 통계 탭 ───────────────────────────────────────────
+let activeStatsPeriod = "daily";
+
+function getDateRange(period) {
+  const now = new Date();
+  const today = todayKey();
+  if (period === "daily") return { start: today, end: today, label: "오늘" };
+  if (period === "weekly") {
+    const d = new Date(now); d.setDate(d.getDate() - 6);
+    return { start: d.toISOString().slice(0, 10), end: today, label: "최근 7일" };
+  }
+  if (period === "monthly") {
+    const d = new Date(now); d.setDate(1);
+    return { start: d.toISOString().slice(0, 10), end: today, label: "이번 달" };
+  }
+  // yearly
+  return { start: `${now.getFullYear()}-01-01`, end: today, label: `${now.getFullYear()}년` };
+}
+
+function buildBarData(records, period, accessor) {
+  const { start, end } = getDateRange(period);
+  const days = [];
+  const cur = new Date(start + "T12:00:00");
+  const endD = new Date(end + "T12:00:00");
+  while (cur <= endD) {
+    days.push(cur.toISOString().slice(0, 10));
+    cur.setDate(cur.getDate() + 1);
+  }
+  // For monthly/yearly, group by week or month
+  if (period === "monthly") {
+    const weeks = [];
+    for (let i = 0; i < days.length; i += 7) {
+      const chunk = days.slice(i, i + 7);
+      const val = chunk.reduce((s, d) => s + accessor(records, d), 0);
+      weeks.push({ date: chunk[0], value: val });
+    }
+    return weeks;
+  }
+  if (period === "yearly") {
+    const months = {};
+    days.forEach((d) => {
+      const m = d.slice(0, 7);
+      if (!months[m]) months[m] = { date: d, value: 0 };
+      months[m].value += accessor(records, d);
+    });
+    return Object.values(months);
+  }
+  return days.map((d) => ({ date: d, value: accessor(records, d) }));
+}
+
+function dayMealScore(records, date) {
+  const meals = records.filter((r) => r.type === "meal" && r.date.slice(0, 10) === date);
+  return meals.length ? Math.round(meals.reduce((s, r) => s + r.score, 0) / meals.length) : 0;
+}
+function dayVolume(records, date) {
+  return records.filter((r) => r.type === "strength" && r.date.slice(0, 10) === date)
+    .reduce((s, r) => s + (r.volume || 0), 0);
+}
+function dayDistance(records, date) {
+  return records.filter((r) => r.type === "run" && r.date.slice(0, 10) === date)
+    .reduce((s, r) => s + (r.km || 0), 0);
+}
+
+function renderInlineBarChart(data, colorClass, period) {
+  if (!data.length) return '<p style="color:var(--muted);font-size:0.82rem;text-align:center;padding:8px 0">기록 없음</p>';
+  const max = Math.max(...data.map((d) => d.value), 1);
+  const bars = data.map((d) => {
+    const h = Math.max((d.value / max) * 52, d.value > 0 ? 4 : 1);
+    const label = period === "yearly"
+      ? (d.date.slice(5, 7) + "월")
+      : new Date(d.date + "T12:00:00").toLocaleDateString("ko-KR", { month: "numeric", day: "numeric" });
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px">
+      <div style="width:100%;max-width:28px;height:${h}px;background:var(--${colorClass.replace("bar-","")});border-radius:4px;margin:0 auto"></div>
+      <span style="font-size:0.62rem;color:var(--muted)">${escapeHtml(label)}</span>
+    </div>`;
+  }).join("");
+  return `<div style="display:flex;align-items:flex-end;gap:2px;height:70px;padding-top:8px">${bars}</div>`;
+}
+
+function renderStatsContent(records, period) {
+  const el = document.querySelector("#statsContent");
+  if (!el) return;
+  const { start, end, label } = getDateRange(period);
+  const inRange = records.filter((r) => {
+    const d = r.date.slice(0, 10);
+    return d >= start && d <= end;
+  });
+  const meals = inRange.filter((r) => r.type === "meal");
+  const runs = inRange.filter((r) => r.type === "run");
+  const workouts = inRange.filter((r) => r.type === "strength");
+  const avgScore = meals.length ? Math.round(meals.reduce((s, r) => s + r.score, 0) / meals.length) : 0;
+  const totalKm = runs.reduce((s, r) => s + (r.km || 0), 0);
+  const totalVol = workouts.reduce((s, r) => s + (r.volume || 0), 0);
+
+  const mealData = buildBarData(records, period, dayMealScore);
+  const volData = buildBarData(records, period, dayVolume);
+  const distData = buildBarData(records, period, dayDistance);
+
+  el.innerHTML = `
+    <p style="margin:0;font-size:0.78rem;color:var(--muted);font-weight:700">${escapeHtml(label)} 요약</p>
+    <div class="stats-summary-row">
+      <div class="stat-chip">
+        <span class="stat-chip-label">식단 점수</span>
+        <span class="stat-chip-value green">${avgScore || "—"}</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-label">러닝</span>
+        <span class="stat-chip-value amber">${totalKm.toFixed(1)}km</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-label">헬스 볼륨</span>
+        <span class="stat-chip-value blue">${Math.round(totalVol).toLocaleString("ko-KR")}kg</span>
+      </div>
+    </div>
+    <div class="stats-chart-section">
+      <div class="stats-chart-row">
+        <p class="stats-chart-label">식단 점수</p>
+        ${renderInlineBarChart(mealData, "bar-green", period)}
+      </div>
+      <div class="stats-chart-row">
+        <p class="stats-chart-label">헬스 볼륨 (kg)</p>
+        ${renderInlineBarChart(volData, "bar-blue", period)}
+      </div>
+      <div class="stats-chart-row">
+        <p class="stats-chart-label">러닝 (km)</p>
+        ${renderInlineBarChart(distData, "bar-amber", period)}
+      </div>
+    </div>
+  `;
+}
+
+document.querySelector("#statsPeriodTabs")?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".stats-period-tab");
+  if (!btn) return;
+  document.querySelectorAll(".stats-period-tab").forEach((b) => b.classList.remove("is-active"));
+  btn.classList.add("is-active");
+  activeStatsPeriod = btn.dataset.period;
+  renderStatsContent(loadRecords(), activeStatsPeriod);
+});
+
 function renderDashboard(records) {
   const stats = calculateStats(records);
   const todayRecords = records.filter((record) => record.date.slice(0, 10) === todayKey());
@@ -843,8 +1048,14 @@ function renderDashboard(records) {
   document.querySelector("#strengthVolume").textContent = `${Math.round(stats.volume).toLocaleString("ko-KR")}kg`;
   document.querySelector("#runDistance").textContent = `${stats.distance.toFixed(1)}km`;
   document.querySelector("#weekWorkouts").textContent = `${stats.weekWorkouts.length}회`;
-  document.querySelector("#balanceScore").textContent = records.length ? score : 0;
+  const finalScore = records.length ? score : 0;
+  document.querySelector("#balanceScore").textContent = finalScore;
   document.querySelector("#coachHeadline").textContent = createCoachItems(records)[0];
+  const ring = document.querySelector("#scoreRing");
+  if (ring) {
+    const circumference = 314.16;
+    ring.style.strokeDashoffset = circumference * (1 - finalScore / 100);
+  }
 }
 
 function recordTitle(record) {
@@ -902,17 +1113,23 @@ function renderTimeline(records) {
 }
 
 function renderCoach(records) {
-  elements.coachList.innerHTML = createCoachItems(records)
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
-    .join("");
+  const items = createCoachItems(records);
+  elements.coachList.innerHTML = items.map((item, i) => {
+    const isTomorrow = item.startsWith("내일 제안:");
+    if (isTomorrow) {
+      const text = item.replace("내일 제안: ", "");
+      return `<li class="coach-tomorrow"><span class="coach-tomorrow-badge">내일 제안</span>${escapeHtml(text)}</li>`;
+    }
+    return `<li>${escapeHtml(item)}</li>`;
+  }).join("");
 }
 
 function render() {
   const records = loadRecords();
   renderDashboard(records);
-  renderWeeklyStats(records);
   renderCoach(records);
   renderTimeline(records);
+  renderStatsContent(records, activeStatsPeriod);
 }
 
 document.getElementById("routineModeSeg")?.addEventListener("click", (event) => {
@@ -949,11 +1166,19 @@ elements.liftName.addEventListener("change", () => {
 
 elements.settingsForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  const notionToggle = document.querySelector("#notionEnabled");
+  const notionTokenEl = document.querySelector("#notionToken");
+  const notionDbIdEl = document.querySelector("#notionDbId");
+  const notionEnabled = notionToggle?.checked || false;
   saveSettings({
     apiKey: elements.apiKey.value.trim(),
     model: elements.modelName.value.trim(),
     mode: elements.analysisMode.value,
+    notionEnabled,
+    notionToken: notionTokenEl?.value.trim() || "",
+    notionDbId: notionDbIdEl?.value.trim() || "",
   });
+  notionReady = notionEnabled && Boolean(notionTokenEl?.value.trim()) && Boolean(notionDbIdEl?.value.trim());
   renderApiStatus();
   closeSettingsSheet();
 });
@@ -972,14 +1197,134 @@ document.addEventListener("keydown", (event) => {
   tab.addEventListener("click", () => switchTab(Number(tab.dataset.cardIndex)));
 });
 
-elements.mealPhoto.addEventListener("change", () => setPreview(elements.mealPhoto, elements.mealPreview));
-elements.mealPhotoCamera?.addEventListener("change", () => setPreview(elements.mealPhotoCamera, elements.mealPreviewCamera));
+function setupAttachMenu(btnId, menuId, galleryInput, cameraInput, onFile) {
+  const btn = document.getElementById(btnId);
+  const menu = document.getElementById(menuId);
+  if (!btn || !menu) return;
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.hidden = !menu.hidden;
+  });
+
+  menu.querySelector("[data-action='camera']").addEventListener("click", () => {
+    menu.hidden = true;
+    cameraInput.click();
+  });
+
+  menu.querySelector("[data-action='gallery']").addEventListener("click", () => {
+    menu.hidden = true;
+    galleryInput.click();
+  });
+
+  document.addEventListener("click", () => { menu.hidden = true; });
+
+  galleryInput.addEventListener("change", () => {
+    const file = galleryInput.files?.[0];
+    if (file) onFile(file);
+  });
+  cameraInput.addEventListener("change", () => {
+    const file = cameraInput.files?.[0];
+    if (file) onFile(file);
+  });
+}
+
+function addThumb(thumbRowId, file) {
+  const row = document.getElementById(thumbRowId);
+  if (!row) return;
+  const url = URL.createObjectURL(file);
+  row.innerHTML = `<div class="photo-thumb"><img src="${url}" alt="미리보기" /><button type="button" class="thumb-remove" aria-label="제거">×</button></div>`;
+  row.querySelector(".thumb-remove").addEventListener("click", () => { row.innerHTML = ""; });
+}
+
+function showMealAnalyzeButton() {
+  if (elements.mealAnalyze) elements.mealAnalyze.style.display = "";
+}
+
+async function runMealAnalysis() {
+  const file = elements.mealPhotoCamera?.files?.[0] || elements.mealPhoto.files?.[0];
+  const goal = document.querySelector("#mealGoal").value;
+  const mealType = document.querySelector("#mealType").value;
+  const memo = document.querySelector("#mealMemo").value.trim();
+  const fallback = estimateMeal(memo, goal);
+
+  elements.mealAnalyze.disabled = true;
+  elements.mealAnalyze.textContent = "분석 중...";
+  elements.mealInsight.style.display = "";
+  elements.mealInsight.textContent = "AI가 이미지를 읽는 중...";
+
+  try {
+    const aiResult = await analyzeImageWithOpenAI({
+      file,
+      task: "식사 사진을 보고 피트니스 코치 관점에서 상세히 분석하라. 반드시 JSON만 반환한다. 스키마: {\"score\": number(0-100, 목표 달성 적합도), \"macro\": string(단백질/탄수화물/지방/채소 한 줄 요약), \"advice\": string(다음 끼니 핵심 조언 한 문장), \"calories\": number(추정 총 kcal), \"protein\": number(추정 단백질 g), \"carbs\": number(추정 탄수화물 g), \"fat\": number(추정 지방 g), \"foodList\": [{\"name\": string, \"kcal\": number, \"note\": string}](음식별 칼로리와 한 줄 코멘트), \"detail\": string(이 식사의 전반적인 구성 평가, 3-4문장, 목표와 연계해서), \"concerns\": string[](나트륨/당분/포화지방 등 주의할 점 목록), \"nextMeal\": string(다음 끼니 구체적인 추천 메뉴 예시)}",
+      context: { mealType, goal, memo },
+    });
+    const result = normalizeMealAnalysis(aiResult, fallback);
+    const nutritionLine = [
+      result.calories ? `${result.calories}kcal` : "",
+      result.protein ? `단백질 ${result.protein}g` : "",
+      result.carbs ? `탄수화물 ${result.carbs}g` : "",
+      result.fat ? `지방 ${result.fat}g` : "",
+    ].filter(Boolean).join(" · ");
+    elements.mealInsight.innerHTML = [
+      result.detail ? `<p>${escapeHtml(result.detail)}</p>` : "",
+      result.foodList?.length
+        ? `<ul style="margin:8px 0 0;padding-left:1.2em">${result.foodList.map((f) => {
+            const item = typeof f === "object" ? f : { name: f };
+            return `<li><strong>${escapeHtml(item.name || "")}</strong>${item.kcal ? ` ${item.kcal}kcal` : ""}${item.note ? ` — ${escapeHtml(item.note)}` : ""}</li>`;
+          }).join("")}</ul>` : "",
+      nutritionLine ? `<p style="margin-top:10px;font-size:0.85rem;opacity:.8">${escapeHtml(nutritionLine)}</p>` : "",
+      result.concerns?.length
+        ? `<p style="margin-top:8px;color:var(--amber)">⚠ ${result.concerns.map(escapeHtml).join(" · ")}</p>` : "",
+      result.nextMeal ? `<p style="margin-top:8px">다음 끼니 추천: <strong>${escapeHtml(result.nextMeal)}</strong></p>` : "",
+      `<p style="margin-top:8px"><strong>${escapeHtml(result.advice)}</strong></p>`,
+    ].filter(Boolean).join("");
+    elements.mealInsight._result = result;
+    // 분석된 음식 목록을 "보이는 음식" 입력창에 자동 채움
+    if (result.foodList?.length) {
+      const memoEl = document.querySelector("#mealMemo");
+      if (!memoEl.value.trim()) {
+        memoEl.value = result.foodList
+          .map((f) => (typeof f === "object" ? f.name : f))
+          .join(", ");
+      }
+    }
+  } catch (err) {
+    console.error("meal analysis error:", err);
+    elements.mealInsight.textContent = "분석 실패. 저장 시 로컬 추정값을 사용한다.";
+  } finally {
+    elements.mealAnalyze.disabled = false;
+    elements.mealAnalyze.textContent = "다시 분석";
+  }
+}
+
+setupAttachMenu("mealAttachBtn", "mealAttachMenu", elements.mealPhoto, elements.mealPhotoCamera, (file) => {
+  addThumb("mealThumbRow", file);
+  showMealAnalyzeButton();
+});
+
+elements.mealAnalyze?.addEventListener("click", runMealAnalysis);
+
+function calcRunCalories() {
+  const km = parseFloat(document.querySelector("#runKm").value) || 0;
+  const minutes = parseFloat(document.querySelector("#runMinutes").value) || 0;
+  if (km > 0 && minutes > 0) {
+    // MET 기반 추정: 체중 70kg 기준, 달리기 MET ≈ 8~10
+    const hours = minutes / 60;
+    const speed = km / hours; // km/h
+    const met = speed < 8 ? 8 : speed < 10 ? 9.5 : speed < 13 ? 11 : 13;
+    const cal = Math.round(met * 70 * hours);
+    document.querySelector("#runCalories").value = cal;
+  } else {
+    document.querySelector("#runCalories").value = "";
+  }
+}
+
+document.querySelector("#runKm").addEventListener("input", calcRunCalories);
+document.querySelector("#runMinutes").addEventListener("input", calcRunCalories);
 
 async function autoFillRunFields(file) {
   if (!file) return;
-  const kmEl = document.querySelector("#runKm");
-  const minEl = document.querySelector("#runMinutes");
-  const hrEl = document.querySelector("#runHr");
   const submitEl = elements.runSubmit;
   const prevText = submitEl.textContent;
   submitEl.textContent = "이미지 읽는 중...";
@@ -987,29 +1332,30 @@ async function autoFillRunFields(file) {
   try {
     const aiResult = await analyzeImageWithOpenAI({
       file,
-      task: "러닝 앱 스크린샷에서 수치만 추출하라. 반드시 JSON만 반환한다. 스키마: {\"km\": number, \"minutes\": number, \"hr\": number}",
+      task: "러닝 앱 스크린샷에서 수치만 추출하라. 반드시 JSON만 반환한다. 스키마: {\"km\": number, \"minutes\": number, \"pace\": string(예: \"5'30\\\"/km\"), \"calories\": number}",
       context: {},
     });
     if (aiResult) {
       const parsed = typeof aiResult === "string" ? JSON.parse(aiResult) : aiResult;
-      if (parsed.km > 0) kmEl.value = parsed.km;
-      if (parsed.minutes > 0) minEl.value = parsed.minutes;
-      if (parsed.hr > 0) hrEl.value = parsed.hr;
+      if (parsed.km > 0) document.querySelector("#runKm").value = parsed.km;
+      if (parsed.minutes > 0) document.querySelector("#runMinutes").value = Math.round(parsed.minutes);
+      if (parsed.pace) document.querySelector("#runPace").value = parsed.pace;
+      if (parsed.calories > 0) {
+        document.querySelector("#runCalories").value = parsed.calories;
+      } else {
+        calcRunCalories();
+      }
     }
-  } catch {}
+  } catch (e) { console.error("run autofill error:", e); }
   finally {
     submitEl.textContent = prevText;
     submitEl.disabled = false;
   }
 }
 
-elements.runPhoto.addEventListener("change", () => {
-  setPreview(elements.runPhoto, elements.runPreview);
-  autoFillRunFields(elements.runPhoto.files?.[0]);
-});
-elements.runPhotoCamera?.addEventListener("change", () => {
-  setPreview(elements.runPhotoCamera, elements.runPreviewCamera);
-  autoFillRunFields(elements.runPhotoCamera.files?.[0]);
+setupAttachMenu("runAttachBtn", "runAttachMenu", elements.runPhoto, elements.runPhotoCamera, (file) => {
+  addThumb("runThumbRow", file);
+  autoFillRunFields(file);
 });
 
 elements.mealForm.addEventListener("submit", async (event) => {
@@ -1017,48 +1363,10 @@ elements.mealForm.addEventListener("submit", async (event) => {
   const mealType = document.querySelector("#mealType").value;
   const goal = document.querySelector("#mealGoal").value;
   const memo = document.querySelector("#mealMemo").value.trim();
-  const fallback = estimateMeal(memo, goal);
-  let result = fallback;
 
-  elements.mealSubmit.disabled = true;
-  elements.mealSubmit.textContent = "분석 중";
-  try {
-    const aiResult = await analyzeImageWithOpenAI({
-      file: elements.mealPhotoCamera?.files?.[0] || elements.mealPhoto.files?.[0],
-      task: "식사 사진을 보고 피트니스 코치 관점에서 상세히 분석하라. 반드시 JSON만 반환한다. 스키마: {\"score\": number(0-100, 목표 달성 적합도), \"macro\": string(단백질/탄수화물/지방/채소 한 줄 요약), \"advice\": string(다음 끼니 핵심 조언 한 문장), \"calories\": number(추정 총 kcal), \"protein\": number(추정 단백질 g), \"carbs\": number(추정 탄수화물 g), \"fat\": number(추정 지방 g), \"foodList\": [{\"name\": string, \"kcal\": number, \"note\": string}](음식별 칼로리와 한 줄 코멘트), \"detail\": string(이 식사의 전반적인 구성 평가, 3-4문장, 목표와 연계해서), \"concerns\": string[](나트륨/당분/포화지방 등 주의할 점 목록), \"nextMeal\": string(다음 끼니 구체적인 추천 메뉴 예시)}",
-      context: { mealType, goal, memo },
-    });
-    result = normalizeMealAnalysis(aiResult, fallback);
-  } catch (error) {
-    console.warn(error);
-    elements.mealInsight.textContent = "AI 분석에 실패해 로컬 추정으로 저장한다.";
-  } finally {
-    elements.mealSubmit.disabled = false;
-    elements.mealSubmit.textContent = "식단 분석 저장";
-  }
+  // 이미 분석된 결과 재사용
+  const result = elements.mealInsight._result || estimateMeal(memo, goal);
 
-  const nutritionLine = [
-    result.calories ? `${result.calories}kcal` : "",
-    result.protein ? `단백질 ${result.protein}g` : "",
-    result.carbs ? `탄수화물 ${result.carbs}g` : "",
-    result.fat ? `지방 ${result.fat}g` : "",
-  ].filter(Boolean).join(" · ");
-  elements.mealInsight.innerHTML = [
-    result.detail ? `<p>${escapeHtml(result.detail)}</p>` : "",
-    result.foodList?.length
-      ? `<ul style="margin:8px 0 0;padding-left:1.2em">${result.foodList.map((f) => {
-          const item = typeof f === "object" ? f : { name: f };
-          return `<li><strong>${escapeHtml(item.name)}</strong>${item.kcal ? ` <span style="opacity:.7">${item.kcal}kcal</span>` : ""}${item.note ? ` — ${escapeHtml(item.note)}` : ""}</li>`;
-        }).join("")}</ul>`
-      : "",
-    nutritionLine ? `<p style="margin-top:10px;font-size:0.85rem;opacity:.8">${escapeHtml(nutritionLine)}</p>` : "",
-    result.macro ? `<p style="margin-top:4px;font-size:0.85rem;opacity:.8">${escapeHtml(result.macro)}</p>` : "",
-    result.concerns?.length
-      ? `<p style="margin-top:8px;color:var(--amber,#c8842a)">⚠ ${result.concerns.map(escapeHtml).join(" · ")}</p>`
-      : "",
-    result.nextMeal ? `<p style="margin-top:8px">다음 끼니 추천: <strong>${escapeHtml(result.nextMeal)}</strong></p>` : "",
-    `<p style="margin-top:8px"><strong>${escapeHtml(result.advice)}</strong></p>`,
-  ].filter(Boolean).join("");
   addRecord({
     type: "meal",
     typeLabel: "식단",
@@ -1067,9 +1375,17 @@ elements.mealForm.addEventListener("submit", async (event) => {
     memo,
     ...result,
   });
+
   elements.mealForm.reset();
+  elements.mealInsight.style.display = "none";
+  elements.mealInsight._result = null;
+  if (elements.mealAnalyze) { elements.mealAnalyze.style.display = "none"; elements.mealAnalyze.textContent = "분석 시작"; }
   elements.mealPreview.removeAttribute("src");
   elements.mealPreview.closest(".upload-box").classList.remove("has-image");
+  if (elements.mealPreviewCamera) {
+    elements.mealPreviewCamera.removeAttribute("src");
+    elements.mealPreviewCamera.closest(".upload-box").classList.remove("has-image");
+  }
 });
 
 elements.strengthForm.addEventListener("submit", (event) => {
@@ -1094,22 +1410,45 @@ elements.runForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const km = Number(document.querySelector("#runKm").value || 0);
   const minutes = Number(document.querySelector("#runMinutes").value || 0);
-  const hr = Number(document.querySelector("#runHr").value || 0);
-  const fallback = analyzeRun(km, minutes, hr);
-  let result = { km, minutes, hr, ...fallback };
+  const pace = document.querySelector("#runPace").value.trim();
+  const calories = Number(document.querySelector("#runCalories").value || 0);
+  const fallback = analyzeRun(km, minutes, 0);
+  let result = { km, minutes, paceText: pace || fallback.paceText, calories: calories || undefined, ...fallback };
 
   elements.runSubmit.disabled = true;
   elements.runSubmit.textContent = "분석 중";
   try {
-    const aiResult = await analyzeImageWithOpenAI({
-      file: elements.runPhotoCamera?.files?.[0] || elements.runPhoto.files?.[0],
-      task: "러닝 앱 스크린샷을 보고 피트니스 코치 관점에서 상세히 분석하라. 반드시 JSON만 반환한다. 스키마: {\"km\": number, \"minutes\": number, \"hr\": number, \"paceText\": string, \"intensity\": string(저강도/중강도/고강도), \"advice\": string(다음 운동 핵심 조언 한 문장), \"calories\": number(소모 칼로리 추정), \"detail\": string(이번 러닝 전체 총평, 3-4문장, 페이스 일관성/심박 안정성/강도 적절성 포함), \"splits\": string[](구간 페이스, 심박 변화 등 눈에 띄는 수치 목록), \"trainingZone\": string(심박 기반 훈련 존, ex: Zone 2 유산소), \"recoveryAdvice\": string(이번 세션 후 회복 방법 구체적으로), \"nextSession\": string(다음 러닝/훈련 세션 구체적인 추천)}",
-      context: { km, minutes, hr },
-    });
-    result = normalizeRunAnalysis(aiResult, fallback, { km, minutes, hr });
+    const file = elements.runPhotoCamera?.files?.[0] || elements.runPhoto.files?.[0];
+    if (file) {
+      const aiResult = await analyzeImageWithOpenAI({
+        file,
+        task: "러닝 앱 스크린샷을 보고 피트니스 코치 관점에서 상세히 분석하라. 반드시 JSON만 반환한다. 스키마: {\"km\": number, \"minutes\": number, \"pace\": string(평균 페이스, 예: \"5'30\\\"/km\"), \"calories\": number, \"intensity\": string(저강도/중강도/고강도), \"advice\": string(다음 운동 핵심 조언 한 문장), \"detail\": string(이번 러닝 전체 총평 3-4문장), \"splits\": string[], \"trainingZone\": string, \"recoveryAdvice\": string, \"nextSession\": string}",
+        context: { km, minutes, pace, calories },
+      });
+      if (aiResult) {
+        result = {
+          ...result,
+          km: aiResult.km || km,
+          minutes: aiResult.minutes || minutes,
+          paceText: aiResult.pace || pace || fallback.paceText,
+          calories: aiResult.calories || calories || undefined,
+          intensity: aiResult.intensity || fallback.intensity,
+          advice: aiResult.advice || fallback.advice,
+          detail: aiResult.detail,
+          splits: aiResult.splits,
+          trainingZone: aiResult.trainingZone,
+          recoveryAdvice: aiResult.recoveryAdvice,
+          nextSession: aiResult.nextSession,
+        };
+        // 폼 필드 업데이트
+        if (aiResult.km) document.querySelector("#runKm").value = aiResult.km;
+        if (aiResult.minutes) document.querySelector("#runMinutes").value = aiResult.minutes;
+        if (aiResult.pace) document.querySelector("#runPace").value = aiResult.pace;
+        if (aiResult.calories) document.querySelector("#runCalories").value = aiResult.calories;
+      }
+    }
   } catch (error) {
     console.warn(error);
-    elements.runInsight.textContent = "AI 분석에 실패해 입력 수치 기반으로 저장한다.";
   } finally {
     elements.runSubmit.disabled = false;
     elements.runSubmit.textContent = "러닝 분석 저장";
@@ -1120,29 +1459,18 @@ elements.runForm.addEventListener("submit", async (event) => {
     result.splits?.length
       ? `<ul style="margin:8px 0 0;padding-left:1.2em">${result.splits.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>`
       : "",
-    [
-      `평균 페이스 ${escapeHtml(result.paceText)}`,
-      escapeHtml(result.intensity),
-      result.trainingZone ? escapeHtml(result.trainingZone) : "",
-      result.calories ? `${result.calories}kcal 소모` : "",
-    ].filter(Boolean).join(" · ") !== ""
-      ? `<p style="margin-top:10px;font-size:0.85rem;opacity:.8">${[`평균 페이스 ${escapeHtml(result.paceText)}`, escapeHtml(result.intensity), result.trainingZone ? escapeHtml(result.trainingZone) : "", result.calories ? `${result.calories}kcal 소모` : ""].filter(Boolean).join(" · ")}</p>`
+    [result.paceText && `페이스 ${escapeHtml(result.paceText)}`, result.intensity && escapeHtml(result.intensity), result.trainingZone && escapeHtml(result.trainingZone), result.calories && `${result.calories}kcal`].filter(Boolean).join(" · ")
+      ? `<p style="margin-top:10px;font-size:0.85rem;opacity:.8">${[result.paceText && `페이스 ${escapeHtml(result.paceText)}`, result.intensity && escapeHtml(result.intensity), result.trainingZone && escapeHtml(result.trainingZone), result.calories && `${result.calories}kcal`].filter(Boolean).join(" · ")}</p>`
       : "",
     result.recoveryAdvice ? `<p style="margin-top:8px">회복: ${escapeHtml(result.recoveryAdvice)}</p>` : "",
     result.nextSession ? `<p style="margin-top:4px">다음 세션: <strong>${escapeHtml(result.nextSession)}</strong></p>` : "",
-    `<p style="margin-top:8px"><strong>${escapeHtml(result.advice)}</strong></p>`,
+    result.advice ? `<p style="margin-top:8px"><strong>${escapeHtml(result.advice)}</strong></p>` : "",
   ].filter(Boolean).join("");
-  addRecord({
-    type: "run",
-    typeLabel: "러닝",
-    ...result,
-  });
+
+  addRecord({ type: "run", typeLabel: "러닝", ...result });
+
   elements.runForm.reset();
-  document.querySelector("#runKm").value = 5;
-  document.querySelector("#runMinutes").value = 35;
-  document.querySelector("#runHr").value = 145;
-  elements.runPreview.removeAttribute("src");
-  elements.runPreview.closest(".upload-box").classList.remove("has-image");
+  document.getElementById("runThumbRow").innerHTML = "";
 });
 
 elements.timeline.addEventListener("click", (event) => {
